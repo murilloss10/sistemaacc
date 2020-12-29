@@ -1,0 +1,71 @@
+/*css page submit*/
+.submit_title {
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+}
+.form-submit-top {
+    margin-top: 1em;
+    padding-top: 2em;
+    border-top:  2px solid #a3a3a3;
+}
+.text-label {
+    float: left;
+    font-size: 13px;
+    font-weight: bolder;
+}
+#inlineFormCustomSelect, #inlineFormCustomSelect2,#hours, #nameproject, #start, #finish, #titleAR, #whenPub, #dateEvent, #nameevent, #localeevent, #nameelocale, #datte,
+#semestre, #namere, #quant, #nameinst, #nameact, #namedisc, #localevisit, #namecourse, #namemar {
+    width: 100%;
+}
+
+.btn {
+    background-color: #6e4292;
+    border-color: #6e4292;
+}
+
+.custom-file-input:lang(pt)~.custom-file-label::after{content:"Procurar Arquivo"}
+.custom-file-input{color: #000;opacity:0; left: 0px; max-width: 60%;}
+.custom-file-label::after{line-height:1.5;color:#6e4292; font-weight: 500; content:"Procurar Arquivo"; background-color: #fff;}
+.custom-file-label {
+    margin-left: 0.8em;
+    width: 90%;
+}
+
+.div-hidden {
+    display: none;
+}
+
+.button-delete-custom{
+    color: white;
+}
+
+.button-delete-custom:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.title-far-top{
+    margin-top: 5em;
+}
+
+.title-far-top-2{
+    margin-top: 3.5em;
+}
+
+.height-small-card-dashboard{
+    height: 9em;
+}
+
+.link-submit{
+    color: #000;
+}
+
+.link-submit:hover{
+    text-decoration: none;
+}
+
+h3 > span {
+    font-weight: bolder;
+}
+
+
