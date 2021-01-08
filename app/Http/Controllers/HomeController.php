@@ -70,6 +70,7 @@ class HomeController extends Controller
         $lastIDF9 = Form9::orderBy('id', 'DESC')->first();
         $lastIDF10 = Form10::orderBy('id', 'DESC')->first();
 
+
         if($chNecessaria-$chTotal >= 0){
             $chRestante = $chNecessaria-$chTotal;
             if($chTotal != 0){

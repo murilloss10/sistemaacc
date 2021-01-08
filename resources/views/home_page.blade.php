@@ -108,7 +108,7 @@
                         <div class="col-lg-4">
                             <div class="card">
                                 <div class="card-body">
-                                    
+
                                     <h4 class="header-title mb-4">Project Status</h4>
 
                                     <div id="piechart_3d" ></div>
@@ -145,7 +145,7 @@
                         <div class="col-lg-8">
                             <div class="card">
                                 <div class="card-body">
-                                    
+
                                     <a href="{{url('atividades')}}" class="link-submit"><h4 class="header-title mb-3">Atividades</h4></a>
 
                                     <p>Últimas submetidas</p>
@@ -155,85 +155,85 @@
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <span class="text-muted font-13">{{$lastIDF1->tipo}}</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF1->nome_projeto}}</h5>
+                                                        <span class="text-muted font-13">{{$lastIDF1->tipo ??}}</span>
+                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF1->nome_projeto ??}}</h5>
                                                     </td>
                                                     <td>
                                                         <span class="text-muted font-13">Carga H.</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF1->lim_carga_h}}</h5>
+                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF1->lim_carga_h ??}}</h5>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <span class="text-muted font-13">{{$lastIDF2->tipo}}</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF2->titulo}}</h5>
+                                                        <span class="text-muted font-13">{{$lastIDF2->tipo ??}}</span>
+                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF2->titulo ??}}</h5>
                                                     </td>
                                                     <td>
                                                         <span class="text-muted font-13">Carga H.</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF2->lim_carga_h}}</h5>
+                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF2->lim_carga_h ??}}</h5>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <span class="text-muted font-13">{{$lastIDF3->tipo}}</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF3->nome_evento}}</h5>
+                                                        <span class="text-muted font-13">{{$lastIDF3->tipo ??}}</span>
+                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF3->nome_evento ??}}</h5>
                                                     </td>
                                                     <td>
                                                         <span class="text-muted font-13">Carga H.</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF3->lim_carga_h}}</h5>
+                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF3->lim_carga_h ??}}</h5>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
                                                         <span class="text-muted font-13">Premiação</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF4->nome_evento}}</h5>
+                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF4->nome_evento ??}}</h5>
                                                     </td>
                                                     <td>
                                                         <span class="text-muted font-13">Carga H.</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF4->lim_carga_h}}</h5>
+                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF4->lim_carga_h ??}}</h5>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <span class="text-muted font-13">{{$lastIDF5->tipo}}</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF5->nome_c}}</h5>
+                                                        <span class="text-muted font-13">{{$lastIDF5->tipo ??}}</span>
+                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF5->nome_c ??}}</h5>
                                                     </td>
                                                     <td>
                                                         <span class="text-muted font-13">Carga H.</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF5->lim_carga_h}}</h5>
+                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF5->lim_carga_h ??}}</h5>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <span class="text-muted font-13">{{$lastIDF8->tipo}}</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF8->nome_atividade}}</h5>
+                                                        <span class="text-muted font-13">{{$lastIDF8->tipo ??}}</span>
+                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF8->nome_atividade ??}}</h5>
                                                     </td>
                                                     <td>
                                                         <span class="text-muted font-13">Carga H.</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF8->lim_carga_h}}</h5>
+                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF8->lim_carga_h ??}}</h5>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <span class="text-muted font-13">{{$lastIDF9->tipo}}</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF9->nome_proj}}</h5>
+                                                        <span class="text-muted font-13">{{$lastIDF9->tipo ??}}</span>
+                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF9->nome_proj ??}}</h5>
                                                     </td>
                                                     <td>
                                                         <span class="text-muted font-13">Carga H.</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF9->lim_carga_h}}</h5>
+                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF9->lim_carga_h ??}}</h5>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <span class="text-muted font-13">{{$lastIDF10->tipo}}</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF10->nome_disc}}</h5>
+                                                        <span class="text-muted font-13">{{$lastIDF10->tipo ??}}</span>
+                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF10->nome_disc ??}}</h5>
                                                     </td>
                                                     <td>
                                                         <span class="text-muted font-13">Carga H.</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF10->lim_carga_h}}</h5>
+                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF10->lim_carga_h ??}}</h5>
                                                     </td>
                                                 </tr>
-                                                
+
 
                                             </tbody>
                                         </table>
@@ -254,7 +254,7 @@
 
 
     @can('administrador')
-        
+
         <h5>Lista de discentes: </h5>
         <div class="table-responsive">
             <table class="table table table-striped table-bordered">
@@ -278,10 +278,10 @@
                     <tr>
                         <td colspan="14" style="text-align: center;">Sem alunos cadastrados.</td>
                     </tr>
-        
+
                 @endforelse
             </table>
-            
+
         </div>
 
     @endcan
