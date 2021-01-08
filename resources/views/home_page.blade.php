@@ -108,7 +108,7 @@
                         <div class="col-lg-4">
                             <div class="card">
                                 <div class="card-body">
-                                    
+
                                     <h4 class="header-title mb-4">Project Status</h4>
 
                                     <div id="piechart_3d" ></div>
@@ -145,7 +145,7 @@
                         <div class="col-lg-8">
                             <div class="card">
                                 <div class="card-body">
-                                    
+
                                     <a href="{{url('atividades')}}" class="link-submit"><h4 class="header-title mb-3">Atividades</h4></a>
 
                                     <p>Últimas submetidas</p>
@@ -233,7 +233,7 @@
                                                         <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF10->lim_carga_h}}</h5>
                                                     </td>
                                                 </tr>
-                                                
+
 
                                             </tbody>
                                         </table>
@@ -254,7 +254,7 @@
 
 
     @can('administrador')
-        
+
         <h5>Lista de discentes: </h5>
         <div class="table-responsive">
             <table class="table table table-striped table-bordered">
@@ -278,10 +278,10 @@
                     <tr>
                         <td colspan="14" style="text-align: center;">Sem alunos cadastrados.</td>
                     </tr>
-        
+
                 @endforelse
             </table>
-            
+
         </div>
 
     @endcan
