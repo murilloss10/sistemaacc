@@ -61,14 +61,14 @@ class HomeController extends Controller
         $limTF13 = Form13::where('usuario_id', $idUser)->sum('lim_carga_h');
         $chTotal = $limTF1+$limTF2+$limTF3+$limTF4+$limTF5+$limTF6+$limTF7+$limTF8+$limTF9+$limTF10+$limTF11+$limTF12+$limTF13;
 
-        $lastIDF1 = Form1::orderBy('id', 'DESC')->first();
-        $lastIDF2 = Form2::orderBy('id', 'DESC')->first();
-        $lastIDF3 = Form3::orderBy('id', 'DESC')->first();
-        $lastIDF4 = Form4::orderBy('id', 'DESC')->first();
-        $lastIDF5 = Form5::orderBy('id', 'DESC')->first();
-        $lastIDF8 = Form8::orderBy('id', 'DESC')->first();
-        $lastIDF9 = Form9::orderBy('id', 'DESC')->first();
-        $lastIDF10 = Form10::orderBy('id', 'DESC')->first();
+        $lastIDF1 = Form1::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
+        $lastIDF2 = Form2::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
+        $lastIDF3 = Form3::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
+        $lastIDF4 = Form4::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
+        $lastIDF5 = Form5::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
+        $lastIDF8 = Form8::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
+        $lastIDF9 = Form9::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
+        $lastIDF10 = Form10::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
 
 
         if($chNecessaria-$chTotal >= 0){
