@@ -223,10 +223,7 @@
                                                         <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF10->lim_carga_h ?? NULL}}</h5>
                                                     </td>
                                                 </tr>
-<<<<<<< HEAD
 
-=======
->>>>>>> 6078c2484a14760f1d36dd043559305a6770e8d8
 
                                             </tbody>
                                         </table>

@@ -21,7 +21,7 @@
                 <th>DATA FIM</th>
                 <th>STATUS</th>
                 <th>ARQUIVO</th>
-                <th>C.H. FINAL</th>
+                <th>C.H. CONTABILIZADA</th>
                 <th>OPÇÕES</th>
             </tr>
         </thead>

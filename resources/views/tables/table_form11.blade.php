@@ -18,7 +18,7 @@
                 <th>DATA</th>
                 <th>STATUS</th>
                 <th>ARQUIVO</th>
-                <th>C.H. FINAL</th>
+                <th>C.H. CONTABILIZADA</th>
                 <th>OPÇÕES</th>
             </tr>
         </thead>
@@ -35,7 +35,7 @@
                     <td>
                         <button type="button" class="btn btn-primary"><a class="button-delete-custom" target="_blank" href="{{url('atividades/arquivos/'.$dado->customFileLang)}}">
                             Abrir</a>
-                        </button>    
+                        </button>
                     </td>
                     <td>{{$dado->lim_carga_h}}</td>
                     <td>
