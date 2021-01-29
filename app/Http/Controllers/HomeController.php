@@ -19,6 +19,7 @@ use App\Models\Form10;
 use App\Models\Form11;
 use App\Models\Form12;
 use App\Models\Form13;
+use App\Models\Form14;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -59,7 +60,8 @@ class HomeController extends Controller
         $limTF11 = Form11::where('usuario_id', $idUser)->sum('lim_carga_h');
         $limTF12 = Form12::where('usuario_id', $idUser)->sum('lim_carga_h');
         $limTF13 = Form13::where('usuario_id', $idUser)->sum('lim_carga_h');
-        $chTotal = $limTF1+$limTF2+$limTF3+$limTF4+$limTF5+$limTF6+$limTF7+$limTF8+$limTF9+$limTF10+$limTF11+$limTF12+$limTF13;
+        $limTF14 = Form14::where('usuario_id', $idUser)->sum('lim_carga_h');
+        $chTotal = $limTF1+$limTF2+$limTF3+$limTF4+$limTF5+$limTF6+$limTF7+$limTF8+$limTF9+$limTF10+$limTF11+$limTF12+$limTF13+$limTF14;
 
         $lastIDF1 = Form1::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
         $lastIDF2 = Form2::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
@@ -100,6 +102,7 @@ class HomeController extends Controller
             ->with('limTF11', $limTF11)
             ->with('limTF12', $limTF12)
             ->with('limTF13', $limTF13)
+            ->with('limTF14', $limTF14)
             ->with('chTotal', $chTotal)
             ->with('chRestante', $chRestante)
             ->with('percTotal', $percTotal)
@@ -131,6 +134,7 @@ class HomeController extends Controller
             $chMaxF11 = 50;
             $chMaxF12 = 150;
             $chMaxF13 = 60;
+            $chMaxF14 = 200;
             $limTF1 = Form1::where('usuario_id', $id)->sum('lim_carga_h');
             $limTF2 = Form2::where('usuario_id', $id)->sum('lim_carga_h');
             $limTF3 = Form3::where('usuario_id', $id)->sum('lim_carga_h');
@@ -144,6 +148,7 @@ class HomeController extends Controller
             $limTF11 = Form11::where('usuario_id', $id)->sum('lim_carga_h');
             $limTF12 = Form12::where('usuario_id', $id)->sum('lim_carga_h');
             $limTF13 = Form13::where('usuario_id', $id)->sum('lim_carga_h');
+            $limTF14 = Form14::where('usuario_id', $id)->sum('lim_carga_h');
             $dadosForm1 = Form1::all();
             $dadosForm2 = Form2::all();
             $dadosForm3 = Form3::all();
@@ -157,6 +162,7 @@ class HomeController extends Controller
             $dadosForm11 = Form11::all();
             $dadosForm12 = Form12::all();
             $dadosForm13 = Form13::all();
+            $dadosForm14 = Form14::all();
             $authorized = $id;
             return  view('list_activities')->with('idUser', $id)
                 ->with('authorized', $authorized)
@@ -173,6 +179,7 @@ class HomeController extends Controller
                 ->with('dadosForm11', $dadosForm11)
                 ->with('dadosForm12', $dadosForm12)
                 ->with('dadosForm13', $dadosForm13)
+                ->with('dadosForm14', $dadosForm14)
                 ->with('limTF1', $limTF1)
                 ->with('limTF2', $limTF2)
                 ->with('limTF3', $limTF3)
@@ -186,6 +193,7 @@ class HomeController extends Controller
                 ->with('limTF11', $limTF11)
                 ->with('limTF12', $limTF12)
                 ->with('limTF13', $limTF13)
+                ->with('limTF14', $limTF14)
                 ->with('chMaxF1', $chMaxF1)
                 ->with('chMaxF2', $chMaxF2)
                 ->with('chMaxF3', $chMaxF3)
@@ -198,7 +206,8 @@ class HomeController extends Controller
                 ->with('chMaxF10', $chMaxF10)
                 ->with('chMaxF11', $chMaxF11)
                 ->with('chMaxF12', $chMaxF12)
-                ->with('chMaxF13', $chMaxF13);
+                ->with('chMaxF13', $chMaxF13)
+                ->with('chMaxF14', $chMaxF14);
         }
     }
 

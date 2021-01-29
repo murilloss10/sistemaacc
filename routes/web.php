@@ -33,6 +33,7 @@ Route::post('submeter/form10/salvar', 'Activity\ActivityController@form10')->nam
 Route::post('submeter/form11/salvar', 'Activity\ActivityController@form11')->name('submeter11')->middleware('auth');
 Route::post('submeter/form12/salvar', 'Activity\ActivityController@form12')->name('submeter12')->middleware('auth');
 Route::post('submeter/form13/salvar', 'Activity\ActivityController@form13')->name('submeter13')->middleware('auth');
+Route::post('submeter/form14/salvar', 'Activity\ActivityController@form14')->name('submeter14')->middleware('auth');
 
 Route::get('atividades/form1/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm1')->middleware('auth');
 Route::get('atividades/form2/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm2')->middleware('auth');
@@ -47,6 +48,7 @@ Route::get('atividades/form10/excluir/{id}', 'Activity\ActivityController@exclui
 Route::get('atividades/form11/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm11')->middleware('auth');
 Route::get('atividades/form12/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm12')->middleware('auth');
 Route::get('atividades/form13/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm13')->middleware('auth');
+Route::get('atividades/form14/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm14')->middleware('auth');
 
 Route::get('atividades/lista/{id}', 'HomeController@listActivities')->name('lista_atividades')->middleware('auth');
 
@@ -63,6 +65,7 @@ Route::post('editar/form10/salvar', 'Activity\ActivityController@editarForm10')-
 Route::post('editar/form11/salvar', 'Activity\ActivityController@editarForm11')->middleware('auth');
 Route::post('editar/form12/salvar', 'Activity\ActivityController@editarForm12')->middleware('auth');
 Route::post('editar/form13/salvar', 'Activity\ActivityController@editarForm13')->middleware('auth');
+Route::post('editar/form14/salvar', 'Activity\ActivityController@editarForm14')->middleware('auth');
 
 Route::get('atividades/form1/editar/{id}/{idUser}', 'Activity\ActivityController@form1Edicao')->middleware('auth');
 Route::get('atividades/form2/editar/{id}/{idUser}', 'Activity\ActivityController@form2Edicao')->middleware('auth');
@@ -77,6 +80,7 @@ Route::get('atividades/form10/editar/{id}/{idUser}', 'Activity\ActivityControlle
 Route::get('atividades/form11/editar/{id}/{idUser}', 'Activity\ActivityController@form11Edicao')->middleware('auth');
 Route::get('atividades/form12/editar/{id}/{idUser}', 'Activity\ActivityController@form12Edicao')->middleware('auth');
 Route::get('atividades/form13/editar/{id}/{idUser}', 'Activity\ActivityController@form13Edicao')->middleware('auth');
+Route::get('atividades/form14/editar/{id}/{idUser}', 'Activity\ActivityController@form14Edicao')->middleware('auth');
 
 Route::get('atividades/arquivos/{nameFile}', 'Activity\ActivityController@exibirPDF')->middleware('auth')->name('exibirPdf');
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Form13 extends Model
 {
     //
-    protected $fillable = ['nome_maratona', 'dt_maratona', 'status', 'usuario_id', 'customFileLang', 'lim_carga_h'];
+    protected $fillable = ['nome_maratona', 'dt_maratona', 'status', 'usuario_id', 'customFileLang', 'lim_carga_h', 'horas_aprovadas'];
 
     public function getCreatedAtAttribute($value){
         return (Carbon::parse($value)->format('d/m/Y H:i:s'));

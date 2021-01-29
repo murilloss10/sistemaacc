@@ -1,11 +1,11 @@
-<br><br><h4 class="submit_title title-far-top-2">Projeto de Pesquisa</h4>
+<br><br><h4 class="submit_title title-far-top-2">Projeto de Extensão</h4>
 
 <div class="d-flex justify-content-end mb-3">
-    <div class="p-2 bd-highlight">C.H. Máxima: {{$chMaxF1}}</div>
+    <div class="p-2 bd-highlight">C.H. Máxima: {{$chMaxF14}}</div>
     <span class="border-right"></span>
-    <div class="p-2 bd-highlight">C.H. Total: {{$limTF1}}</div>
+    <div class="p-2 bd-highlight">C.H. Total: {{$limTF14}}</div>
     <span class="border-right"></span>
-    <div class="p-2 bd-highlight">C.H. Restante: {{$chMaxF1-$limTF1}}</div>
+    <div class="p-2 bd-highlight">C.H. Restante: {{$chMaxF14-$limTF14}}</div>
 </div>
 
 <div class="table-responsive">
@@ -27,7 +27,7 @@
         </thead>
 
 
-        @forelse ($dadosForm1 as $dado)
+        @forelse ($dadosForm14 as $dado)
             @if ($dado->usuario_id == $authorized)
                 <tr>
                     <td>{{$dado->tipo}}</td>
@@ -48,17 +48,17 @@
                     <td>{{$dado->lim_carga_h}}</td>
                     <td>
                         @can('administrador')
-                            <button type="button" class="btn btn-primary"><a class="button-delete-custom" title="Editar" href="{{url('atividades/form1/editar/'.$dado->id.'/'.$dado->usuario_id)}}">
+                            <button type="button" class="btn btn-primary"><a class="button-delete-custom" title="Editar" href="{{url('atividades/form14/editar/'.$dado->id.'/'.$dado->usuario_id)}}">
                                 Editar</a>
                             </button>
                         @endcan
                         @can('normal')
                             <!-- Botão para acionar modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ExemploModalCentralizado1{{$dado->id}}">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ExemploModalCentralizado14{{$dado->id}}">
                                 Excluir
                             </button>
                             <!-- Modal -->
-                            <div class="modal fade" id="ExemploModalCentralizado1{{$dado->id}}" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+                            <div class="modal fade" id="ExemploModalCentralizado14{{$dado->id}}" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -72,7 +72,7 @@
                                     </div>
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                                    <button type="button" class="btn btn-primary"><a class="button-delete-custom" title="Deletar" href="{{url('atividades/form1/excluir/'.$dado->id)}}">Sim</a></button>
+                                    <button type="button" class="btn btn-primary"><a class="button-delete-custom" title="Deletar" href="{{url('atividades/form14/excluir/'.$dado->id)}}">Sim</a></button>
                                     </div>
                                 </div>
                                 </div>

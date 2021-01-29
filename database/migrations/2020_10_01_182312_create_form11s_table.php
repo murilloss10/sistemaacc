@@ -24,6 +24,7 @@ class CreateForm11sTable extends Migration
                 ->onDelete('cascade');
             $table->string('customFileLang', 255);
             $table->integer('lim_carga_h');
+            $table->integer('horas_aprovadas')->nullable();
             $table->timestamps();
         });
     }

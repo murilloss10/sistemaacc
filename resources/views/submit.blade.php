@@ -1,8 +1,19 @@
 @extends('index')
 
+
+
 @section('main-content')
 
+
     <div class="container-fluid">
+
+        @if ($message = Session::get('success'))
+        <div class="alert">
+            <button type="button">×</button>
+                <strong>{{ $message }}</strong>
+        </div>
+        @endif
+
         <br><br><h4 class="submit_title title-far-top">Submissão de Documento AACC</h4><br><br>
         <div class="row">
             <div class="form-inline col-md-12">
@@ -11,7 +22,8 @@
                     name="formSelect" onchange="java_script_:show(this.options[this.selectedIndex].value)">
 
                     <option selected value="0">Selecione o tipo de atividade...</option>
-                    <option value="form1">Projeto de Pesquisa e Extensão</option>
+                    <option value="form1">Projeto de Pesquisa</option>
+                    <option value="form14">Projeto de Extensão</option>
                     <option value="form2">Publicação de Artigo ou Resumo</option>
                     <option value="form3">Eventos Científicos e Palestras: Participação, Organização e Apresentação</option>
                     <option value="form4">Premiação</option>
@@ -29,6 +41,9 @@
 
                     <div id="form1" style="display:none">
                         @include('forms.1_rep')
+                    </div>
+                    <div id="form14" style="display:none">
+                        @include('forms.14_ext')
                     </div>
                     <div id="form2" style="display:none">
                         @include('forms.2_paa')
@@ -85,6 +100,12 @@
                 form1.style.display = 'inline-block';
             }else{
                 form1.style.display = 'none';
+            }
+
+            if (aval == "form14") {
+                form14.style.display = 'inline-block';
+            }else{
+                form14.style.display = 'none';
             }
 
             if (aval == "form2") {
@@ -162,36 +183,6 @@
 
        }
 
-   </script>
-
-    <!--
-    <script>
-        //var valor = Number(window.document.querySelector('select#inlineFormCustomSelectPref').value)
-        var textoP = document.querySelector('p#teste')
-
-        //var form1 = document.querySelector('div#form1')
-        //var form2 = document.querySelector('div#form2')
-
-        var selecionado = document.querySelector('select#inlineFormCustomSelectPref');
-        selecionado.addEventListener('change', function() {
-            var opcao = this.selectedOptions[0];
-            var texto = opcao.textContent;
-            var valor = Number(opcao.value)
-            //textoP.innerHTML = texto
-
-            switch(valor){
-                case 1:
-                    document.getElementById('#form2').style.display = 'none'
-                    break;
-                case 2:
-                    document.getElementById('#form1').style.display = 'none'
-                    break;
-            }
-        });
-
-
-
-
-    </script> -->
+    </script>
 
 @endsection

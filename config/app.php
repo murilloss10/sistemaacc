@@ -123,6 +123,12 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+
+
+    /* TEST - MANUAL INCLUDED FLASH */
+    //'Flash' => 'Laracasts\Flash\Flash',
+
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

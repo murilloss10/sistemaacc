@@ -22,6 +22,7 @@ use App\Http\Requests\Form10Request;
 use App\Http\Requests\Form11Request;
 use App\Http\Requests\Form12Request;
 use App\Http\Requests\Form13Request;
+use App\Http\Requests\Form14Request;
 
 use App\Models\Activity;
 use App\User;
@@ -38,10 +39,13 @@ use App\Models\Form10;
 use App\Models\Form11;
 use App\Models\Form12;
 use App\Models\Form13;
+use App\Models\Form14;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 
+use Flash;
+use Illuminate\Support\Facades\Session;
 
 class ActivityController extends Controller
 {
@@ -63,6 +67,7 @@ class ActivityController extends Controller
             $chMaxF11 = 50;
             $chMaxF12 = 150;
             $chMaxF13 = 60;
+            $chMaxF14 = 200;
             $limTF1 = Form1::where('usuario_id', $idUser)->sum('lim_carga_h');
             $limTF2 = Form2::where('usuario_id', $idUser)->sum('lim_carga_h');
             $limTF3 = Form3::where('usuario_id', $idUser)->sum('lim_carga_h');
@@ -76,6 +81,7 @@ class ActivityController extends Controller
             $limTF11 = Form11::where('usuario_id', $idUser)->sum('lim_carga_h');
             $limTF12 = Form12::where('usuario_id', $idUser)->sum('lim_carga_h');
             $limTF13 = Form13::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $limTF14 = Form14::where('usuario_id', $idUser)->sum('lim_carga_h');
             $dadosForm1 = Form1::all();
             $dadosForm2 = Form2::all();
             $dadosForm3 = Form3::all();
@@ -89,6 +95,7 @@ class ActivityController extends Controller
             $dadosForm11 = Form11::all();
             $dadosForm12 = Form12::all();
             $dadosForm13 = Form13::all();
+            $dadosForm14 = Form14::all();
             $authorized = Auth::id();
             return view('activities')->with('dados', $dados)
                 ->with('authorized', $authorized)
@@ -105,6 +112,7 @@ class ActivityController extends Controller
                 ->with('dadosForm11', $dadosForm11)
                 ->with('dadosForm12', $dadosForm12)
                 ->with('dadosForm13', $dadosForm13)
+                ->with('dadosForm14', $dadosForm14)
                 ->with('idUser', $idUser)
                 ->with('limTF1', $limTF1)
                 ->with('limTF2', $limTF2)
@@ -119,6 +127,7 @@ class ActivityController extends Controller
                 ->with('limTF11', $limTF11)
                 ->with('limTF12', $limTF12)
                 ->with('limTF13', $limTF13)
+                ->with('limTF14', $limTF14)
                 ->with('chMaxF1', $chMaxF1)
                 ->with('chMaxF2', $chMaxF2)
                 ->with('chMaxF3', $chMaxF3)
@@ -131,7 +140,8 @@ class ActivityController extends Controller
                 ->with('chMaxF10', $chMaxF10)
                 ->with('chMaxF11', $chMaxF11)
                 ->with('chMaxF12', $chMaxF12)
-                ->with('chMaxF13', $chMaxF13);
+                ->with('chMaxF13', $chMaxF13)
+                ->with('chMaxF14', $chMaxF14);
         }
     }
 
@@ -154,6 +164,7 @@ class ActivityController extends Controller
             $chMaxF11 = 50;
             $chMaxF12 = 150;
             $chMaxF13 = 60;
+            $chMaxF14 = 200;
             $limTF1 = Form1::where('usuario_id', $idUser)->sum('lim_carga_h');
             $limTF2 = Form2::where('usuario_id', $idUser)->sum('lim_carga_h');
             $limTF3 = Form3::where('usuario_id', $idUser)->sum('lim_carga_h');
@@ -167,6 +178,7 @@ class ActivityController extends Controller
             $limTF11 = Form11::where('usuario_id', $idUser)->sum('lim_carga_h');
             $limTF12 = Form12::where('usuario_id', $idUser)->sum('lim_carga_h');
             $limTF13 = Form13::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $limTF14 = Form14::where('usuario_id', $idUser)->sum('lim_carga_h');
             return view('submit')->with('user', $user)->with('idUser', $idUser)->with('nameUser', $nameUser)
                 ->with('limTF1', $limTF1)
                 ->with('limTF2', $limTF2)
@@ -181,6 +193,7 @@ class ActivityController extends Controller
                 ->with('limTF11', $limTF11)
                 ->with('limTF12', $limTF12)
                 ->with('limTF13', $limTF13)
+                ->with('limTF14', $limTF14)
                 ->with('chMaxF1', $chMaxF1)
                 ->with('chMaxF2', $chMaxF2)
                 ->with('chMaxF3', $chMaxF3)
@@ -193,7 +206,8 @@ class ActivityController extends Controller
                 ->with('chMaxF10', $chMaxF10)
                 ->with('chMaxF11', $chMaxF11)
                 ->with('chMaxF12', $chMaxF12)
-                ->with('chMaxF13', $chMaxF13);
+                ->with('chMaxF13', $chMaxF13)
+                ->with('chMaxF14', $chMaxF14);
         }
     }
 
@@ -239,7 +253,12 @@ class ActivityController extends Controller
 
         }
         //Form1::create($request->input());
-        return redirect()->action('Activity\ActivityController@pagForm');
+
+        //flash("Atividade submetida com sucesso !")->sucess();
+        //Session::flash("Atividade submetida com sucesso !");
+
+        return redirect()->action('Activity\ActivityController@pagForm')->with('success', 'Atividade cadastrada com sucesso!');
+
     }
 
     public function form2(Form2Request $request){ //função revisada
@@ -877,10 +896,56 @@ class ActivityController extends Controller
         return redirect()->action('Activity\ActivityController@pagForm');
     }
 
+    public function form14(Form14Request $request){ //função revisada
+
+        $idUser = Auth::id();
+        $limT = Form14::where('usuario_id', $idUser)->sum('lim_carga_h');
+        $chLim = 50;
+        $chMax = 200;
+
+
+        if($request->file('customFileLang14')->isValid()){
+            $h = uniqid(date('HisYmd'));
+            $nameA = $h .'.'.$request->customFileLang14->extension();
+            $request->file('customFileLang14')->storeAs('arquivosPdf', $nameA);
+
+            if($limT <= $chMax){
+                if($limT+$request->input('carga_horaria14') <= $chMax){
+                    if($request->input('carga_horaria14') <= $chLim){
+                        $lim = $request->input('carga_horaria14');
+                    }
+                    else if($request->input('carga_horaria14') > $chLim){
+                        $lim = 50;
+                    }
+                }
+                else if($limT+$request->input('carga_horaria14') > $chMax){
+                    $lim = $chMax - $limT;
+                }
+            }
+
+
+            $data = Form14::create(array(
+                'tipo' => $request->input('tipo14'),
+                'carga_horaria' => $request->input('carga_horaria14'),
+                'nome_projeto' => $request->input('nome_projeto14'),
+                'dt_inicio' => $request->input('dt_inicio14'),
+                'dt_fim' => $request->input('dt_fim14'),
+                'status' => $request->input('status14'),
+                'usuario_id' => $request->input('usuario_id14'),
+                'customFileLang' => $nameA,
+                'lim_carga_h' => $lim
+            ));
+
+        }
+
+        return redirect()->action('Activity\ActivityController@pagForm')->with('success', 'Atividade cadastrada com sucesso!');
+
+    }
+
     public function excluirAtividadeForm1($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
             Form1::destroy($id);
-            $dados = Form1::find($id); 
+            $dados = Form1::find($id);
             Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -889,7 +954,7 @@ class ActivityController extends Controller
     public function excluirAtividadeForm2($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
             Form2::destroy($id);
-            $dados = Form2::find($id); 
+            $dados = Form2::find($id);
             Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -898,7 +963,7 @@ class ActivityController extends Controller
     public function excluirAtividadeForm3($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
             Form3::destroy($id);
-            $dados = Form3::find($id); 
+            $dados = Form3::find($id);
             Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -907,7 +972,7 @@ class ActivityController extends Controller
     public function excluirAtividadeForm4($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
             Form4::destroy($id);
-            $dados = Form4::find($id); 
+            $dados = Form4::find($id);
             Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -916,7 +981,7 @@ class ActivityController extends Controller
     public function excluirAtividadeForm5($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
             Form5::destroy($id);
-            $dados = Form5::find($id); 
+            $dados = Form5::find($id);
             Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -925,7 +990,7 @@ class ActivityController extends Controller
     public function excluirAtividadeForm6($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
             Form6::destroy($id);
-            $dados = Form6::find($id); 
+            $dados = Form6::find($id);
             Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -934,7 +999,7 @@ class ActivityController extends Controller
     public function excluirAtividadeForm7($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
             Form7::destroy($id);
-            $dados = Form7::find($id); 
+            $dados = Form7::find($id);
             Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -943,7 +1008,7 @@ class ActivityController extends Controller
     public function excluirAtividadeForm8($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
             Form8::destroy($id);
-            $dados = Form8::find($id); 
+            $dados = Form8::find($id);
             Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -952,7 +1017,7 @@ class ActivityController extends Controller
     public function excluirAtividadeForm9($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
             Form9::destroy($id);
-            $dados = Form9::find($id); 
+            $dados = Form9::find($id);
             Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -961,7 +1026,7 @@ class ActivityController extends Controller
     public function excluirAtividadeForm10($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
             Form10::destroy($id);
-            $dados = Form10::find($id); 
+            $dados = Form10::find($id);
             Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -970,7 +1035,7 @@ class ActivityController extends Controller
     public function excluirAtividadeForm11($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
             Form11::destroy($id);
-            $dados = Form11::find($id); 
+            $dados = Form11::find($id);
             Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -979,7 +1044,7 @@ class ActivityController extends Controller
     public function excluirAtividadeForm12($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
             Form12::destroy($id);
-            $dados = Form12::find($id); 
+            $dados = Form12::find($id);
             Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -988,7 +1053,16 @@ class ActivityController extends Controller
     public function excluirAtividadeForm13($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
             Form13::destroy($id);
-            $dados = Form13::find($id); 
+            $dados = Form13::find($id);
+            Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
+            return redirect()->action('Activity\ActivityController@atividades');
+        }
+    }
+
+    public function excluirAtividadeForm14($id){ //função exclui dados na tabela e o aquivo
+        if(Gate::authorize('normal')){
+            Form14::destroy($id);
+            $dados = Form14::find($id);
             Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -1211,6 +1285,23 @@ class ActivityController extends Controller
                     ->with('nameUser', $nameUser)
                     ->with('chMaxF13', $chMaxF13)
                     ->with('limTF13', $limTF13)
+                    ->with('dados', $dados);
+        }
+    }
+
+    public function form14Edicao($id, $idUser){ //função revisada - chamando formulário
+        if(Gate::authorize('administrador')){
+            $user = User::all();
+            $idUser = $idUser;
+            $nameUser = Auth::user()->name;
+            $chMaxF14 = 200;
+            $limTF14 = Form14::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $dados = Form14::find($id);
+            return view('forms_edit.14_ext')->with('user', $user)
+                    ->with('idUser', $idUser)
+                    ->with('nameUser', $nameUser)
+                    ->with('chMaxF14', $chMaxF14)
+                    ->with('limTF14', $limTF14)
                     ->with('dados', $dados);
         }
     }
@@ -1833,6 +1924,43 @@ class ActivityController extends Controller
             'usuario_id' => $request->input('usuario_id13'),
             'customFileLang' => $request->input('customFileLang13'),
             'lim_carga_h' => $lim
+        ));
+
+        return redirect()->route('lista_atividades', $idUser);
+    }
+
+    public function editarForm14(Form14Request $request){ //função revisada - salvar edição
+
+        $idUser =  $request->input('usuario_id14');
+        $limT = (Form14::where('usuario_id', $idUser)->sum('lim_carga_h'))-$request->input('lim_carga_h');
+        $chLim = 50;
+        $chMax = 200;
+
+        if($limT <= $chMax){
+            if($limT+$request->input('carga_horaria14') <= $chMax){
+                if($request->input('carga_horaria14') <= $chLim){
+                    $lim = $request->input('carga_horaria14');
+                }
+                else if($request->input('carga_horaria14') > $chLim){
+                    $lim = 50;
+                }
+            }
+            else if($limT+$request->input('carga_horaria14') > $chMax){
+                $lim = $chMax - $limT;
+            }
+        }
+
+        $data = Form14::find($request->id)->update(array(
+            'id' => $request->input('id'),
+            'tipo' => $request->input('tipo14'),
+            'carga_horaria' => $request->input('carga_horaria14'),
+            'nome_projeto' => $request->input('nome_projeto14'),
+            'dt_inicio' => $request->input('dt_inicio14'),
+            'dt_fim' => $request->input('dt_fim14'),
+            'status' => $request->input('status14'),
+            'usuario_id' => $request->input('usuario_id14'),
+            'customFileLang' => $request->input('customFileLang14'),
+            'lim_carga_h' => $request->input('lim_carga_h'),
         ));
 
         return redirect()->route('lista_atividades', $idUser);
