@@ -222,7 +222,7 @@ class ActivityController extends Controller
         if($request->file('customFileLang1')->isValid()){
             $h = uniqid(date('HisYmd'));
             $nameA = $h .'.'.$request->customFileLang1->extension();
-            $request->file('customFileLang1')->storeAs('arquivosPdf', $nameA);
+            $request->file('customFileLang1')->storeAs('public', $nameA); //alterando a pasta arquivoPdf para a pasta public
 
             if($limT <= $chMax){
                 if($limT+$request->input('carga_horaria1') <= $chMax){
@@ -272,7 +272,7 @@ class ActivityController extends Controller
         if($request->file('customFileLang2')->isValid()){
             $h = uniqid(date('HisYmd'));
             $nameA = $h .'.'.$request->customFileLang2->extension();
-            $request->file('customFileLang2')->storeAs('arquivosPdf', $nameA);
+            $request->file('customFileLang2')->storeAs('public', $nameA);
 
             if($request->input('tipo2') == 'Artigo'){
                 if($limT <= $chMax){
@@ -325,7 +325,7 @@ class ActivityController extends Controller
         if($request->file('customFileLang3')->isValid()){
             $h = uniqid(date('HisYmd'));
             $nameA = $h .'.'.$request->customFileLang3->extension();
-            $request->file('customFileLang3')->storeAs('arquivosPdf', $nameA);
+            $request->file('customFileLang3')->storeAs('public', $nameA);
 
             if($request->input('tipo3') == 'Organização em Evento Científico'){
                 if($limT <= $chMax){
@@ -475,7 +475,7 @@ class ActivityController extends Controller
         if($request->file('customFileLang4')->isValid()){
             $h = uniqid(date('HisYmd'));
             $nameA = $h .'.'.$request->customFileLang4->extension();
-            $request->file('customFileLang4')->storeAs('arquivosPdf', $nameA);
+            $request->file('customFileLang4')->storeAs('public', $nameA);
 
             if($limT <= $chMax){
                 if($limT+$limPremiacao <= $chMax){
@@ -510,7 +510,7 @@ class ActivityController extends Controller
         if($request->file('customFileLang5')->isValid()){
             $h = uniqid(date('HisYmd'));
             $nameA = $h .'.'.$request->customFileLang5->extension();
-            $request->file('customFileLang5')->storeAs('arquivosPdf', $nameA);
+            $request->file('customFileLang5')->storeAs('public', $nameA);
 
             if($request->input('tipo5') == 'Diretório Acadêmico'){
                 if($limT <= $chMax){
@@ -564,7 +564,7 @@ class ActivityController extends Controller
         if($request->file('customFileLang6')->isValid()){
             $h = uniqid(date('HisYmd'));
             $nameA = $h .'.'.$request->customFileLang6->extension();
-            $request->file('customFileLang6')->storeAs('arquivosPdf', $nameA);
+            $request->file('customFileLang6')->storeAs('public', $nameA);
 
             if($limT <= $chMax){
                 if($request->input('quant_semestres6') >= 1){
@@ -607,7 +607,7 @@ class ActivityController extends Controller
         if($request->file('customFileLang7')->isValid()){
             $h = uniqid(date('HisYmd'));
             $nameA = $h .'.'.$request->customFileLang7->extension();
-            $request->file('customFileLang7')->storeAs('arquivosPdf', $nameA);
+            $request->file('customFileLang7')->storeAs('public', $nameA);
 
             if($limT <= $chMax){
                 if($limT+$chLimEstagio <= $chMax){
@@ -644,7 +644,7 @@ class ActivityController extends Controller
         if($request->file('customFileLang8')->isValid()){
             $h = uniqid(date('HisYmd'));
             $nameA = $h .'.'.$request->customFileLang8->extension();
-            $request->file('customFileLang8')->storeAs('arquivosPdf', $nameA);
+            $request->file('customFileLang8')->storeAs('public', $nameA);
 
             if($limT < $chMax){
                 if($limT+$chLim <= $chMax){
@@ -678,7 +678,7 @@ class ActivityController extends Controller
         if($request->file('customFileLang9')->isValid()){
             $h = uniqid(date('HisYmd'));
             $nameA = $h .'.'.$request->customFileLang9->extension();
-            $request->file('customFileLang9')->storeAs('arquivosPdf', $nameA);
+            $request->file('customFileLang9')->storeAs('public', $nameA);
 
             if($limT <= $chMax){
                 if($limT+$chLim <= $chMax){
@@ -715,7 +715,7 @@ class ActivityController extends Controller
         if($request->file('customFileLang10')->isValid()){
             $h = uniqid(date('HisYmd'));
             $nameA = $h .'.'.$request->customFileLang10->extension();
-            $request->file('customFileLang10')->storeAs('arquivosPdf', $nameA);
+            $request->file('customFileLang10')->storeAs('public', $nameA);
 
             if($request->input('tipo10') == 'Monitoria'){
                 if($chLim >= $request->input('carga_horaria10')){
@@ -779,7 +779,7 @@ class ActivityController extends Controller
         if($request->file('customFileLang11')->isValid()){
             $h = uniqid(date('HisYmd'));
             $nameA = $h .'.'.$request->customFileLang11->extension();
-            $request->file('customFileLang11')->storeAs('arquivosPdf', $nameA);
+            $request->file('customFileLang11')->storeAs('public', $nameA);
 
             if($limT+$chLim <= $chMax){
                 $lim = $chLim;
@@ -811,7 +811,7 @@ class ActivityController extends Controller
         if($request->file('customFileLang12')->isValid()){
             $h = uniqid(date('HisYmd'));
             $nameA = $h .'.'.$request->customFileLang12->extension();
-            $request->file('customFileLang12')->storeAs('arquivosPdf', $nameA);
+            $request->file('customFileLang12')->storeAs('public', $nameA);
 
             if($request->input('tipo12') == 'Instrutor'){
                 if($chLimInstru >= $request->input('carga_horaria12')){
@@ -875,7 +875,7 @@ class ActivityController extends Controller
         if($request->file('customFileLang13')->isValid()){
             $h = uniqid(date('HisYmd'));
             $nameA = $h .'.'.$request->customFileLang13->extension();
-            $request->file('customFileLang13')->storeAs('arquivosPdf', $nameA);
+            $request->file('customFileLang13')->storeAs('public', $nameA);
 
             if($limT+$chLim <= $chMax){
                 $lim = $chLim;
@@ -907,7 +907,7 @@ class ActivityController extends Controller
         if($request->file('customFileLang14')->isValid()){
             $h = uniqid(date('HisYmd'));
             $nameA = $h .'.'.$request->customFileLang14->extension();
-            $request->file('customFileLang14')->storeAs('arquivosPdf', $nameA);
+            $request->file('customFileLang14')->storeAs('public', $nameA);
 
             if($limT <= $chMax){
                 if($limT+$request->input('carga_horaria14') <= $chMax){
@@ -1966,10 +1966,11 @@ class ActivityController extends Controller
         return redirect()->route('lista_atividades', $idUser);
     }
 
-    public function exibirPDF($nameFile){
+    //função inativa
+    /*public function exibirPDF($nameFile){
         $pathToFile = 'file:///C:/Users/muril/Documents/TCC/sistema_accs2/storage/app/arquivosPdf/'.$nameFile;
         return response()->file($pathToFile);
-    }
+    }*/
 
 
 }

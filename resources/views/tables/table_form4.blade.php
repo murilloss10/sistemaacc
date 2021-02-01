@@ -35,7 +35,7 @@
                     </td>
                     <td>{{$dado->status}}</td>
                     <td>
-                        <button type="button" class="btn btn-primary"><a class="button-delete-custom" target="_blank" href="{{url('atividades/arquivos/'.$dado->customFileLang)}}">
+                        <button type="button" class="btn btn-primary"><a class="button-delete-custom" target="_blank" href="{{asset('storage/'.$dado->customFileLang)}}">
                             Abrir</a>
                         </button>
                     </td>
