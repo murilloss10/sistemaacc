@@ -3,7 +3,7 @@
 <div class="d-flex justify-content-end mb-3">
     <div class="p-2 bd-highlight">C.H. Máxima: {{$chMaxF4}}</div>
     <span class="border-right"></span>
-    <div class="p-2 bd-highlight">C.H. Total: {{$limTF4}}</div>
+    <div class="p-2 bd-highlight">C.H. Aprovada: {{$limTF4}}</div>
     <span class="border-right"></span>
     <div class="p-2 bd-highlight">C.H. Restante: {{$chMaxF4-$limTF4}}</div>
 </div>
@@ -20,6 +20,7 @@
                 <th>STATUS</th>
                 <th>ARQUIVO</th>
                 <th>C.H. CONTABILIZADA</th>
+                <th>C.H. APROVADA</th>
                 <th>OPÇÕES</th>
             </tr>
         </thead>
@@ -40,10 +41,11 @@
                         </button>
                     </td>
                     <td>{{$dado->lim_carga_h}}</td>
+                    <td>{{$dado->horas_aprovadas}}</td>
                     <td>
                         @can('administrador')
                             <button type="button" class="btn btn-primary"><a class="button-delete-custom" title="Editar" href="{{url('atividades/form4/editar/'.$dado->id.'/'.$dado->usuario_id)}}">
-                                Editar</a>
+                                Avaliar</a>
                             </button>
                         @endcan
                         @can('normal')

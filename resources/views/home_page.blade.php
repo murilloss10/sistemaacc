@@ -44,7 +44,7 @@
                                 <div class="card-body p-0">
                                     <div class="row no-gutters">
 
-                                        <div class="col-sm-6 col-xl-4">
+                                        <div class="col-sm-6 col-xl-2">
                                             <a href="{{url('submeter')}}" class="link-submit">
                                                 <div class="card shadow-none m-0 height-small-card-dashboard">
                                                     <div class="card-body text-center">
@@ -72,6 +72,16 @@
                                                     <i class="fas fa-hourglass-half" style="font-size: 34px;"></i>
                                                     <h3><span>{{$chTotal}}</span></h3>
                                                     <p class="text-muted font-15 mb-0">Horas submetidas</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6 col-xl-2">
+                                            <div class="card shadow-none m-0 border-left height-small-card-dashboard">
+                                                <div class="card-body text-center">
+                                                    <i class="fas fa-hourglass" style="font-size: 34px;"></i>
+                                                    <h3><span>{{$chAproT}}</span></h3>
+                                                    <p class="text-muted font-15 mb-0">Carga horária aprovada</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -251,13 +261,16 @@
                 <thead>
                     <tr>
                         <th>NOME</th>
+                        <th>C.H. APROVADA</th>
                         <th>ACESSAR</th>
                     </tr>
                 </thead>
-                @forelse ($listUsers as $dado)
+                @forelse ($listUsers as $dado) 
                     @if ($dado->type != 'administrador')
                         <tr>
                             <td>{{$dado->name}}</td>
+                            
+                            <td>.</td>
                             <td><a href="{{url('atividades/lista/'.$dado->id)}}">ACESSAR ATIVIDADES</a></td>
                         </tr>
                     @else

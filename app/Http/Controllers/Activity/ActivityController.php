@@ -68,20 +68,20 @@ class ActivityController extends Controller
             $chMaxF12 = 150;
             $chMaxF13 = 60;
             $chMaxF14 = 200;
-            $limTF1 = Form1::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF2 = Form2::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF3 = Form3::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF4 = Form4::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF5 = Form5::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF6 = Form6::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF7 = Form7::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF8 = Form8::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF9 = Form9::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF10 = Form10::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF11 = Form11::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF12 = Form12::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF13 = Form13::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF14 = Form14::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $limTF1 = Form1::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF2 = Form2::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF3 = Form3::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF4 = Form4::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF5 = Form5::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF6 = Form6::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF7 = Form7::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF8 = Form8::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF9 = Form9::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF10 = Form10::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF11 = Form11::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF12 = Form12::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF13 = Form13::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF14 = Form14::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $dadosForm1 = Form1::all();
             $dadosForm2 = Form2::all();
             $dadosForm3 = Form3::all();
@@ -165,20 +165,20 @@ class ActivityController extends Controller
             $chMaxF12 = 150;
             $chMaxF13 = 60;
             $chMaxF14 = 200;
-            $limTF1 = Form1::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF2 = Form2::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF3 = Form3::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF4 = Form4::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF5 = Form5::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF6 = Form6::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF7 = Form7::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF8 = Form8::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF9 = Form9::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF10 = Form10::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF11 = Form11::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF12 = Form12::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF13 = Form13::where('usuario_id', $idUser)->sum('lim_carga_h');
-            $limTF14 = Form14::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $limTF1 = Form1::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF2 = Form2::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF3 = Form3::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF4 = Form4::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF5 = Form5::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF6 = Form6::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF7 = Form7::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF8 = Form8::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF9 = Form9::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF10 = Form10::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF11 = Form11::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF12 = Form12::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF13 = Form13::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $limTF14 = Form14::where('usuario_id', $idUser)->sum('horas_aprovadas');
             return view('submit')->with('user', $user)->with('idUser', $idUser)->with('nameUser', $nameUser)
                 ->with('limTF1', $limTF1)
                 ->with('limTF2', $limTF2)
@@ -1075,12 +1075,14 @@ class ActivityController extends Controller
             $nameUser = Auth::user()->name;
             $chMaxF1 = 200;
             $limTF1 = Form1::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $aproTF1 = Form1::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $dados = Form1::find($id);
             return view('forms_edit.1_rep')->with('user', $user)
                     ->with('idUser', $idUser)
                     ->with('nameUser', $nameUser)
                     ->with('chMaxF1', $chMaxF1)
                     ->with('limTF1', $limTF1)
+                    ->with('aproTF1', $aproTF1)
                     ->with('dados', $dados);
         }
     }
@@ -1092,12 +1094,14 @@ class ActivityController extends Controller
             $nameUser = Auth::user()->name;
             $chMaxF2 = 220;
             $limTF2 = Form2::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $aproTF2 = Form2::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $dados = Form2::find($id);
             return view('forms_edit.2_paa')->with('user', $user)
                     ->with('idUser', $idUser)
                     ->with('nameUser', $nameUser)
                     ->with('chMaxF2', $chMaxF2)
                     ->with('limTF2', $limTF2)
+                    ->with('aproTF2', $aproTF2)
                     ->with('dados', $dados);
         }
     }
@@ -1109,12 +1113,14 @@ class ActivityController extends Controller
             $nameUser = Auth::user()->name;
             $chMaxF3 = 630;
             $limTF3 = Form3::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $aproTF3 = Form3::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $dados = Form3::find($id);
             return view('forms_edit.3_ecp')->with('user', $user)
                     ->with('idUser', $idUser)
                     ->with('nameUser', $nameUser)
                     ->with('chMaxF3', $chMaxF3)
                     ->with('limTF3', $limTF3)
+                    ->with('aproTF3', $aproTF3)
                     ->with('dados', $dados);
         }
     }
@@ -1126,12 +1132,14 @@ class ActivityController extends Controller
             $nameUser = Auth::user()->name;
             $chMaxF4 = 30;
             $limTF4 = Form4::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $aproTF4 = Form4::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $dados = Form4::find($id);
             return view('forms_edit.4_pre')->with('user', $user)
                     ->with('idUser', $idUser)
                     ->with('nameUser', $nameUser)
                     ->with('chMaxF4', $chMaxF4)
                     ->with('limTF4', $limTF4)
+                    ->with('aproTF4', $aproTF4)
                     ->with('dados', $dados);
         }
     }
@@ -1143,12 +1151,14 @@ class ActivityController extends Controller
             $nameUser = Auth::user()->name;
             $chMaxF5 = 140;
             $limTF5 = Form5::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $aproTF5 = Form5::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $dados = Form5::find($id);
             return view('forms_edit.5_re')->with('user', $user)
                     ->with('idUser', $idUser)
                     ->with('nameUser', $nameUser)
                     ->with('chMaxF5', $chMaxF5)
                     ->with('limTF5', $limTF5)
+                    ->with('aproTF5', $aproTF5)
                     ->with('dados', $dados);
         }
     }
@@ -1160,12 +1170,14 @@ class ActivityController extends Controller
             $nameUser = Auth::user()->name;
             $chMaxF6 = 80;
             $limTF6 = Form6::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $aproTF6 = Form6::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $dados = Form6::find($id);
             return view('forms_edit.6_ej')->with('user', $user)
                     ->with('idUser', $idUser)
                     ->with('nameUser', $nameUser)
                     ->with('chMaxF6', $chMaxF6)
                     ->with('limTF6', $limTF6)
+                    ->with('aproTF6', $aproTF6)
                     ->with('dados', $dados);
         }
     }
@@ -1177,12 +1189,14 @@ class ActivityController extends Controller
             $nameUser = Auth::user()->name;
             $chMaxF7 = 50;
             $limTF7 = Form7::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $aproTF7 = Form7::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $dados = Form7::find($id);
             return view('forms_edit.7_ee')->with('user', $user)
                     ->with('idUser', $idUser)
                     ->with('nameUser', $nameUser)
                     ->with('chMaxF7', $chMaxF7)
                     ->with('limTF7', $limTF7)
+                    ->with('aproTF7', $aproTF7)
                     ->with('dados', $dados);
         }
     }
@@ -1194,12 +1208,14 @@ class ActivityController extends Controller
             $nameUser = Auth::user()->name;
             $chMaxF8 = 150;
             $limTF8 = Form8::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $aproTF8 = Form8::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $dados = Form8::find($id);
             return view('forms_edit.8_vas')->with('user', $user)
                     ->with('idUser', $idUser)
                     ->with('nameUser', $nameUser)
                     ->with('chMaxF8', $chMaxF8)
                     ->with('limTF8', $limTF8)
+                    ->with('aproTF8', $aproTF8)
                     ->with('dados', $dados);
         }
     }
@@ -1211,12 +1227,14 @@ class ActivityController extends Controller
             $nameUser = Auth::user()->name;
             $chMaxF9 = 60;
             $limTF9 = Form9::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $aproTF9 = Form9::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $dados = Form9::find($id);
             return view('forms_edit.9_pc')->with('user', $user)
                     ->with('idUser', $idUser)
                     ->with('nameUser', $nameUser)
                     ->with('chMaxF9', $chMaxF9)
                     ->with('limTF9', $limTF9)
+                    ->with('aproTF9', $aproTF9)
                     ->with('dados', $dados);
         }
     }
@@ -1228,12 +1246,14 @@ class ActivityController extends Controller
             $nameUser = Auth::user()->name;
             $chMaxF10 = 160;
             $limTF10 = Form10::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $aproTF10 = Form10::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $dados = Form10::find($id);
             return view('forms_edit.10_dcm')->with('user', $user)
                     ->with('idUser', $idUser)
                     ->with('nameUser', $nameUser)
                     ->with('chMaxF10', $chMaxF10)
                     ->with('limTF10', $limTF10)
+                    ->with('aproTF10', $aproTF10)
                     ->with('dados', $dados);
         }
     }
@@ -1245,12 +1265,14 @@ class ActivityController extends Controller
             $nameUser = Auth::user()->name;
             $chMaxF11 = 50;
             $limTF11 = Form11::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $aproTF11 = Form11::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $dados = Form11::find($id);
             return view('forms_edit.11_vt')->with('user', $user)
                     ->with('idUser', $idUser)
                     ->with('nameUser', $nameUser)
                     ->with('chMaxF11', $chMaxF11)
                     ->with('limTF11', $limTF11)
+                    ->with('aproTF11', $aproTF11)
                     ->with('dados', $dados);
         }
     }
@@ -1262,12 +1284,14 @@ class ActivityController extends Controller
             $nameUser = Auth::user()->name;
             $chMaxF12 = 150;
             $limTF12 = Form12::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $aproTF12 = Form12::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $dados = Form12::find($id);
             return view('forms_edit.12_cm')->with('user', $user)
                     ->with('idUser', $idUser)
                     ->with('nameUser', $nameUser)
                     ->with('chMaxF12', $chMaxF12)
                     ->with('limTF12', $limTF12)
+                    ->with('aproTF12', $aproTF12)
                     ->with('dados', $dados);
         }
     }
@@ -1279,12 +1303,14 @@ class ActivityController extends Controller
             $nameUser = Auth::user()->name;
             $chMaxF13 = 60;
             $limTF13 = Form13::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $aproTF13 = Form13::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $dados = Form13::find($id);
             return view('forms_edit.13_mp')->with('user', $user)
                     ->with('idUser', $idUser)
                     ->with('nameUser', $nameUser)
                     ->with('chMaxF13', $chMaxF13)
                     ->with('limTF13', $limTF13)
+                    ->with('aproTF13', $aproTF13)
                     ->with('dados', $dados);
         }
     }
@@ -1296,12 +1322,14 @@ class ActivityController extends Controller
             $nameUser = Auth::user()->name;
             $chMaxF14 = 200;
             $limTF14 = Form14::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $aproTF14 = Form14::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $dados = Form14::find($id);
             return view('forms_edit.14_ext')->with('user', $user)
                     ->with('idUser', $idUser)
                     ->with('nameUser', $nameUser)
                     ->with('chMaxF14', $chMaxF14)
                     ->with('limTF14', $limTF14)
+                    ->with('aproTF14', $aproTF14)
                     ->with('dados', $dados);
         }
     }
@@ -1313,19 +1341,25 @@ class ActivityController extends Controller
         $chLim = 50;
         $chMax = 200;
 
-        if($limT <= $chMax){
-            if($limT+$request->input('carga_horaria1') <= $chMax){
-                if($request->input('carga_horaria1') <= $chLim){
-                    $lim = $request->input('carga_horaria1');
+        if($request->input('status1') == "Deferido"){
+            if($limT <= $chMax){
+                if($limT+$request->input('carga_horaria1') <= $chMax){
+                    if($request->input('carga_horaria1') <= $chLim){
+                        $lim = $request->input('carga_horaria1');
+                    }
+                    else if($request->input('carga_horaria1') > $chLim){
+                        $lim = 50;
+                    }
                 }
-                else if($request->input('carga_horaria1') > $chLim){
-                    $lim = 50;
+                else if($limT+$request->input('carga_horaria1') > $chMax){
+                    $lim = $chMax - $limT;
                 }
-            }
-            else if($limT+$request->input('carga_horaria1') > $chMax){
-                $lim = $chMax - $limT;
             }
         }
+        else{
+            $lim = 0;
+        }
+
 
         $data = Form1::find($request->id)->update(array(
             'id' => $request->input('id'),
@@ -1337,7 +1371,8 @@ class ActivityController extends Controller
             'status' => $request->input('status1'),
             'usuario_id' => $request->input('usuario_id1'),
             'customFileLang' => $request->input('customFileLang1'),
-            'lim_carga_h' => $lim
+            'lim_carga_h' => $request->input('lim_carga_h'),
+            'horas_aprovadas' => $lim,
         ));
 
         return redirect()->route('lista_atividades', $idUser);
@@ -1351,27 +1386,32 @@ class ActivityController extends Controller
         $chLimResumo = 20;
         $chMax = 220;
 
-        if($request->input('tipo2') == 'Artigo'){
-            if($limT <= $chMax){
-                if($limT+$chLimArtigo <= $chMax){
-                    $lim = $chLimArtigo;
-                }
-                else if($limT+$chLimArtigo > $chMax){
-                    $lim = $chMax - $limT;
-                }
-            }
-        }
-        else if($request->input('tipo2') == 'Resumo'){
-            if($limT <= $chMax){
-                if($limT+$chLimResumo <= $chMax){
-                    $lim = $chLimResumo;
-                }
-                else if($limT+$chLimResumo > $chMax){
-                    $lim = $chMax - $limT;
+        if($request->input('status2') == "Deferido"){
+            if($request->input('tipo2') == 'Artigo'){
+                if($limT <= $chMax){
+                    if($limT+$chLimArtigo <= $chMax){
+                        $lim = $chLimArtigo;
+                    }
+                    else if($limT+$chLimArtigo > $chMax){
+                        $lim = $chMax - $limT;
+                    }
                 }
             }
+            else if($request->input('tipo2') == 'Resumo'){
+                if($limT <= $chMax){
+                    if($limT+$chLimResumo <= $chMax){
+                        $lim = $chLimResumo;
+                    }
+                    else if($limT+$chLimResumo > $chMax){
+                        $lim = $chMax - $limT;
+                    }
+                }
+            }    
         }
-
+        else{
+            $lim = 0;
+        }
+        
         $data = Form2::find($request->id)->update(array(
             'id' => $request->input('id'),
             'tipo' => $request->input('tipo2'),
@@ -1381,7 +1421,8 @@ class ActivityController extends Controller
             'status' => $request->input('status2'),
             'usuario_id' => $request->input('usuario_id2'),
             'customFileLang' => $request->input('customFileLang2'),
-            'lim_carga_h' => $lim
+            'lim_carga_h' => $request->input('lim_carga_h'),
+            'horas_aprovadas' => $lim,
         ));
 
         return redirect()->route('lista_atividades', $idUser);
@@ -1400,127 +1441,133 @@ class ActivityController extends Controller
         $limApreseEvento = 15;
         $limApresePalestra = 15;
 
-        if($request->input('tipo3') == 'Organização em Evento Científico'){
-            if($limT <= $chMax){
-                if($request->input('carga_horaria3') <= $limOrganEvento){
-                    if($limT+$request->input('carga_horaria3') <= $chMax){
-                        $lim = $request->input('carga_horaria3');
+        if($request->input('status3') == "Deferido"){
+            if($request->input('tipo3') == 'Organização em Evento Científico'){
+                if($limT <= $chMax){
+                    if($request->input('carga_horaria3') <= $limOrganEvento){
+                        if($limT+$request->input('carga_horaria3') <= $chMax){
+                            $lim = $request->input('carga_horaria3');
+                        }
+                        else if($limT+$request->input('carga_horaria3') > $chMax){
+                            $lim = $chMax - $limT;
+                        }
                     }
-                    else if($limT+$request->input('carga_horaria3') > $chMax){
-                        $lim = $chMax - $limT;
+                    else {
+                        if($limT+$limOrganEvento <= $chMax){
+                            $lim = $limOrganEvento;
+                        }
+                        else if($limT+$limOrganEvento > $chMax){
+                            $lim = $chMax - $limT;
+                        }
                     }
-                }
-                else {
-                    if($limT+$limOrganEvento <= $chMax){
-                        $lim = $limOrganEvento;
-                    }
-                    else if($limT+$limOrganEvento > $chMax){
-                        $lim = $chMax - $limT;
-                    }
-                }
-
-            }
-        }
-        else if($request->input('tipo3') == 'Organização de Palestra'){
-            if($limT <= $chMax){
-                if($request->input('carga_horaria3') <= $limOrganPalestra){
-                    if($limT+$request->input('carga_horaria3') <= $chMax){
-                        $lim = $request->input('carga_horaria3');
-                    }
-                    else if($limT+$request->input('carga_horaria3') > $chMax){
-                        $lim = $chMax - $limT;
-                    }
-                }
-                else {
-                    if($limT+$limOrganPalestra <= $chMax){
-                        $lim = $limOrganPalestra;
-                    }
-                    else if($limT+$limOrganPalestra > $chMax){
-                        $lim = $chMax - $limT;
-                    }
+    
                 }
             }
-        }
-        else if($request->input('tipo3') == 'Participação em Evento Científico'){
-            if($limT <= $chMax){
-                if($request->input('carga_horaria3') <= $limPartiEvento){
-                    if($limT+$request->input('carga_horaria3') <= $chMax){
-                        $lim = $request->input('carga_horaria3');
+            else if($request->input('tipo3') == 'Organização de Palestra'){
+                if($limT <= $chMax){
+                    if($request->input('carga_horaria3') <= $limOrganPalestra){
+                        if($limT+$request->input('carga_horaria3') <= $chMax){
+                            $lim = $request->input('carga_horaria3');
+                        }
+                        else if($limT+$request->input('carga_horaria3') > $chMax){
+                            $lim = $chMax - $limT;
+                        }
                     }
-                    else if($limT+$request->input('carga_horaria3') > $chMax){
-                        $lim = $chMax - $limT;
-                    }
-                }
-                else {
-                    if($limT+$limPartiEvento <= $chMax){
-                        $lim = $limPartiEvento;
-                    }
-                    else if($limT+$limPartiEvento > $chMax){
-                        $lim = $chMax - $limT;
+                    else {
+                        if($limT+$limOrganPalestra <= $chMax){
+                            $lim = $limOrganPalestra;
+                        }
+                        else if($limT+$limOrganPalestra > $chMax){
+                            $lim = $chMax - $limT;
+                        }
                     }
                 }
             }
-        }
-        else if($request->input('tipo3') == 'Participação de Palestra'){
-            if($limT <= $chMax){
-                if($request->input('carga_horaria3') <= $limPartiPalestra){
-                    if($limT+$request->input('carga_horaria3') <= $chMax){
-                        $lim = $request->input('carga_horaria3');
+            else if($request->input('tipo3') == 'Participação em Evento Científico'){
+                if($limT <= $chMax){
+                    if($request->input('carga_horaria3') <= $limPartiEvento){
+                        if($limT+$request->input('carga_horaria3') <= $chMax){
+                            $lim = $request->input('carga_horaria3');
+                        }
+                        else if($limT+$request->input('carga_horaria3') > $chMax){
+                            $lim = $chMax - $limT;
+                        }
                     }
-                    else if($limT+$request->input('carga_horaria3') > $chMax){
-                        $lim = $chMax - $limT;
+                    else {
+                        if($limT+$limPartiEvento <= $chMax){
+                            $lim = $limPartiEvento;
+                        }
+                        else if($limT+$limPartiEvento > $chMax){
+                            $lim = $chMax - $limT;
+                        }
                     }
                 }
-                else {
-                    if($limT+$limPartiPalestra <= $chMax){
-                        $lim = $limPartiPalestra;
+            }
+            else if($request->input('tipo3') == 'Participação de Palestra'){
+                if($limT <= $chMax){
+                    if($request->input('carga_horaria3') <= $limPartiPalestra){
+                        if($limT+$request->input('carga_horaria3') <= $chMax){
+                            $lim = $request->input('carga_horaria3');
+                        }
+                        else if($limT+$request->input('carga_horaria3') > $chMax){
+                            $lim = $chMax - $limT;
+                        }
                     }
-                    else if($limT+$limPartiPalestra > $chMax){
-                        $lim = $chMax - $limT;
+                    else {
+                        if($limT+$limPartiPalestra <= $chMax){
+                            $lim = $limPartiPalestra;
+                        }
+                        else if($limT+$limPartiPalestra > $chMax){
+                            $lim = $chMax - $limT;
+                        }
+                    }
+                }
+            }
+            else if($request->input('tipo3') == 'Apresentação em Evento Científico'){
+                if($limT <= $chMax){
+                    if($request->input('carga_horaria3') <= $limApreseEvento){
+                        if($limT+$request->input('carga_horaria3') <= $chMax){
+                            $lim = $request->input('carga_horaria3');
+                        }
+                        else if($limT+$request->input('carga_horaria3') > $chMax){
+                            $lim = $chMax - $limT;
+                        }
+                    }
+                    else {
+                        if($limT+$limApreseEvento <= $chMax){
+                            $lim = $limApreseEvento;
+                        }
+                        else if($limT+$limApreseEvento > $chMax){
+                            $lim = $chMax - $limT;
+                        }
+                    }
+                }
+            }
+            else if($request->input('tipo3') == 'Apresentação de Palestra'){
+                if($limT <= $chMax){
+                    if($request->input('carga_horaria3') <= $limApresePalestra){
+                        if($limT+$request->input('carga_horaria3') <= $chMax){
+                            $lim = $request->input('carga_horaria3');
+                        }
+                        else if($limT+$request->input('carga_horaria3') > $chMax){
+                            $lim = $chMax - $limT;
+                        }
+                    }
+                    else {
+                        if($limT+$limApresePalestra <= $chMax){
+                            $lim = $limApresePalestra;
+                        }
+                        else if($limT+$limApresePalestra > $chMax){
+                            $lim = $chMax - $limT;
+                        }
                     }
                 }
             }
         }
-        else if($request->input('tipo3') == 'Apresentação em Evento Científico'){
-            if($limT <= $chMax){
-                if($request->input('carga_horaria3') <= $limApreseEvento){
-                    if($limT+$request->input('carga_horaria3') <= $chMax){
-                        $lim = $request->input('carga_horaria3');
-                    }
-                    else if($limT+$request->input('carga_horaria3') > $chMax){
-                        $lim = $chMax - $limT;
-                    }
-                }
-                else {
-                    if($limT+$limApreseEvento <= $chMax){
-                        $lim = $limApreseEvento;
-                    }
-                    else if($limT+$limApreseEvento > $chMax){
-                        $lim = $chMax - $limT;
-                    }
-                }
-            }
+        else {
+            $lim = 0;
         }
-        else if($request->input('tipo3') == 'Apresentação de Palestra'){
-            if($limT <= $chMax){
-                if($request->input('carga_horaria3') <= $limApresePalestra){
-                    if($limT+$request->input('carga_horaria3') <= $chMax){
-                        $lim = $request->input('carga_horaria3');
-                    }
-                    else if($limT+$request->input('carga_horaria3') > $chMax){
-                        $lim = $chMax - $limT;
-                    }
-                }
-                else {
-                    if($limT+$limApresePalestra <= $chMax){
-                        $lim = $limApresePalestra;
-                    }
-                    else if($limT+$limApresePalestra > $chMax){
-                        $lim = $chMax - $limT;
-                    }
-                }
-            }
-        }
+        
 
         $data = Form3::find($request->id)->update(array(
             'tipo' => $request->input('tipo3'),
@@ -1532,7 +1579,8 @@ class ActivityController extends Controller
             'status' => $request->input('status3'),
             'usuario_id' => $request->input('usuario_id3'),
             'customFileLang' => $request->input('customFileLang3'),
-            'lim_carga_h' => $lim
+            'lim_carga_h' => $request->input('lim_carga_h'),
+            'horas_aprovadas' => $lim,
         ));
 
         return redirect()->route('lista_atividades', $idUser);
@@ -1545,15 +1593,20 @@ class ActivityController extends Controller
         $chMax = 30;
         $limPremiacao = 10;
 
-        if($limT <= $chMax){
-            if($limT+$limPremiacao <= $chMax){
-                $lim = $limPremiacao;
-            }
-            else if($limT+$limPremiacao > $chMax){
-                $lim = $chMax - $limT;
+        if($request->input('status4') == "Deferido"){
+            if($limT <= $chMax){
+                if($limT+$limPremiacao <= $chMax){
+                    $lim = $limPremiacao;
+                }
+                else if($limT+$limPremiacao > $chMax){
+                    $lim = $chMax - $limT;
+                }
             }
         }
-
+        else {
+            $lim = 0;
+        }
+        
         $data = Form4::find($request->id)->update(array(
             'id' => $request->input('id'),
             'carga_horaria' => $request->input('carga_horaria4'),
@@ -1562,7 +1615,8 @@ class ActivityController extends Controller
             'status' => $request->input('status4'),
             'usuario_id' => $request->input('usuario_id4'),
             'customFileLang' => $request->input('customFileLang4'),
-            'lim_carga_h' => $lim
+            'lim_carga_h' => $request->input('lim_carga_h'),
+            'horas_aprovadas' => $lim,
         ));
 
         return redirect()->route('lista_atividades', $idUser);
@@ -1576,31 +1630,36 @@ class ActivityController extends Controller
         $chLimColegiado = 15;
         $chMax = 140;
 
-        if($request->input('tipo5') == 'Diretório Acadêmico'){
-            if($limT <= $chMax){
-                if($request->input('quant_semestres5') >= 2){
-                    if($limT+$chLimDA <= $chMax){
-                        $lim = $chLimDA;
+        if($request->input('status5') == "Deferido"){
+            if($request->input('tipo5') == 'Diretório Acadêmico'){
+                if($limT <= $chMax){
+                    if($request->input('quant_semestres5') >= 2){
+                        if($limT+$chLimDA <= $chMax){
+                            $lim = $chLimDA;
+                        }
+                        else if($limT+$chLimDA > $chMax){
+                            $lim = $chMax - $limT;
+                        }
                     }
-                    else if($limT+$chLimDA > $chMax){
-                        $lim = $chMax - $limT;
+                    else {
+                        $lim = 0;
                     }
                 }
-                else {
+                else{
                     $lim = 0;
                 }
             }
-            else{
-                $lim = 0;
+            else if($request->input('tipo5') == 'Conselho ou Colegiado'){
+                if($request->input('quant_semestres5')*$chLimColegiado <= $chMax-$limT){
+                    $lim = $request->input('quant_semestres5')*$chLimColegiado;
+                }
+                else if($request->input('quant_semestres5')*$chLimColegiado > $chMax-$limT){
+                    $lim = $chMax - $limT;
+                }
             }
         }
-        else if($request->input('tipo5') == 'Conselho ou Colegiado'){
-            if($request->input('quant_semestres5')*$chLimColegiado <= $chMax-$limT){
-                $lim = $request->input('quant_semestres5')*$chLimColegiado;
-            }
-            else if($request->input('quant_semestres5')*$chLimColegiado > $chMax-$limT){
-                $lim = $chMax - $limT;
-            }
+        else {
+            $lim = 0;
         }
 
         $data = Form5::find($request->id)->update(array(
@@ -1613,7 +1672,8 @@ class ActivityController extends Controller
             'status' => $request->input('status5'),
             'usuario_id' => $request->input('usuario_id5'),
             'customFileLang' => $request->input('customFileLang5'),
-            'lim_carga_h' => $lim
+            'lim_carga_h' => $request->input('lim_carga_h'),
+            'horas_aprovadas' => $lim,
         ));
 
         return redirect()->route('lista_atividades', $idUser);
@@ -1626,22 +1686,28 @@ class ActivityController extends Controller
         $chLimEJ = 40;
         $chMax = 80;
 
-        if($limT <= $chMax){
-            if($request->input('quant_semestres6') >= 1){
-                if($limT+$chLimEJ <= $chMax){
-                    $lim = $chLimEJ;
+        if($request->input('status6') == "Deferido"){
+            if($limT <= $chMax){
+                if($request->input('quant_semestres6') >= 1){
+                    if($limT+$chLimEJ <= $chMax){
+                        $lim = $chLimEJ;
+                    }
+                    else if($limT+$chLimEJ > $chMax){
+                        $lim = $chMax - $limT;
+                    }
                 }
-                else if($limT+$chLimEJ > $chMax){
-                    $lim = $chMax - $limT;
+                else {
+                    $lim = 0;
                 }
             }
             else {
                 $lim = 0;
             }
         }
-        else {
+        else{
             $lim = 0;
         }
+        
 
         $data = Form6::find($request->id)->update(array(
             'id' => $request->input('id'),
@@ -1651,7 +1717,8 @@ class ActivityController extends Controller
             'status' => $request->input('status6'),
             'usuario_id' => $request->input('usuario_id6'),
             'customFileLang' => $request->input('customFileLang6'),
-            'lim_carga_h' => $lim
+            'lim_carga_h' => $request->input('lim_carga_h'),
+            'horas_aprovadas' => $lim,
         ));
 
         return redirect()->route('lista_atividades', $idUser);
@@ -1664,15 +1731,20 @@ class ActivityController extends Controller
         $chLimEstagio = 50;
         $chMax = 50;
 
-        if($limT <= $chMax){
-            if($request->input('lim_carga_h') == $chLimEstagio){
-                $lim = $chLimEstagio;
+        if($request->input('status7') == "Deferido"){
+            if($limT <= $chMax){
+                if($request->input('lim_carga_h') == $chLimEstagio){
+                    $lim = $chLimEstagio;
+                }
+                else{
+                    $lim = $chMax - $limT;
+                }
             }
-            else{
-                $lim = $chMax - $limT;
+            else {
+                $lim = 0;
             }
         }
-        else {
+        else{
             $lim = 0;
         }
 
@@ -1685,7 +1757,8 @@ class ActivityController extends Controller
             'status' => $request->input('status7'),
             'usuario_id' => $request->input('usuario_id7'),
             'customFileLang' => $request->input('customFileLang7'),
-            'lim_carga_h' => $lim //recebendo valor total
+            'lim_carga_h' => $request->input('lim_carga_h'),
+            'horas_aprovadas' => $lim,
         ));
 
         return redirect()->route('lista_atividades', $idUser);
@@ -1698,14 +1771,20 @@ class ActivityController extends Controller
         $chLim = 10;
         $chMax = 150;
 
-        if($limT < $chMax){
-            if($limT+$chLim <= $chMax){
-                $lim = $chLim;
-            }
-            else if($limT+$chLim > $chMax){
-                $lim = $chMax - $limT;
+        if($request->input('status8') == "Deferido"){
+            if($limT < $chMax){
+                if($limT+$chLim <= $chMax){
+                    $lim = $chLim;
+                }
+                else if($limT+$chLim > $chMax){
+                    $lim = $chMax - $limT;
+                }
             }
         }
+        else{
+            $lim = 0;
+        }
+        
 
         $data = Form8::find($request->id)->update(array(
             'id' => $request->input('id'),
@@ -1715,7 +1794,8 @@ class ActivityController extends Controller
             'status' => $request->input('status8'),
             'usuario_id' => $request->input('usuario_id8'),
             'customFileLang' => $request->input('customFileLang8'),
-            'lim_carga_h' => $lim
+            'lim_carga_h' => $request->input('lim_carga_h'),
+            'horas_aprovadas' => $lim,
         ));
 
         return redirect()->route('lista_atividades', $idUser);
@@ -1728,17 +1808,23 @@ class ActivityController extends Controller
         $chLim = 15;
         $chMax = 60;
 
-        if($limT <= $chMax){
-            if($limT+$chLim <= $chMax){
-                $lim = $chLim;
+        if($request->input('status9') == "Deferido"){
+            if($limT <= $chMax){
+                if($limT+$chLim <= $chMax){
+                    $lim = $chLim;
+                }
+                else if($limT+$chLim > $chMax){
+                    $lim = $chMax - $limT;
+                }
             }
-            else if($limT+$chLim > $chMax){
-                $lim = $chMax - $limT;
+            else {
+                $lim = 0;
             }
         }
-        else {
+        else{
             $lim = 0;
         }
+        
 
         $data = Form9::find($request->id)->update(array(
             'id' => $request->input('id'),
@@ -1747,7 +1833,8 @@ class ActivityController extends Controller
             'status' => $request->input('status9'),
             'usuario_id' => $request->input('usuario_id9'),
             'customFileLang' => $request->input('customFileLang9'),
-            'lim_carga_h' => $lim
+            'lim_carga_h' => $request->input('lim_carga_h'),
+            'horas_aprovadas' => $lim,
         ));
 
         return redirect()->route('lista_atividades', $idUser);
@@ -1761,41 +1848,46 @@ class ActivityController extends Controller
         $chLimC = 80;
         $chMax = 160;
 
-        if($request->input('tipo10') == 'Monitoria'){
-            if($chLim >= $request->input('carga_horaria10')){
-                if($limT+$request->input('carga_horaria10') <= $chMax){
-                    $lim = $request->input('carga_horaria10');
+        if($request->input('status10') == "Deferido"){
+            if($request->input('tipo10') == 'Monitoria'){
+                if($chLim >= $request->input('carga_horaria10')){
+                    if($limT+$request->input('carga_horaria10') <= $chMax){
+                        $lim = $request->input('carga_horaria10');
+                    }
+                    else if($limT+$request->input('carga_horaria10') > $chMax){
+                        $lim = $chMax - $limT;
+                    }
                 }
-                else if($limT+$request->input('carga_horaria10') > $chMax){
-                    $lim = $chMax - $limT;
+                else{
+                    if($limT+$chLim <= $chMax){
+                        $lim = $chLim;
+                    }
+                    else if($limT+$chLim > $chMax){
+                        $lim = $chMax - $limT;
+                    }
                 }
             }
-            else{
-                if($limT+$chLim <= $chMax){
-                    $lim = $chLim;
+            else if($request->input('tipo10') == 'Disciplina Complementar'){
+                if($request->input('carga_horaria10') <= $chLimC){
+                    if($limT+$request->input('carga_horaria10') <= $chMax){
+                        $lim = $request->input('carga_horaria10');
+                    }
+                    else if($limT+$request->input('carga_horaria10') > $chMax){
+                        $lim = $chMax - $limT;
+                    }
                 }
-                else if($limT+$chLim > $chMax){
-                    $lim = $chMax - $limT;
+                else{
+                    if($limT+$chLimC <= $chMax){
+                        $lim = $chLimC;
+                    }
+                    else if($limT+$chLimC > $chMax){
+                        $lim = $chMax - $limT;
+                    }
                 }
             }
         }
-        else if($request->input('tipo10') == 'Disciplina Complementar'){
-            if($request->input('carga_horaria10') <= $chLimC){
-                if($limT+$request->input('carga_horaria10') <= $chMax){
-                    $lim = $request->input('carga_horaria10');
-                }
-                else if($limT+$request->input('carga_horaria10') > $chMax){
-                    $lim = $chMax - $limT;
-                }
-            }
-            else{
-                if($limT+$chLimC <= $chMax){
-                    $lim = $chLimC;
-                }
-                else if($limT+$chLimC > $chMax){
-                    $lim = $chMax - $limT;
-                }
-            }
+        else{
+            $lim = 0;
         }
 
         $data = Form10::find($request->id)->update(array(
@@ -1808,7 +1900,8 @@ class ActivityController extends Controller
             'status' => $request->input('status10'),
             'usuario_id' => $request->input('usuario_id10'),
             'customFileLang' => $request->input('customFileLang10'),
-            'lim_carga_h' => $lim
+            'lim_carga_h' => $request->input('lim_carga_h'),
+            'horas_aprovadas' => $lim,
         ));
 
         return redirect()->route('lista_atividades', $idUser);
@@ -1821,12 +1914,18 @@ class ActivityController extends Controller
         $chLim = 10;
         $chMax = 50;
 
-        if($limT+$chLim <= $chMax){
-            $lim = $chLim;
+        if($request->input('status11') == "Deferido"){
+            if($limT+$chLim <= $chMax){
+                $lim = $chLim;
+            }
+            else if($limT+$chLim > $chMax){
+                $lim = $chMax - $limT;
+            }
         }
-        else if($limT+$chLim > $chMax){
-            $lim = $chMax - $limT;
+        else{
+            $lim = 0;
         }
+        
 
         $data = Form11::find($request->id)->update(array(
             'id' => $request->input('id'),
@@ -1835,7 +1934,8 @@ class ActivityController extends Controller
             'status' => $request->input('status11'),
             'usuario_id' => $request->input('usuario_id11'),
             'customFileLang' => $request->input('customFileLang11'),
-            'lim_carga_h' => $lim
+            'lim_carga_h' => $request->input('lim_carga_h'),
+            'horas_aprovadas' => $lim,
         ));
 
         return redirect()->route('lista_atividades', $idUser);
@@ -1849,41 +1949,46 @@ class ActivityController extends Controller
         $chLimAluno = 20;
         $chMax = 150;
 
-        if($request->input('tipo12') == 'Instrutor'){
-            if($chLimInstru >= $request->input('carga_horaria12')){
-                if($limT+$request->input('carga_horaria12') <= $chMax){
-                    $lim = $request->input('carga_horaria12');
+        if($request->input('status12') == "Deferido"){
+            if($request->input('tipo12') == 'Instrutor'){
+                if($chLimInstru >= $request->input('carga_horaria12')){
+                    if($limT+$request->input('carga_horaria12') <= $chMax){
+                        $lim = $request->input('carga_horaria12');
+                    }
+                    else if($limT+$request->input('carga_horaria12') > $chMax){
+                        $lim = $chMax - $limT;
+                    }
                 }
-                else if($limT+$request->input('carga_horaria12') > $chMax){
-                    $lim = $chMax - $limT;
+                else{
+                    if($limT+$chLimInstru <= $chMax){
+                        $lim = $chLimInstru;
+                    }
+                    else if($limT+$chLimInstru > $chMax){
+                        $lim = $chMax - $limT;
+                    }
                 }
             }
-            else{
-                if($limT+$chLimInstru <= $chMax){
-                    $lim = $chLimInstru;
+            else if($request->input('tipo12') == 'Aluno'){
+                if($request->input('carga_horaria12') <= $chLimAluno){
+                    if($limT+$request->input('carga_horaria12') <= $chMax){
+                        $lim = $request->input('carga_horaria12');
+                    }
+                    else if($limT+$request->input('carga_horaria12') > $chMax){
+                        $lim = $chMax - $limT;
+                    }
                 }
-                else if($limT+$chLimInstru > $chMax){
-                    $lim = $chMax - $limT;
+                else{
+                    if($limT+$chLimAluno <= $chMax){
+                        $lim = $chLimAluno;
+                    }
+                    else if($limT+$chLimAluno > $chMax){
+                        $lim = $chMax - $limT;
+                    }
                 }
             }
         }
-        else if($request->input('tipo12') == 'Aluno'){
-            if($request->input('carga_horaria12') <= $chLimAluno){
-                if($limT+$request->input('carga_horaria12') <= $chMax){
-                    $lim = $request->input('carga_horaria12');
-                }
-                else if($limT+$request->input('carga_horaria12') > $chMax){
-                    $lim = $chMax - $limT;
-                }
-            }
-            else{
-                if($limT+$chLimAluno <= $chMax){
-                    $lim = $chLimAluno;
-                }
-                else if($limT+$chLimAluno > $chMax){
-                    $lim = $chMax - $limT;
-                }
-            }
+        else{
+            $lim = 0;
         }
 
         $data = Form12::find($request->id)->update(array(
@@ -1896,7 +2001,8 @@ class ActivityController extends Controller
             'status' => $request->input('status12'),
             'usuario_id' => $request->input('usuario_id12'),
             'customFileLang' => $request->input('customFileLang12'),
-            'lim_carga_h' => $lim
+            'lim_carga_h' => $request->input('lim_carga_h'),
+            'horas_aprovadas' => $lim,
         ));
 
         return redirect()->route('lista_atividades', $idUser);
@@ -1909,11 +2015,16 @@ class ActivityController extends Controller
         $chLim = 15;
         $chMax = 60;
 
-        if($limT+$chLim <= $chMax){
-            $lim = $chLim;
+        if($request->input('status13') == "Deferido"){
+            if($limT+$chLim <= $chMax){
+                $lim = $chLim;
+            }
+            else if($limT+$chLim > $chMax){
+                $lim = $chMax - $limT;
+            }
         }
-        else if($limT+$chLim > $chMax){
-            $lim = $chMax - $limT;
+        else {
+            $lim = 0;
         }
 
         $data = Form13::find($request->id)->update(array(
@@ -1923,7 +2034,8 @@ class ActivityController extends Controller
             'status' => $request->input('status13'),
             'usuario_id' => $request->input('usuario_id13'),
             'customFileLang' => $request->input('customFileLang13'),
-            'lim_carga_h' => $lim
+            'lim_carga_h' => $request->input('lim_carga_h'),
+            'horas_aprovadas' => $lim,
         ));
 
         return redirect()->route('lista_atividades', $idUser);
@@ -1936,19 +2048,25 @@ class ActivityController extends Controller
         $chLim = 50;
         $chMax = 200;
 
-        if($limT <= $chMax){
-            if($limT+$request->input('carga_horaria14') <= $chMax){
-                if($request->input('carga_horaria14') <= $chLim){
-                    $lim = $request->input('carga_horaria14');
+        if($request->input('status14') == "Deferido"){
+            if($limT <= $chMax){
+                if($limT+$request->input('carga_horaria14') <= $chMax){
+                    if($request->input('carga_horaria14') <= $chLim){
+                        $lim = $request->input('carga_horaria14');
+                    }
+                    else if($request->input('carga_horaria14') > $chLim){
+                        $lim = 50;
+                    }
                 }
-                else if($request->input('carga_horaria14') > $chLim){
-                    $lim = 50;
+                else if($limT+$request->input('carga_horaria14') > $chMax){
+                    $lim = $chMax - $limT;
                 }
-            }
-            else if($limT+$request->input('carga_horaria14') > $chMax){
-                $lim = $chMax - $limT;
             }
         }
+        else {
+            $lim = 0;
+        }
+        
 
         $data = Form14::find($request->id)->update(array(
             'id' => $request->input('id'),
@@ -1961,6 +2079,7 @@ class ActivityController extends Controller
             'usuario_id' => $request->input('usuario_id14'),
             'customFileLang' => $request->input('customFileLang14'),
             'lim_carga_h' => $request->input('lim_carga_h'),
+            'horas_aprovadas' => $lim,
         ));
 
         return redirect()->route('lista_atividades', $idUser);

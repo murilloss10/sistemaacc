@@ -63,6 +63,23 @@ class HomeController extends Controller
         $limTF14 = Form14::where('usuario_id', $idUser)->sum('lim_carga_h');
         $chTotal = $limTF1+$limTF2+$limTF3+$limTF4+$limTF5+$limTF6+$limTF7+$limTF8+$limTF9+$limTF10+$limTF11+$limTF12+$limTF13+$limTF14;
 
+        $aproTF1 = Form1::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF2 = Form2::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF3 = Form3::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF4 = Form4::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF5 = Form5::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF6 = Form6::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF7 = Form7::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF8 = Form8::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF9 = Form9::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF10 = Form10::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF11 = Form11::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF12 = Form12::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF13 = Form13::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF14 = Form14::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $chAproT = $aproTF1+$aproTF2+$aproTF3+$aproTF4+$aproTF5+$aproTF6+$aproTF7+$aproTF8+$aproTF9+$aproTF10+$aproTF11+$aproTF12+$aproTF13+$aproTF14;
+        $chAproHomePage = ;
+
         $lastIDF1 = Form1::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
         $lastIDF2 = Form2::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
         $lastIDF3 = Form3::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
@@ -73,10 +90,10 @@ class HomeController extends Controller
         $lastIDF10 = Form10::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
 
 
-        if($chNecessaria-$chTotal >= 0){
-            $chRestante = $chNecessaria-$chTotal;
-            if($chTotal != 0){
-                $percTotal = ($chTotal*100)/$chNecessaria;
+        if($chNecessaria-$chAproT >= 0){
+            $chRestante = $chNecessaria-$chAproT;
+            if($chAproT != 0){
+                $percTotal = ($chAproT*100)/$chNecessaria;
             }
             else{
                 $percTotal = 0;
@@ -104,6 +121,21 @@ class HomeController extends Controller
             ->with('limTF13', $limTF13)
             ->with('limTF14', $limTF14)
             ->with('chTotal', $chTotal)
+            ->with('aproTF1', $aproTF1)
+            ->with('aproTF2', $aproTF2)
+            ->with('aproTF3', $aproTF3)
+            ->with('aproTF4', $aproTF4)
+            ->with('aproTF5', $aproTF5)
+            ->with('aproTF6', $aproTF6)
+            ->with('aproTF7', $aproTF7)
+            ->with('aproTF8', $aproTF8)
+            ->with('aproTF9', $aproTF9)
+            ->with('aproTF10', $aproTF10)
+            ->with('aproTF11', $aproTF11)
+            ->with('aproTF12', $aproTF12)
+            ->with('aproTF13', $aproTF13)
+            ->with('aproTF14', $aproTF14)
+            ->with('chAproT', $chAproT)
             ->with('chRestante', $chRestante)
             ->with('percTotal', $percTotal)
             ->with('listUsers', $listUsers)
@@ -135,20 +167,20 @@ class HomeController extends Controller
             $chMaxF12 = 150;
             $chMaxF13 = 60;
             $chMaxF14 = 200;
-            $limTF1 = Form1::where('usuario_id', $id)->sum('lim_carga_h');
-            $limTF2 = Form2::where('usuario_id', $id)->sum('lim_carga_h');
-            $limTF3 = Form3::where('usuario_id', $id)->sum('lim_carga_h');
-            $limTF4 = Form4::where('usuario_id', $id)->sum('lim_carga_h');
-            $limTF5 = Form5::where('usuario_id', $id)->sum('lim_carga_h');
-            $limTF6 = Form6::where('usuario_id', $id)->sum('lim_carga_h');
-            $limTF7 = Form7::where('usuario_id', $id)->sum('lim_carga_h');
-            $limTF8 = Form8::where('usuario_id', $id)->sum('lim_carga_h');
-            $limTF9 = Form9::where('usuario_id', $id)->sum('lim_carga_h');
-            $limTF10 = Form10::where('usuario_id', $id)->sum('lim_carga_h');
-            $limTF11 = Form11::where('usuario_id', $id)->sum('lim_carga_h');
-            $limTF12 = Form12::where('usuario_id', $id)->sum('lim_carga_h');
-            $limTF13 = Form13::where('usuario_id', $id)->sum('lim_carga_h');
-            $limTF14 = Form14::where('usuario_id', $id)->sum('lim_carga_h');
+            $limTF1 = Form1::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF2 = Form2::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF3 = Form3::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF4 = Form4::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF5 = Form5::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF6 = Form6::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF7 = Form7::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF8 = Form8::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF9 = Form9::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF10 = Form10::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF11 = Form11::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF12 = Form12::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF13 = Form13::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF14 = Form14::where('usuario_id', $id)->sum('horas_aprovadas');
             $dadosForm1 = Form1::all();
             $dadosForm2 = Form2::all();
             $dadosForm3 = Form3::all();
