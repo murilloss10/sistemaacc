@@ -264,6 +264,7 @@
                         <th>CURSO</th>
                         <th>C.H. APROVADA</th>
                         <th>ACESSAR</th>
+                        <th></th>
                     </tr>
                 </thead>
                 @forelse ($listUsers as $dado) 
@@ -273,6 +274,14 @@
                             <td>{{$dado->course}}</td>
                             <td>{{$dado->approved_hours}}</td>
                             <td><a href="{{url('atividades/lista/'.$dado->id)}}">ACESSAR ATIVIDADES</a></td>
+                            <td>
+                                @if ($dado->approved_hours > 140)
+                                    <form action="{{url('atividades/documento-final/'.$dado->id)}}" method="GET">
+                                        <input hidden type="number" value="{{$dado->id}}" class="form-control" placeholder="" id="docfinal" name="docfinal">
+                                        <button class="btn btn-primary"  style="font-size: 14px;" type="submit"><i class="fas fa-file-pdf" style="font-size: 14px;"></i> DOC. FINAL</button>
+                                    </form>
+                                @endif
+                            </td>
                         </tr>
                     @else
 

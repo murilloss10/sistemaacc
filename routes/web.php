@@ -84,6 +84,8 @@ Route::get('atividades/form14/editar/{id}/{idUser}', 'Activity\ActivityControlle
 
 Route::get('atividades/arquivos/{nameFile}', 'Activity\ActivityController@exibirPDF')->middleware('auth')->name('exibirPdf');
 
+Route::get('atividades/documento-final/{id}', 'DynamicPDFController@docFinal')->name('docs.doc_final');
+
 
 Auth::routes(['register' => true]);
 
