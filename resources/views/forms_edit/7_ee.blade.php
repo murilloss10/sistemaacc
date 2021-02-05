@@ -92,6 +92,9 @@
                 <div class="col-md-1 div-hidden"><!-- div para pegar limite -->
                     <input type="number" type="hidden" class="form-control" placeholder="" id="lim_carga_h" name="lim_carga_h" value="{{$dados->lim_carga_h}}">
                 </div>
+                <div class="col-md-1 div-hidden"><!-- div para pegar limite -->
+                    <input type="number" type="hidden" class="form-control" id="horas_aprovadas" name="horas_aprovadas7" value="{{$dados->horas_aprovadas}}">
+                </div>
             </div>
 
         </form>

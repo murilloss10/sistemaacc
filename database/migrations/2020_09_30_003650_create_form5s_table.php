@@ -14,7 +14,7 @@ class CreateForm5sTable extends Migration
     public function up()
     {
         Schema::create('form5s', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('tipo', 255);
             $table->integer('quant_semestres');
             $table->string('nome_c', 255);
@@ -28,6 +28,7 @@ class CreateForm5sTable extends Migration
             $table->string('customFileLang', 255);
             $table->integer('lim_carga_h');
             $table->integer('horas_aprovadas')->nullable();
+            $table->string('aprovacao');
             $table->timestamps();
         });
     }

@@ -86,6 +86,18 @@
                 </div>
             </div>
 
+            <div class="row div-hidden" ><!-- div -->
+                <div class="col-md-4">
+                    <input type="number" value="0" class="form-control" placeholder="" id="horas_aprovadas" name="horas_aprovadas1">
+                </div>
+            </div>
+
+            <div class="row div-hidden" ><!-- div -->
+                <div class="col-md-4">
+                    <input type="text" value="Não" class="form-control" placeholder="" id="aprovacao" name="aprovacao1">
+                </div>
+            </div>
+
             <br><button class="btn btn-primary" type="submit">Salvar</button>
         </form>
     </div>

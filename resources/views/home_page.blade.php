@@ -261,6 +261,7 @@
                 <thead>
                     <tr>
                         <th>NOME</th>
+                        <th>CURSO</th>
                         <th>C.H. APROVADA</th>
                         <th>ACESSAR</th>
                     </tr>
@@ -268,9 +269,9 @@
                 @forelse ($listUsers as $dado) 
                     @if ($dado->type != 'administrador')
                         <tr>
-                            <td>{{$dado->name}}</td>
-                            
-                            <td>.</td>
+                            <td>{{$dado->name}}</td>                           
+                            <td>{{$dado->course}}</td>
+                            <td>{{$dado->approved_hours}}</td>
                             <td><a href="{{url('atividades/lista/'.$dado->id)}}">ACESSAR ATIVIDADES</a></td>
                         </tr>
                     @else

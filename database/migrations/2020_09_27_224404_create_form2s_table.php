@@ -14,7 +14,7 @@ class CreateForm2sTable extends Migration
     public function up()
     {
         Schema::create('form2s', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('tipo', 255);
             $table->string('titulo', 255);
             $table->string('onde_pub', 255);
@@ -27,6 +27,7 @@ class CreateForm2sTable extends Migration
             $table->string('customFileLang', 255);
             $table->integer('lim_carga_h');
             $table->integer('horas_aprovadas')->nullable();
+            $table->string('aprovacao');
             $table->timestamps();
         });
     }

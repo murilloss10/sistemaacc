@@ -67,6 +67,30 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="course" class="col-md-4 col-form-label text-md-right">{{ __('Curso') }}</label>
+
+                            <div class="col-md-6">
+                                <select class="form-control @error('course') is-invalid @enderror" id="course" name="course" required autocomplete="course">
+                                    <option selected value="">Selecione o curso</option>
+                                    <option value="Administração">Administração</option>
+                                    <option value="Engenharia Civil">Engenharia Civil</option>
+                                    <option value="Sistemas de Informação">Sistemas de Informação</option>
+                                </select>
+                                @error('course')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                                <input hidden id="approved_hours" type="number" class="form-control @error('approved_hours') is-invalid @enderror" name="approved_hours" value="0" required autocomplete="approved_hours">
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

@@ -119,9 +119,11 @@
                     <input type="number" class="form-control" placeholder="" id="usuario_id" name="usuario_id3" value="{{$dados->usuario_id}}">
                 </div>
             </div>
-
             <div class="col-md-1 div-hidden"><!-- div para pegar limite -->
                 <input type="number" type="hidden" class="form-control" id="lim_carga_h" name="lim_carga_h" value="{{$dados->lim_carga_h}}">
+            </div>
+            <div class="col-md-1 div-hidden"><!-- div para pegar limite -->
+                <input type="number" type="hidden" class="form-control" id="horas_aprovadas" name="horas_aprovadas3" value="{{$dados->horas_aprovadas}}">
             </div>
         </form>
     </div>

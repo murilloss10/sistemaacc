@@ -82,6 +82,7 @@ class ActivityController extends Controller
             $limTF12 = Form12::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $limTF13 = Form13::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $limTF14 = Form14::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            //$dadosForm1 = Form1::all();
             $dadosForm1 = Form1::all();
             $dadosForm2 = Form2::all();
             $dadosForm3 = Form3::all();
@@ -248,7 +249,9 @@ class ActivityController extends Controller
                 'status' => $request->input('status1'),
                 'usuario_id' => $request->input('usuario_id1'),
                 'customFileLang' => $nameA,
-                'lim_carga_h' => $lim
+                'lim_carga_h' => $lim,
+                'horas_aprovadas' => $request->input('horas_aprovadas1'),
+                'aprovacao' => $request->input('aprovacao1'),
             ));
 
         }
@@ -303,7 +306,8 @@ class ActivityController extends Controller
                 'status' => $request->input('status2'),
                 'usuario_id' => $request->input('usuario_id2'),
                 'customFileLang' => $nameA,
-                'lim_carga_h' => $lim
+                'lim_carga_h' => $lim,
+                'aprovacao' => 'Não',
             ));
 
         }
@@ -459,7 +463,8 @@ class ActivityController extends Controller
                 'status' => $request->input('status3'),
                 'usuario_id' => $request->input('usuario_id3'),
                 'customFileLang' => $nameA,
-                'lim_carga_h' => $lim
+                'lim_carga_h' => $lim,
+                'aprovacao' => 'Não',
             ));
         }
         return redirect()->action('Activity\ActivityController@pagForm');
@@ -493,7 +498,8 @@ class ActivityController extends Controller
                 'status' => $request->input('status4'),
                 'usuario_id' => $request->input('usuario_id4'),
                 'customFileLang' => $nameA,
-                'lim_carga_h' => $lim
+                'lim_carga_h' => $lim,
+                'aprovacao' => 'Não',
             ));
         }
         return redirect()->action('Activity\ActivityController@pagForm');
@@ -548,7 +554,8 @@ class ActivityController extends Controller
                 'status' => $request->input('status5'),
                 'usuario_id' => $request->input('usuario_id5'),
                 'customFileLang' => $nameA,
-                'lim_carga_h' => $lim
+                'lim_carga_h' => $lim,
+                'aprovacao' => 'Não',
             ));
         }
         return redirect()->action('Activity\ActivityController@pagForm');
@@ -591,7 +598,8 @@ class ActivityController extends Controller
                 'status' => $request->input('status6'),
                 'usuario_id' => $request->input('usuario_id6'),
                 'customFileLang' => $nameA,
-                'lim_carga_h' => $lim
+                'lim_carga_h' => $lim,
+                'aprovacao' => 'Não',
             ));
         }
         return redirect()->action('Activity\ActivityController@pagForm');
@@ -628,7 +636,8 @@ class ActivityController extends Controller
                 'status' => $request->input('status7'),
                 'usuario_id' => $request->input('usuario_id7'),
                 'customFileLang' => $nameA,
-                'lim_carga_h' => $lim
+                'lim_carga_h' => $lim,
+                'aprovacao' => 'Não',
             ));
         }
         return redirect()->action('Activity\ActivityController@pagForm');
@@ -662,7 +671,8 @@ class ActivityController extends Controller
                 'status' => $request->input('status8'),
                 'usuario_id' => $request->input('usuario_id8'),
                 'customFileLang' => $nameA,
-                'lim_carga_h' => $lim
+                'lim_carga_h' => $lim,
+                'aprovacao' => 'Não',
             ));
         }
         return redirect()->action('Activity\ActivityController@pagForm');
@@ -698,7 +708,8 @@ class ActivityController extends Controller
                 'status' => $request->input('status9'),
                 'usuario_id' => $request->input('usuario_id9'),
                 'customFileLang' => $nameA,
-                'lim_carga_h' => $lim
+                'lim_carga_h' => $lim,
+                'aprovacao' => 'Não',
             ));
         }
         return redirect()->action('Activity\ActivityController@pagForm');
@@ -763,7 +774,8 @@ class ActivityController extends Controller
                 'status' => $request->input('status10'),
                 'usuario_id' => $request->input('usuario_id10'),
                 'customFileLang' => $nameA,
-                'lim_carga_h' => $lim
+                'lim_carga_h' => $lim,
+                'aprovacao' => 'Não',
             ));
         }
         return redirect()->action('Activity\ActivityController@pagForm');
@@ -794,7 +806,8 @@ class ActivityController extends Controller
                 'status' => $request->input('status11'),
                 'usuario_id' => $request->input('usuario_id11'),
                 'customFileLang' => $nameA,
-                'lim_carga_h' => $lim
+                'lim_carga_h' => $lim,
+                'aprovacao' => 'Não',
             ));
         }
         return redirect()->action('Activity\ActivityController@pagForm');
@@ -859,7 +872,8 @@ class ActivityController extends Controller
                 'status' => $request->input('status12'),
                 'usuario_id' => $request->input('usuario_id12'),
                 'customFileLang' => $nameA,
-                'lim_carga_h' => $lim
+                'lim_carga_h' => $lim,
+                'aprovacao' => 'Não',
             ));
         }
         return redirect()->action('Activity\ActivityController@pagForm');
@@ -890,7 +904,8 @@ class ActivityController extends Controller
                 'status' => $request->input('status13'),
                 'usuario_id' => $request->input('usuario_id13'),
                 'customFileLang' => $nameA,
-                'lim_carga_h' => $lim
+                'lim_carga_h' => $lim,
+                'aprovacao' => 'Não',
             ));
         }
         return redirect()->action('Activity\ActivityController@pagForm');
@@ -933,7 +948,8 @@ class ActivityController extends Controller
                 'status' => $request->input('status14'),
                 'usuario_id' => $request->input('usuario_id14'),
                 'customFileLang' => $nameA,
-                'lim_carga_h' => $lim
+                'lim_carga_h' => $lim,
+                'aprovacao' => 'Não',
             ));
 
         }
@@ -944,126 +960,266 @@ class ActivityController extends Controller
 
     public function excluirAtividadeForm1($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
-            Form1::destroy($id);
+
+            $idUser = Auth::id();
+            $antHorasApro = User::where('id', $idUser)->first();
+            $chAproAnterior = $antHorasApro->approved_hours;
+             
             $dados = Form1::find($id);
-            Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
+            Form1::destroy($id);
+            Storage::delete('public/'.$dados->customFileLang); //excluindo o arquivo copiado
+            
+            User::find($idUser)->update(array(
+                'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
+            ));
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
 
     public function excluirAtividadeForm2($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
-            Form2::destroy($id);
+
+            $idUser = Auth::id();
+            $antHorasApro = User::where('id', $idUser)->first();
+            $chAproAnterior = $antHorasApro->approved_hours;
+
             $dados = Form2::find($id);
-            Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
+            Form2::destroy($id);
+            Storage::delete('public/'.$dados->customFileLang); //excluindo o arquivo copiado
+
+            User::find($idUser)->update(array(
+                'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
+            ));
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
 
     public function excluirAtividadeForm3($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
-            Form3::destroy($id);
+
+            $idUser = Auth::id();
+            $antHorasApro = User::where('id', $idUser)->first();
+            $chAproAnterior = $antHorasApro->approved_hours;
+            
             $dados = Form3::find($id);
-            Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
+            Form3::destroy($id);
+            Storage::delete('public/'.$dados->customFileLang); //excluindo o arquivo copiado
+
+            User::find($idUser)->update(array(
+                'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
+            ));
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
 
     public function excluirAtividadeForm4($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
-            Form4::destroy($id);
+            
+            $idUser = Auth::id();
+            $antHorasApro = User::where('id', $idUser)->first();
+            $chAproAnterior = $antHorasApro->approved_hours;
+
             $dados = Form4::find($id);
-            Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
+            Form4::destroy($id);
+            Storage::delete('public/'.$dados->customFileLang); //excluindo o arquivo copiado
+
+            User::find($idUser)->update(array(
+                'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
+            ));
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
 
     public function excluirAtividadeForm5($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
-            Form5::destroy($id);
+            
+            $idUser = Auth::id();
+            $antHorasApro = User::where('id', $idUser)->first();
+            $chAproAnterior = $antHorasApro->approved_hours;
+
             $dados = Form5::find($id);
-            Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
+            Form5::destroy($id);
+            Storage::delete('public/'.$dados->customFileLang); //excluindo o arquivo copiado
+
+            User::find($idUser)->update(array(
+                'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
+            ));
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
 
     public function excluirAtividadeForm6($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
-            Form6::destroy($id);
+            
+            $idUser = Auth::id();
+            $antHorasApro = User::where('id', $idUser)->first();
+            $chAproAnterior = $antHorasApro->approved_hours;
+
             $dados = Form6::find($id);
-            Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
+            Form6::destroy($id);
+            Storage::delete('public/'.$dados->customFileLang); //excluindo o arquivo copiado
+
+            User::find($idUser)->update(array(
+                'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
+            ));
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
 
     public function excluirAtividadeForm7($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
-            Form7::destroy($id);
+            
+            $idUser = Auth::id();
+            $antHorasApro = User::where('id', $idUser)->first();
+            $chAproAnterior = $antHorasApro->approved_hours;
+
             $dados = Form7::find($id);
-            Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
+            Form7::destroy($id);
+            Storage::delete('public/'.$dados->customFileLang); //excluindo o arquivo copiado
+
+            User::find($idUser)->update(array(
+                'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
+            ));
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
 
     public function excluirAtividadeForm8($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
-            Form8::destroy($id);
+            
+            $idUser = Auth::id();
+            $antHorasApro = User::where('id', $idUser)->first();
+            $chAproAnterior = $antHorasApro->approved_hours;
+
             $dados = Form8::find($id);
-            Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
+            Form8::destroy($id);
+            Storage::delete('public/'.$dados->customFileLang); //excluindo o arquivo copiado
+
+            User::find($idUser)->update(array(
+                'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
+            ));
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
 
     public function excluirAtividadeForm9($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
-            Form9::destroy($id);
+            
+            $idUser = Auth::id();
+            $antHorasApro = User::where('id', $idUser)->first();
+            $chAproAnterior = $antHorasApro->approved_hours;
+
             $dados = Form9::find($id);
-            Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
+            Form9::destroy($id);
+            Storage::delete('public/'.$dados->customFileLang); //excluindo o arquivo copiado
+
+            User::find($idUser)->update(array(
+                'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
+            ));
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
 
     public function excluirAtividadeForm10($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
-            Form10::destroy($id);
+            
+            $idUser = Auth::id();
+            $antHorasApro = User::where('id', $idUser)->first();
+            $chAproAnterior = $antHorasApro->approved_hours;
+
             $dados = Form10::find($id);
-            Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
+            Form10::destroy($id);
+            Storage::delete('public/'.$dados->customFileLang); //excluindo o arquivo copiado
+
+            User::find($idUser)->update(array(
+                'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
+            ));
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
 
     public function excluirAtividadeForm11($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
-            Form11::destroy($id);
+            
+            $idUser = Auth::id();
+            $antHorasApro = User::where('id', $idUser)->first();
+            $chAproAnterior = $antHorasApro->approved_hours;
+
             $dados = Form11::find($id);
-            Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
+            Form11::destroy($id);
+            Storage::delete('public/'.$dados->customFileLang); //excluindo o arquivo copiado
+
+            User::find($idUser)->update(array(
+                'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
+            ));
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
 
     public function excluirAtividadeForm12($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
-            Form12::destroy($id);
+            
+            $idUser = Auth::id();
+            $antHorasApro = User::where('id', $idUser)->first();
+            $chAproAnterior = $antHorasApro->approved_hours;
+
             $dados = Form12::find($id);
-            Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
+            Form12::destroy($id);
+            Storage::delete('public/'.$dados->customFileLang); //excluindo o arquivo copiado
+
+            User::find($idUser)->update(array(
+                'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
+            ));
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
 
     public function excluirAtividadeForm13($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
-            Form13::destroy($id);
+            
+            $idUser = Auth::id();
+            $antHorasApro = User::where('id', $idUser)->first();
+            $chAproAnterior = $antHorasApro->approved_hours;
+
             $dados = Form13::find($id);
-            Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
+            Form13::destroy($id);
+            Storage::delete('public/'.$dados->customFileLang); //excluindo o arquivo copiado
+
+            User::find($idUser)->update(array(
+                'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
+            ));
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
 
     public function excluirAtividadeForm14($id){ //função exclui dados na tabela e o aquivo
         if(Gate::authorize('normal')){
-            Form14::destroy($id);
+            
+            $idUser = Auth::id();
+            $antHorasApro = User::where('id', $idUser)->first();
+            $chAproAnterior = $antHorasApro->approved_hours;
+
             $dados = Form14::find($id);
-            Storage::delete('arquivosPdf/'.$dados->customFileLang); //excluindo o arquivo copiado
+            Form14::destroy($id);
+            Storage::delete('public/'.$dados->customFileLang); //excluindo o arquivo copiado
+
+            User::find($idUser)->update(array(
+                'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
+            ));
+            
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
@@ -1341,6 +1497,9 @@ class ActivityController extends Controller
         $chLim = 50;
         $chMax = 200;
 
+        $antHorasApro = User::where('id', $idUser)->first();
+        $chAproAnterior = $antHorasApro->approved_hours;
+
         if($request->input('status1') == "Deferido"){
             if($limT <= $chMax){
                 if($limT+$request->input('carga_horaria1') <= $chMax){
@@ -1355,11 +1514,18 @@ class ActivityController extends Controller
                     $lim = $chMax - $limT;
                 }
             }
+            $aprovacao = 'Sim';
         }
         else{
             $lim = 0;
+            $aprovacao = 'Não';
         }
 
+        $chAproAnterior-=$request->input('horas_aprovadas1');
+        
+        User::find($idUser)->update(array(
+            'approved_hours' => $chAproAnterior+$lim,
+        ));
 
         $data = Form1::find($request->id)->update(array(
             'id' => $request->input('id'),
@@ -1373,6 +1539,7 @@ class ActivityController extends Controller
             'customFileLang' => $request->input('customFileLang1'),
             'lim_carga_h' => $request->input('lim_carga_h'),
             'horas_aprovadas' => $lim,
+            'aprovacao' => $aprovacao,
         ));
 
         return redirect()->route('lista_atividades', $idUser);
@@ -1385,6 +1552,9 @@ class ActivityController extends Controller
         $chLimArtigo = 40;
         $chLimResumo = 20;
         $chMax = 220;
+
+        $antHorasApro = User::where('id', $idUser)->first();
+        $chAproAnterior = $antHorasApro->approved_hours;
 
         if($request->input('status2') == "Deferido"){
             if($request->input('tipo2') == 'Artigo'){
@@ -1411,6 +1581,12 @@ class ActivityController extends Controller
         else{
             $lim = 0;
         }
+
+        $chAproAnterior-=$request->input('horas_aprovadas2');
+        
+        User::find($idUser)->update(array(
+            'approved_hours' => $chAproAnterior+$lim,
+        ));
         
         $data = Form2::find($request->id)->update(array(
             'id' => $request->input('id'),
@@ -1440,6 +1616,9 @@ class ActivityController extends Controller
         $limPartiPalestra = 5;
         $limApreseEvento = 15;
         $limApresePalestra = 15;
+
+        $antHorasApro = User::where('id', $idUser)->first();
+        $chAproAnterior = $antHorasApro->approved_hours;
 
         if($request->input('status3') == "Deferido"){
             if($request->input('tipo3') == 'Organização em Evento Científico'){
@@ -1568,6 +1747,11 @@ class ActivityController extends Controller
             $lim = 0;
         }
         
+        $chAproAnterior-=$request->input('horas_aprovadas3');
+        
+        User::find($idUser)->update(array(
+            'approved_hours' => $chAproAnterior+$lim,
+        ));
 
         $data = Form3::find($request->id)->update(array(
             'tipo' => $request->input('tipo3'),
@@ -1593,6 +1777,9 @@ class ActivityController extends Controller
         $chMax = 30;
         $limPremiacao = 10;
 
+        $antHorasApro = User::where('id', $idUser)->first();
+        $chAproAnterior = $antHorasApro->approved_hours;
+
         if($request->input('status4') == "Deferido"){
             if($limT <= $chMax){
                 if($limT+$limPremiacao <= $chMax){
@@ -1606,6 +1793,12 @@ class ActivityController extends Controller
         else {
             $lim = 0;
         }
+
+        $chAproAnterior-=$request->input('horas_aprovadas4');
+        
+        User::find($idUser)->update(array(
+            'approved_hours' => $chAproAnterior+$lim,
+        ));
         
         $data = Form4::find($request->id)->update(array(
             'id' => $request->input('id'),
@@ -1629,6 +1822,9 @@ class ActivityController extends Controller
         $chLimDA = 40;
         $chLimColegiado = 15;
         $chMax = 140;
+
+        $antHorasApro = User::where('id', $idUser)->first();
+        $chAproAnterior = $antHorasApro->approved_hours;
 
         if($request->input('status5') == "Deferido"){
             if($request->input('tipo5') == 'Diretório Acadêmico'){
@@ -1662,6 +1858,12 @@ class ActivityController extends Controller
             $lim = 0;
         }
 
+        $chAproAnterior-=$request->input('horas_aprovadas5');
+        
+        User::find($idUser)->update(array(
+            'approved_hours' => $chAproAnterior+$lim,
+        ));
+
         $data = Form5::find($request->id)->update(array(
             'id' => $request->input('id'),
             'tipo' => $request->input('tipo5'),
@@ -1686,6 +1888,9 @@ class ActivityController extends Controller
         $chLimEJ = 40;
         $chMax = 80;
 
+        $antHorasApro = User::where('id', $idUser)->first();
+        $chAproAnterior = $antHorasApro->approved_hours;
+
         if($request->input('status6') == "Deferido"){
             if($limT <= $chMax){
                 if($request->input('quant_semestres6') >= 1){
@@ -1707,6 +1912,12 @@ class ActivityController extends Controller
         else{
             $lim = 0;
         }
+
+        $chAproAnterior-=$request->input('horas_aprovadas6');
+        
+        User::find($idUser)->update(array(
+            'approved_hours' => $chAproAnterior+$lim,
+        ));
         
 
         $data = Form6::find($request->id)->update(array(
@@ -1731,6 +1942,9 @@ class ActivityController extends Controller
         $chLimEstagio = 50;
         $chMax = 50;
 
+        $antHorasApro = User::where('id', $idUser)->first();
+        $chAproAnterior = $antHorasApro->approved_hours;
+
         if($request->input('status7') == "Deferido"){
             if($limT <= $chMax){
                 if($request->input('lim_carga_h') == $chLimEstagio){
@@ -1747,6 +1961,12 @@ class ActivityController extends Controller
         else{
             $lim = 0;
         }
+
+        $chAproAnterior-=$request->input('horas_aprovadas7');
+        
+        User::find($idUser)->update(array(
+            'approved_hours' => $chAproAnterior+$lim,
+        ));
 
 
         $data = Form7::find($request->id)->update(array(
@@ -1771,6 +1991,9 @@ class ActivityController extends Controller
         $chLim = 10;
         $chMax = 150;
 
+        $antHorasApro = User::where('id', $idUser)->first();
+        $chAproAnterior = $antHorasApro->approved_hours;
+
         if($request->input('status8') == "Deferido"){
             if($limT < $chMax){
                 if($limT+$chLim <= $chMax){
@@ -1785,6 +2008,11 @@ class ActivityController extends Controller
             $lim = 0;
         }
         
+        $chAproAnterior-=$request->input('horas_aprovadas8');
+        
+        User::find($idUser)->update(array(
+            'approved_hours' => $chAproAnterior+$lim,
+        ));
 
         $data = Form8::find($request->id)->update(array(
             'id' => $request->input('id'),
@@ -1808,6 +2036,9 @@ class ActivityController extends Controller
         $chLim = 15;
         $chMax = 60;
 
+        $antHorasApro = User::where('id', $idUser)->first();
+        $chAproAnterior = $antHorasApro->approved_hours;
+
         if($request->input('status9') == "Deferido"){
             if($limT <= $chMax){
                 if($limT+$chLim <= $chMax){
@@ -1825,6 +2056,11 @@ class ActivityController extends Controller
             $lim = 0;
         }
         
+        $chAproAnterior-=$request->input('horas_aprovadas9');
+        
+        User::find($idUser)->update(array(
+            'approved_hours' => $chAproAnterior+$lim,
+        ));
 
         $data = Form9::find($request->id)->update(array(
             'id' => $request->input('id'),
@@ -1847,6 +2083,9 @@ class ActivityController extends Controller
         $chLim = 40;
         $chLimC = 80;
         $chMax = 160;
+
+        $antHorasApro = User::where('id', $idUser)->first();
+        $chAproAnterior = $antHorasApro->approved_hours;
 
         if($request->input('status10') == "Deferido"){
             if($request->input('tipo10') == 'Monitoria'){
@@ -1890,6 +2129,12 @@ class ActivityController extends Controller
             $lim = 0;
         }
 
+        $chAproAnterior-=$request->input('horas_aprovadas10');
+        
+        User::find($idUser)->update(array(
+            'approved_hours' => $chAproAnterior+$lim,
+        ));
+
         $data = Form10::find($request->id)->update(array(
             'id' => $request->input('id'),
             'tipo' => $request->input('tipo10'),
@@ -1914,6 +2159,9 @@ class ActivityController extends Controller
         $chLim = 10;
         $chMax = 50;
 
+        $antHorasApro = User::where('id', $idUser)->first();
+        $chAproAnterior = $antHorasApro->approved_hours;
+
         if($request->input('status11') == "Deferido"){
             if($limT+$chLim <= $chMax){
                 $lim = $chLim;
@@ -1926,6 +2174,11 @@ class ActivityController extends Controller
             $lim = 0;
         }
         
+        $chAproAnterior-=$request->input('horas_aprovadas11');
+        
+        User::find($idUser)->update(array(
+            'approved_hours' => $chAproAnterior+$lim,
+        ));
 
         $data = Form11::find($request->id)->update(array(
             'id' => $request->input('id'),
@@ -1948,6 +2201,9 @@ class ActivityController extends Controller
         $chLimInstru = 10;
         $chLimAluno = 20;
         $chMax = 150;
+
+        $antHorasApro = User::where('id', $idUser)->first();
+        $chAproAnterior = $antHorasApro->approved_hours;
 
         if($request->input('status12') == "Deferido"){
             if($request->input('tipo12') == 'Instrutor'){
@@ -1991,6 +2247,12 @@ class ActivityController extends Controller
             $lim = 0;
         }
 
+        $chAproAnterior-=$request->input('horas_aprovadas12');
+        
+        User::find($idUser)->update(array(
+            'approved_hours' => $chAproAnterior+$lim,
+        ));
+
         $data = Form12::find($request->id)->update(array(
             'id' => $request->input('id'),
             'tipo' => $request->input('tipo12'),
@@ -2015,6 +2277,9 @@ class ActivityController extends Controller
         $chLim = 15;
         $chMax = 60;
 
+        $antHorasApro = User::where('id', $idUser)->first();
+        $chAproAnterior = $antHorasApro->approved_hours;
+
         if($request->input('status13') == "Deferido"){
             if($limT+$chLim <= $chMax){
                 $lim = $chLim;
@@ -2026,6 +2291,12 @@ class ActivityController extends Controller
         else {
             $lim = 0;
         }
+
+        $chAproAnterior-=$request->input('horas_aprovadas13');
+        
+        User::find($idUser)->update(array(
+            'approved_hours' => $chAproAnterior+$lim,
+        ));
 
         $data = Form13::find($request->id)->update(array(
             'id' => $request->input('id'),
@@ -2048,6 +2319,9 @@ class ActivityController extends Controller
         $chLim = 50;
         $chMax = 200;
 
+        $antHorasApro = User::where('id', $idUser)->first();
+        $chAproAnterior = $antHorasApro->approved_hours;
+
         if($request->input('status14') == "Deferido"){
             if($limT <= $chMax){
                 if($limT+$request->input('carga_horaria14') <= $chMax){
@@ -2066,6 +2340,12 @@ class ActivityController extends Controller
         else {
             $lim = 0;
         }
+
+        $chAproAnterior-=$request->input('horas_aprovadas14');
+        
+        User::find($idUser)->update(array(
+            'approved_hours' => $chAproAnterior+$lim,
+        ));
         
 
         $data = Form14::find($request->id)->update(array(

@@ -14,7 +14,7 @@ class CreateForm12sTable extends Migration
     public function up()
     {
         Schema::create('form12s', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('tipo', 255);
             $table->integer('carga_horaria');
             $table->string('nome_curso', 255);
@@ -28,6 +28,7 @@ class CreateForm12sTable extends Migration
             $table->string('customFileLang', 255);
             $table->integer('lim_carga_h');
             $table->integer('horas_aprovadas')->nullable();
+            $table->string('aprovacao');
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@ class CreateForm3sTable extends Migration
     public function up()
     {
         Schema::create('form3s', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('tipo', 255);
             $table->integer('carga_horaria');
             $table->string('nome_evento', 255);
@@ -29,6 +29,7 @@ class CreateForm3sTable extends Migration
             $table->string('customFileLang', 255);
             $table->integer('lim_carga_h');
             $table->integer('horas_aprovadas')->nullable();
+            $table->string('aprovacao');
             $table->timestamps();
         });
     }

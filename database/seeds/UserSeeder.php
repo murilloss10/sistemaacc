@@ -20,6 +20,8 @@ class UserSeeder extends Seeder
         $user->email = 'admin@admin.com';
         $user->password = Hash::make('123456');
         $user->type = "administrador";
+        $user->course = "Sistemas de Informação";
+        $user->approved_hours = 0;
         $user->save();
 
         $user = new User();
@@ -27,6 +29,8 @@ class UserSeeder extends Seeder
         $user->email = 'silva@mail.com';
         $user->password = Hash::make('12345678');
         $user->type = "normal";
+        $user->course = "Sistemas de Informação";
+        $user->approved_hours = 0;
         $user->save();
     }
 }

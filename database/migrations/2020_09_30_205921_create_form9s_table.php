@@ -14,7 +14,7 @@ class CreateForm9sTable extends Migration
     public function up()
     {
         Schema::create('form9s', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('nome_proj', 255);
             $table->date('dt_proj');
             $table->string('status', 20)->nullable();
@@ -25,6 +25,7 @@ class CreateForm9sTable extends Migration
             $table->string('customFileLang', 255);
             $table->integer('lim_carga_h');
             $table->integer('horas_aprovadas')->nullable();
+            $table->string('aprovacao');
             $table->timestamps();
         });
     }

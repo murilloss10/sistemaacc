@@ -14,7 +14,7 @@ class CreateForm4sTable extends Migration
     public function up()
     {
         Schema::create('form4s', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('carga_horaria');
             $table->string('nome_evento', 255);
             $table->date('dt_evento');
@@ -26,6 +26,7 @@ class CreateForm4sTable extends Migration
             $table->string('customFileLang', 255);
             $table->integer('lim_carga_h');
             $table->integer('horas_aprovadas')->nullable();
+            $table->string('aprovacao');
             $table->timestamps();
         });
     }

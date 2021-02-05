@@ -21,6 +21,11 @@ use App\Models\Form12;
 use App\Models\Form13;
 use App\Models\Form14;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Auth\Access\AuthorizationException;
 
@@ -78,7 +83,8 @@ class HomeController extends Controller
         $aproTF13 = Form13::where('usuario_id', $idUser)->sum('horas_aprovadas');
         $aproTF14 = Form14::where('usuario_id', $idUser)->sum('horas_aprovadas');
         $chAproT = $aproTF1+$aproTF2+$aproTF3+$aproTF4+$aproTF5+$aproTF6+$aproTF7+$aproTF8+$aproTF9+$aproTF10+$aproTF11+$aproTF12+$aproTF13+$aproTF14;
-        $chAproHomePage = ;
+        
+        
 
         $lastIDF1 = Form1::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
         $lastIDF2 = Form2::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();

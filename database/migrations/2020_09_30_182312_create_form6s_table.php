@@ -14,7 +14,7 @@ class CreateForm6sTable extends Migration
     public function up()
     {
         Schema::create('form6s', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('quant_semestres');
             $table->date('dt_inicio');
             $table->date('dt_fim');
@@ -26,6 +26,7 @@ class CreateForm6sTable extends Migration
             $table->string('customFileLang', 255);
             $table->integer('lim_carga_h');
             $table->integer('horas_aprovadas')->nullable();
+            $table->string('aprovacao');
             $table->timestamps();
         });
     }
