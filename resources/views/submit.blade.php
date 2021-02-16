@@ -7,14 +7,19 @@
 
     <div class="container-fluid">
 
-        @if ($message = Session::get('success'))
-        <div class="alert">
-            <button type="button">×</button>
-                <strong>{{ $message }}</strong>
-        </div>
-        @endif
+        <br><br><br><br><br>
 
-        <br><br><h4 class="submit_title title-far-top">Submissão de Documento AACC</h4><br><br>
+        @if ($sucess == "atividade-sucesso")
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Atividade cadastrada com sucesso!</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+        
+
+        <h4 class="submit_title title-far-top">Submissão de Documento AACC</h4><br><br>
         <div class="row">
             <div class="form-inline col-md-12">
                 <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Tipo de Atividade</label>

@@ -180,6 +180,19 @@ inputFicheiro13.addEventListener('change', function() {
     }
 });
 
+//for form14
+var inputName14 = document.querySelector('label#customFileLang14')
+var inputFicheiro14 = document.querySelector('input#customFileLang14')
+inputFicheiro14.addEventListener('change', function() {
+    var nameFile = 'Nenhum arquivo selecionado.'
+    if(inputFicheiro14.files.length > 0) {
+        nameFile = this.files[0].name
+        inputName14.innerHTML = nameFile
+        window.alert(nameFile + ' - Selecionado.')
+    }else{
+        inputName14.innerHTML = 'Nenhum arquivo selecionado.'
+    }
+});
 
 
 /*

@@ -146,9 +146,11 @@ class ActivityController extends Controller
         }
     }
 
-    public function pagForm(){ //função revisada
+    public function pagForm($sucess){ //função revisada
 
         if(Gate::authorize('normal')){
+            
+            $sucess = $sucess;
             $user = User::all();
             $idUser = Auth::id();
             $nameUser = Auth::user()->name;
@@ -208,7 +210,8 @@ class ActivityController extends Controller
                 ->with('chMaxF11', $chMaxF11)
                 ->with('chMaxF12', $chMaxF12)
                 ->with('chMaxF13', $chMaxF13)
-                ->with('chMaxF14', $chMaxF14);
+                ->with('chMaxF14', $chMaxF14)
+                ->with('sucess', $sucess);
         }
     }
 
@@ -447,12 +450,9 @@ class ActivityController extends Controller
             ));
 
         }
-        //Form1::create($request->input());
 
-        //flash("Atividade submetida com sucesso !")->sucess();
-        //Session::flash("Atividade submetida com sucesso !");
-
-        return redirect()->action('Activity\ActivityController@pagForm')->with('success', 'Atividade cadastrada com sucesso!');
+        $sucess = "atividade-sucesso";
+        return redirect()->action('Activity\ActivityController@pagForm', $sucess)->with('success', 'Atividade cadastrada com sucesso!');
 
     }
 
@@ -503,7 +503,10 @@ class ActivityController extends Controller
             ));
 
         }
-        return redirect()->action('Activity\ActivityController@pagForm');
+
+        $sucess = "atividade-sucesso";
+
+        return redirect()->action('Activity\ActivityController@pagForm', $sucess);
     }
 
     public function form3(Form3Request $request){ //função revisada
@@ -659,7 +662,9 @@ class ActivityController extends Controller
                 'aprovacao' => 'Não',
             ));
         }
-        return redirect()->action('Activity\ActivityController@pagForm');
+
+        $sucess = "atividade-sucesso";
+        return redirect()->action('Activity\ActivityController@pagForm', $sucess);
     }
 
     public function form4(Form4Request $request){ //função revisada
@@ -694,7 +699,9 @@ class ActivityController extends Controller
                 'aprovacao' => 'Não',
             ));
         }
-        return redirect()->action('Activity\ActivityController@pagForm');
+
+        $sucess = "atividade-sucesso";
+        return redirect()->action('Activity\ActivityController@pagForm', $sucess);
     }
 
     public function form5(Form5Request $request){ //função revisada
@@ -750,7 +757,9 @@ class ActivityController extends Controller
                 'aprovacao' => 'Não',
             ));
         }
-        return redirect()->action('Activity\ActivityController@pagForm');
+
+        $sucess = "atividade-sucesso";
+        return redirect()->action('Activity\ActivityController@pagForm', $sucess);
     }
 
     public function form6(Form6Request $request){ //função revisada
@@ -794,7 +803,9 @@ class ActivityController extends Controller
                 'aprovacao' => 'Não',
             ));
         }
-        return redirect()->action('Activity\ActivityController@pagForm');
+
+        $sucess = "atividade-sucesso";
+        return redirect()->action('Activity\ActivityController@pagForm', $sucess);
     }
 
     public function form7(Form7Request $request){ //função revisada
@@ -832,7 +843,9 @@ class ActivityController extends Controller
                 'aprovacao' => 'Não',
             ));
         }
-        return redirect()->action('Activity\ActivityController@pagForm');
+
+        $sucess = "atividade-sucesso";
+        return redirect()->action('Activity\ActivityController@pagForm', $sucess);
     }
 
     public function form8(Form8Request $request){
@@ -867,7 +880,9 @@ class ActivityController extends Controller
                 'aprovacao' => 'Não',
             ));
         }
-        return redirect()->action('Activity\ActivityController@pagForm');
+
+        $sucess = "atividade-sucesso";
+        return redirect()->action('Activity\ActivityController@pagForm', $sucess);
     }
 
     public function form9(Form9Request $request){ //função revisada
@@ -904,7 +919,9 @@ class ActivityController extends Controller
                 'aprovacao' => 'Não',
             ));
         }
-        return redirect()->action('Activity\ActivityController@pagForm');
+
+        $sucess = "atividade-sucesso";
+        return redirect()->action('Activity\ActivityController@pagForm', $sucess);
     }
 
     public function form10(Form10Request $request){ //função revisada
@@ -970,7 +987,9 @@ class ActivityController extends Controller
                 'aprovacao' => 'Não',
             ));
         }
-        return redirect()->action('Activity\ActivityController@pagForm');
+
+        $sucess = "atividade-sucesso";
+        return redirect()->action('Activity\ActivityController@pagForm', $sucess);
     }
 
     public function form11(Form11Request $request){ //função revisada
@@ -1002,7 +1021,9 @@ class ActivityController extends Controller
                 'aprovacao' => 'Não',
             ));
         }
-        return redirect()->action('Activity\ActivityController@pagForm');
+
+        $sucess = "atividade-sucesso";
+        return redirect()->action('Activity\ActivityController@pagForm', $sucess);
     }
 
     public function form12(Form12Request $request){ //função revisada
@@ -1068,7 +1089,9 @@ class ActivityController extends Controller
                 'aprovacao' => 'Não',
             ));
         }
-        return redirect()->action('Activity\ActivityController@pagForm');
+
+        $sucess = "atividade-sucesso";
+        return redirect()->action('Activity\ActivityController@pagForm', $sucess);
     }
 
     public function form13(Form13Request $request){ //função revisada
@@ -1100,7 +1123,9 @@ class ActivityController extends Controller
                 'aprovacao' => 'Não',
             ));
         }
-        return redirect()->action('Activity\ActivityController@pagForm');
+
+        $sucess = "atividade-sucesso";
+        return redirect()->action('Activity\ActivityController@pagForm', $sucess);
     }
 
     public function form14(Form14Request $request){ //função revisada
@@ -1146,7 +1171,8 @@ class ActivityController extends Controller
 
         }
 
-        return redirect()->action('Activity\ActivityController@pagForm')->with('success', 'Atividade cadastrada com sucesso!');
+        $sucess = "atividade-sucesso";
+        return redirect()->action('Activity\ActivityController@pagForm', $sucess);
 
     }
 

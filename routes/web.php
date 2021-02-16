@@ -18,7 +18,7 @@ Route::get('/', function () {
 });*/
 
 Route::get('atividades', 'Activity\ActivityController@atividades')->middleware('auth');
-Route::get('submeter', 'Activity\ActivityController@pagForm')->middleware('auth');
+Route::get('submeter/{sucess}', 'Activity\ActivityController@pagForm')->middleware('auth');
 
 Route::post('submeter/form1/salvar', 'Activity\ActivityController@form1')->name('submeter1')->middleware('auth');
 Route::post('submeter/form2/salvar', 'Activity\ActivityController@form2')->name('submeter2')->middleware('auth');

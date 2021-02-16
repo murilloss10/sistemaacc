@@ -194,6 +194,7 @@ class HomeController extends Controller
 
     public function listActivities($id){
         if(Gate::authorize('administrador')){
+            
             $idUser = User::find($id)->id;
             $chMaxF1 = 200;
             $chMaxF2 = 220;
@@ -238,6 +239,7 @@ class HomeController extends Controller
             $dadosForm13 = Form13::all();
             $dadosForm14 = Form14::all();
             $authorized = $id;
+
             return  view('list_activities')
                 ->with('idUser', $id)
                 ->with('authorized', $authorized)
