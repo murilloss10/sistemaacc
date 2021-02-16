@@ -34,6 +34,15 @@
 
 
     @can('normal')
+
+        @if ($chAproT >= $chNecessaria)
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Você completou a carga horária mínima, gere o documento com a relação de atividades e entre ao professor responsável pelas AACC. <a class="" href="{{url('atividades/aprovadas')}}">Clique aqui.</a>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+        @endif
+        
+
         <!-- Start Content-->
         <div class="container-fluid">
 
@@ -157,8 +166,8 @@
                         <div class="col-lg-8">
                             <div class="card">
                                 <div class="card-body">
-
-                                    <h4 class="header-title mb-3"><a href="{{url('atividades')}}" class="link-submit">Atividades</a>
+                                    
+                                    <h4 class="header-title mb-3">Últimas atividades
                                         
                                         <button type="button" class="btn btn-primary float-right"><a class="button-delete-custom" title="Últimas atividades" href="{{url('atividades/aprovadas')}}">
                                             Mostrar atividades aprovadas</a>
@@ -206,7 +215,10 @@
                             <td>{{$dado->name}}</td>                           
                             <td>{{$dado->course}}</td>
                             <td>{{$dado->approved_hours}}</td>
-                            <td><a href="{{url('atividades/lista/'.$dado->id)}}">ACESSAR ATIVIDADES</a></td>
+                            <td>
+                                <button class="btn btn-primary"  style="font-size: 14px;" type="button"><a class="button-delete-custom" title="Pendentes" href="{{url('atividades/lista/'.$dado->id)}}"><i class="fas fa-mouse" style="font-size: 14px;"></i> ATIVIDADES PENDENTES</a></button>
+                                <button class="btn btn-primary"  style="font-size: 14px;" type="button"><a class="button-delete-custom" title="Aprovadas" href="{{url('atividades/aprovadas/lista/'.$dado->id)}}"><i class="fas fa-mouse" style="font-size: 14px;"></i> ATIVIDADES APROVADAS</a></button>
+                            </td>
                             <td>
                                 @if ($dado->approved_hours > 140)
                                     <form action="{{url('atividades/documento-final/'.$dado->id)}}" method="GET">

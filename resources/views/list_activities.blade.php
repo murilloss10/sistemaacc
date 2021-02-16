@@ -1,6 +1,6 @@
 @extends('index')
 
-<title>Lista de Atividades | SAACC</title>
+<title>Atividades Pendentes | SAACC</title>
 
 @section('main-content')
 
