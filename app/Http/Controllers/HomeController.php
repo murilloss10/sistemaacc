@@ -20,6 +20,7 @@ use App\Models\Form11;
 use App\Models\Form12;
 use App\Models\Form13;
 use App\Models\Form14;
+use App\Models\Activity;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
@@ -51,7 +52,7 @@ class HomeController extends Controller
         $listUsers = User::all();
         $nameUser = Auth::user()->name;
         $idUser = Auth::id();
-        $chNecessaria = 250;
+        $chNecessaria = 140;
         $limTF1 = Form1::where('usuario_id', $idUser)->sum('lim_carga_h');
         $limTF2 = Form2::where('usuario_id', $idUser)->sum('lim_carga_h');
         $limTF3 = Form3::where('usuario_id', $idUser)->sum('lim_carga_h');
@@ -84,16 +85,41 @@ class HomeController extends Controller
         $aproTF14 = Form14::where('usuario_id', $idUser)->sum('horas_aprovadas');
         $chAproT = $aproTF1+$aproTF2+$aproTF3+$aproTF4+$aproTF5+$aproTF6+$aproTF7+$aproTF8+$aproTF9+$aproTF10+$aproTF11+$aproTF12+$aproTF13+$aproTF14;
         
-        
+        $tdForm1 = Form1::all();
+        $tdForm2 = Form2::all();
+        $tdForm3 = Form3::all();
+        $tdForm4 = Form4::all();
+        $tdForm5 = Form5::all();
+        $tdForm6 = Form6::all();
+        $tdForm7 = Form7::all();
+        $tdForm8 = Form8::all();
+        $tdForm9 = Form9::all();
+        $tdForm10 = Form10::all();
+        $tdForm11 = Form11::all();
+        $tdForm12 = Form12::all();
+        $tdForm13 = Form13::all();
+        $tdForm14 = Form14::all();
 
-        $lastIDF1 = Form1::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
-        $lastIDF2 = Form2::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
-        $lastIDF3 = Form3::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
-        $lastIDF4 = Form4::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
-        $lastIDF5 = Form5::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
-        $lastIDF8 = Form8::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
-        $lastIDF9 = Form9::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
-        $lastIDF10 = Form10::orderBy('id', 'DESC')->where('usuario_id', $idUser)->first();
+        $atividades = Activity::all();
+        $authorized = Auth::id();
+
+        $tamForm1 = Form1::count();
+        $tamForm2 = Form2::count();
+        $tamForm3 = Form3::count();
+        $tamForm4 = Form4::count();
+        $tamForm5 = Form5::count();
+        $tamForm6 = Form6::count();
+        $tamForm7 = Form7::count();
+        $tamForm8 = Form8::count();
+        $tamForm9 = Form9::count();
+        $tamForm10 = Form10::count();
+        $tamForm11 = Form11::count();
+        $tamForm12 = Form12::count();
+        $tamForm13 = Form13::count();
+        $tamForm14 = Form14::count();
+        $tamTotalForms = $tamForm1+$tamForm2+$tamForm3+$tamForm4+$tamForm5+$tamForm6+$tamForm7+$tamForm8+$tamForm9+$tamForm10+$tamForm11+$tamForm12+$tamForm13+$tamForm14;
+
+
 
 
         if($chNecessaria-$chAproT >= 0){
@@ -110,7 +136,10 @@ class HomeController extends Controller
             $percTotal = 100;
         }
 
-        return view('home_page')->with('nameUser', $nameUser)
+        return view('home_page')
+            ->with('authorized', $authorized)
+            ->with('idUser', $idUser)
+            ->with('nameUser', $nameUser)
             ->with('chNecessaria', $chNecessaria)
             ->with('limTF1', $limTF1)
             ->with('limTF2', $limTF2)
@@ -145,14 +174,21 @@ class HomeController extends Controller
             ->with('chRestante', $chRestante)
             ->with('percTotal', $percTotal)
             ->with('listUsers', $listUsers)
-            ->with('lastIDF1', $lastIDF1)
-            ->with('lastIDF2', $lastIDF2)
-            ->with('lastIDF3', $lastIDF3)
-            ->with('lastIDF4', $lastIDF4)
-            ->with('lastIDF5', $lastIDF5)
-            ->with('lastIDF8', $lastIDF8)
-            ->with('lastIDF9', $lastIDF9)
-            ->with('lastIDF10', $lastIDF10);
+            ->with('tdForm1', $tdForm1)
+            ->with('tdForm2', $tdForm2)
+            ->with('tdForm3', $tdForm3)
+            ->with('tdForm4', $tdForm4)
+            ->with('tdForm5', $tdForm5)
+            ->with('tdForm6', $tdForm6)
+            ->with('tdForm7', $tdForm7)
+            ->with('tdForm8', $tdForm8)
+            ->with('tdForm9', $tdForm9)
+            ->with('tdForm10', $tdForm10)
+            ->with('tdForm11', $tdForm11)
+            ->with('tdForm12', $tdForm12)
+            ->with('tdForm13', $tdForm13)
+            ->with('tdForm14', $tdForm14)
+            ->with('tamTotalForms', $tamTotalForms);
 
     }
 
@@ -202,7 +238,8 @@ class HomeController extends Controller
             $dadosForm13 = Form13::all();
             $dadosForm14 = Form14::all();
             $authorized = $id;
-            return  view('list_activities')->with('idUser', $id)
+            return  view('list_activities')
+                ->with('idUser', $id)
                 ->with('authorized', $authorized)
                 ->with('dadosForm1', $dadosForm1)
                 ->with('dadosForm2', $dadosForm2)

@@ -1,8 +1,15 @@
 @extends('index')
 
+<title>Lista de Atividades | SAACC</title>
+
 @section('main-content')
-    <br><br><br><br><br>
+
     <div class="container-fluid">
+
+        <br><br><br><br>
+        <button type="button" class="btn btn-primary float-right"><a class="button-delete-custom" title="Últimas atividades" href="{{url('atividades/aprovadas/lista/'.$idUser)}}">
+            Mostrar atividades aprovadas</a>
+        </button>
 
         @include('tables.table_form1')
 

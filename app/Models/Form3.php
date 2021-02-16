@@ -11,10 +11,14 @@ class Form3 extends Model
     //adicionar o campo/coluna dos arquivos pdf
 
     public function getCreatedAtAttribute($value){
-        return (Carbon::parse($value)->format('d/m/Y H:i:s'));
+        return (Carbon::parse($value)->format('dmYHis'));
     }
 
     public function usuario(){
         return $this->belongsTo('App\User');
+    }
+
+    public function atividades(){
+        return $this->hasMany('App\Models\Activity');
     }
 }

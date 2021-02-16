@@ -17,6 +17,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('atividades')}}">Contabilização</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('atividades/aprovadas')}}">Atividades Aprovadas</a>
+                </li>
             @endcan
         </ul>
 

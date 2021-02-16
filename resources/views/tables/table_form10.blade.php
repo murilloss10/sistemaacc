@@ -29,7 +29,7 @@
 
 
         @forelse ($dadosForm10 as $dado)
-            @if ($dado->usuario_id == $authorized)
+            @if ($dado->usuario_id == $authorized && $dado->status == "Indeferido")
                 <tr>
                     <td>{{$dado->tipo}}</td>
                     <td>{{$dado->carga_horaria}}</td>

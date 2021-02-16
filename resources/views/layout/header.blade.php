@@ -23,6 +23,9 @@
     <!-- CSS page submit -->
     <link rel="stylesheet" href="{{URL::asset('css/cssPageSubmit.css')}}">
 
+    <!-- JS table sort -->
+    <script src="{{URL::asset('js/sorttable.js')}}"></script>
+
 
 </head>
 

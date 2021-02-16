@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Activity;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller; 
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB;
@@ -210,6 +210,198 @@ class ActivityController extends Controller
                 ->with('chMaxF13', $chMaxF13)
                 ->with('chMaxF14', $chMaxF14);
         }
+    }
+
+    public function allListActivities(){
+        
+        if(Gate::authorize('normal')){
+            
+            $idUser = Auth::id();
+            $chNecessaria = 140;
+            $authorized = Auth::id();
+            $aproTF1 = Form1::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF2 = Form2::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF3 = Form3::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF4 = Form4::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF5 = Form5::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF6 = Form6::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF7 = Form7::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF8 = Form8::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF9 = Form9::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF10 = Form10::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF11 = Form11::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF12 = Form12::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF13 = Form13::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF14 = Form14::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $chAproT = $aproTF1+$aproTF2+$aproTF3+$aproTF4+$aproTF5+$aproTF6+$aproTF7+$aproTF8+$aproTF9+$aproTF10+$aproTF11+$aproTF12+$aproTF13+$aproTF14;
+            $tdForm1 = Form1::all();
+            $tdForm2 = Form2::all();
+            $tdForm3 = Form3::all();
+            $tdForm4 = Form4::all();
+            $tdForm5 = Form5::all();
+            $tdForm6 = Form6::all();
+            $tdForm7 = Form7::all();
+            $tdForm8 = Form8::all();
+            $tdForm9 = Form9::all();
+            $tdForm10 = Form10::all();
+            $tdForm11 = Form11::all();
+            $tdForm12 = Form12::all();
+            $tdForm13 = Form13::all();
+            $tdForm14 = Form14::all();
+            $atividades = Activity::all();
+            $tamForm1 = Form1::count();
+            $tamForm2 = Form2::count();
+            $tamForm3 = Form3::count();
+            $tamForm4 = Form4::count();
+            $tamForm5 = Form5::count();
+            $tamForm6 = Form6::count();
+            $tamForm7 = Form7::count();
+            $tamForm8 = Form8::count();
+            $tamForm9 = Form9::count();
+            $tamForm10 = Form10::count();
+            $tamForm11 = Form11::count();
+            $tamForm12 = Form12::count();
+            $tamForm13 = Form13::count();
+            $tamForm14 = Form14::count();
+            $tamTotalForms = $tamForm1+$tamForm2+$tamForm3+$tamForm4+$tamForm5+$tamForm6+$tamForm7+$tamForm8+$tamForm9+$tamForm10+$tamForm11+$tamForm12+$tamForm13+$tamForm14;
+
+
+            return view('view_last_activities')
+            ->with('atividades', $atividades)
+            ->with('idUser', $idUser)
+            ->with('chNecessaria', $chNecessaria)
+            ->with('authorized', $authorized)
+            ->with('aproTF1', $aproTF1)
+            ->with('aproTF2', $aproTF2)
+            ->with('aproTF3', $aproTF3)
+            ->with('aproTF4', $aproTF4)
+            ->with('aproTF5', $aproTF5)
+            ->with('aproTF6', $aproTF6)
+            ->with('aproTF7', $aproTF7)
+            ->with('aproTF8', $aproTF8)
+            ->with('aproTF9', $aproTF9)
+            ->with('aproTF10', $aproTF10)
+            ->with('aproTF11', $aproTF11)
+            ->with('aproTF12', $aproTF12)
+            ->with('aproTF13', $aproTF13)
+            ->with('aproTF14', $aproTF14)
+            ->with('chAproT', $chAproT)
+            ->with('tdForm1', $tdForm1)
+            ->with('tdForm2', $tdForm2)
+            ->with('tdForm3', $tdForm3)
+            ->with('tdForm4', $tdForm4)
+            ->with('tdForm5', $tdForm5)
+            ->with('tdForm6', $tdForm6)
+            ->with('tdForm7', $tdForm7)
+            ->with('tdForm8', $tdForm8)
+            ->with('tdForm9', $tdForm9)
+            ->with('tdForm10', $tdForm10)
+            ->with('tdForm11', $tdForm11)
+            ->with('tdForm12', $tdForm12)
+            ->with('tdForm13', $tdForm13)
+            ->with('tdForm14', $tdForm14)
+            ->with('tamTotalForms', $tamTotalForms);
+
+
+
+        }
+
+    }
+
+    public function allListActivitiesApproved($id){
+        
+        if(Gate::authorize('administrador')){
+            
+            $idUser = User::find($id)->id;
+            $chNecessaria = 140;
+            $authorized = $id;
+            $aproTF1 = Form1::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF2 = Form2::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF3 = Form3::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF4 = Form4::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF5 = Form5::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF6 = Form6::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF7 = Form7::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF8 = Form8::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF9 = Form9::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF10 = Form10::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF11 = Form11::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF12 = Form12::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF13 = Form13::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF14 = Form14::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $chAproT = $aproTF1+$aproTF2+$aproTF3+$aproTF4+$aproTF5+$aproTF6+$aproTF7+$aproTF8+$aproTF9+$aproTF10+$aproTF11+$aproTF12+$aproTF13+$aproTF14;
+            $tdForm1 = Form1::all();
+            $tdForm2 = Form2::all();
+            $tdForm3 = Form3::all();
+            $tdForm4 = Form4::all();
+            $tdForm5 = Form5::all();
+            $tdForm6 = Form6::all();
+            $tdForm7 = Form7::all();
+            $tdForm8 = Form8::all();
+            $tdForm9 = Form9::all();
+            $tdForm10 = Form10::all();
+            $tdForm11 = Form11::all();
+            $tdForm12 = Form12::all();
+            $tdForm13 = Form13::all();
+            $tdForm14 = Form14::all();
+            $atividades = Activity::all();
+            $tamForm1 = Form1::count();
+            $tamForm2 = Form2::count();
+            $tamForm3 = Form3::count();
+            $tamForm4 = Form4::count();
+            $tamForm5 = Form5::count();
+            $tamForm6 = Form6::count();
+            $tamForm7 = Form7::count();
+            $tamForm8 = Form8::count();
+            $tamForm9 = Form9::count();
+            $tamForm10 = Form10::count();
+            $tamForm11 = Form11::count();
+            $tamForm12 = Form12::count();
+            $tamForm13 = Form13::count();
+            $tamForm14 = Form14::count();
+            $tamTotalForms = $tamForm1+$tamForm2+$tamForm3+$tamForm4+$tamForm5+$tamForm6+$tamForm7+$tamForm8+$tamForm9+$tamForm10+$tamForm11+$tamForm12+$tamForm13+$tamForm14;
+
+
+            return view('view_last_activities')
+            ->with('atividades', $atividades)
+            ->with('idUser', $idUser)
+            ->with('chNecessaria', $chNecessaria)
+            ->with('authorized', $authorized)
+            ->with('aproTF1', $aproTF1)
+            ->with('aproTF2', $aproTF2)
+            ->with('aproTF3', $aproTF3)
+            ->with('aproTF4', $aproTF4)
+            ->with('aproTF5', $aproTF5)
+            ->with('aproTF6', $aproTF6)
+            ->with('aproTF7', $aproTF7)
+            ->with('aproTF8', $aproTF8)
+            ->with('aproTF9', $aproTF9)
+            ->with('aproTF10', $aproTF10)
+            ->with('aproTF11', $aproTF11)
+            ->with('aproTF12', $aproTF12)
+            ->with('aproTF13', $aproTF13)
+            ->with('aproTF14', $aproTF14)
+            ->with('chAproT', $chAproT)
+            ->with('tdForm1', $tdForm1)
+            ->with('tdForm2', $tdForm2)
+            ->with('tdForm3', $tdForm3)
+            ->with('tdForm4', $tdForm4)
+            ->with('tdForm5', $tdForm5)
+            ->with('tdForm6', $tdForm6)
+            ->with('tdForm7', $tdForm7)
+            ->with('tdForm8', $tdForm8)
+            ->with('tdForm9', $tdForm9)
+            ->with('tdForm10', $tdForm10)
+            ->with('tdForm11', $tdForm11)
+            ->with('tdForm12', $tdForm12)
+            ->with('tdForm13', $tdForm13)
+            ->with('tdForm14', $tdForm14)
+            ->with('tamTotalForms', $tamTotalForms);
+
+
+
+        }
+
     }
 
     public function form1(Form1Request $request){ //função revisada

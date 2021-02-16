@@ -1,6 +1,6 @@
 @extends('index')
 
-
+<title>Submeter Atividade | SAACC</title>
 
 @section('main-content')
 

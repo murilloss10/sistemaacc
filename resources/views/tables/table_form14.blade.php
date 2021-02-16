@@ -1,4 +1,4 @@
-<br><br><h4 class="submit_title title-far-top-2">Projeto de Extensão</h4>
+<h4 class="submit_title title-far-top-2">Projeto de Extensão</h4>
 
 <div class="d-flex justify-content-end mb-3">
     <div class="p-2 bd-highlight">C.H. Máxima: {{$chMaxF14}}</div>
@@ -29,7 +29,7 @@
 
 
         @forelse ($dadosForm14 as $dado)
-            @if ($dado->usuario_id == $authorized)
+            @if ($dado->usuario_id == $authorized && $dado->status == "Indeferido")
                 <tr>
                     <td>{{$dado->tipo}}</td>
                     <td>{{$dado->carga_horaria}}</td>

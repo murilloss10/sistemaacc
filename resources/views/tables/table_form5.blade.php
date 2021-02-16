@@ -29,7 +29,7 @@
 
 
         @forelse ($dadosForm5 as $dado)
-            @if ($dado->usuario_id == $authorized)
+            @if ($dado->usuario_id == $authorized && $dado->status == "Indeferido")
                 <tr>
                     <td>{{$dado->tipo}}</td>
                     <td>{{$dado->quant_semestres}}</td>

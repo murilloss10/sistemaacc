@@ -52,6 +52,9 @@ Route::get('atividades/form14/excluir/{id}', 'Activity\ActivityController@exclui
 
 Route::get('atividades/lista/{id}', 'HomeController@listActivities')->name('lista_atividades')->middleware('auth');
 
+Route::get('atividades/aprovadas', 'Activity\ActivityController@allListActivities')->name('lista_ultimas_atividades')->middleware('auth');
+Route::get('atividades/aprovadas/lista/{id}', 'Activity\ActivityController@allListActivitiesApproved')->name('lista_ultimas_atividades')->middleware('auth');
+
 Route::post('editar/form1/salvar', 'Activity\ActivityController@editarForm1')->middleware('auth');
 Route::post('editar/form2/salvar', 'Activity\ActivityController@editarForm2')->middleware('auth');
 Route::post('editar/form3/salvar', 'Activity\ActivityController@editarForm3')->middleware('auth');
@@ -85,6 +88,7 @@ Route::get('atividades/form14/editar/{id}/{idUser}', 'Activity\ActivityControlle
 Route::get('atividades/arquivos/{nameFile}', 'Activity\ActivityController@exibirPDF')->middleware('auth')->name('exibirPdf');
 
 Route::get('atividades/documento-final/{id}', 'DynamicPDFController@docFinal')->name('docs.doc_final');
+Route::get('atividades/documento-comprovacao/{id}', 'DynamicPDFController@docComprovacao')->name('docs.doc_comprovacao');
 
 
 Auth::routes(['register' => true]);

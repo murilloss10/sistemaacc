@@ -1,5 +1,7 @@
 @extends('index')
 
+<title>Página Inicial | SAACC</title>
+
 @section('main-content')
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -156,87 +158,18 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <a href="{{url('atividades')}}" class="link-submit"><h4 class="header-title mb-3">Atividades</h4></a>
-
-                                    <p>Últimas submetidas</p>
+                                    <h4 class="header-title mb-3"><a href="{{url('atividades')}}" class="link-submit">Atividades</a>
+                                        
+                                        <button type="button" class="btn btn-primary float-right"><a class="button-delete-custom" title="Últimas atividades" href="{{url('atividades/aprovadas')}}">
+                                            Mostrar atividades aprovadas</a>
+                                        </button>
+                                    
+                                    </h4>
 
                                     <div class="table-responsive" style="max-height: 260px;">
-                                        <table class="table table-centered table-nowrap table-hover mb-0">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <span class="text-muted font-13">{{$lastIDF1->tipo ?? NULL}}</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF1->nome_projeto ?? NULL}}</h5>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Carga H.</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF1->lim_carga_h ?? NULL}}</h5>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <span class="text-muted font-13">{{$lastIDF2->tipo ?? NULL}}</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF2->titulo ?? NULL}}</h5>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Carga H.</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF2->lim_carga_h ?? NULL}}</h5>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <span class="text-muted font-13">{{$lastIDF3->tipo ?? NULL}}</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF3->nome_evento ?? NULL}}</h5>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Carga H.</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF3->lim_carga_h ?? NULL}}</h5>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <span class="text-muted font-13">{{$lastIDF5->tipo ?? NULL}}</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF5->nome_c ?? NULL}}</h5>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Carga H.</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF5->lim_carga_h ?? NULL}}</h5>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <span class="text-muted font-13">{{$lastIDF8->tipo ?? NULL}}</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF8->nome_atividade ?? NULL}}</h5>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Carga H.</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF8->lim_carga_h ?? NULL}}</h5>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <span class="text-muted font-13">{{$lastIDF9->tipo ?? NULL}}</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF9->nome_proj ?? NULL}}</h5>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Carga H.</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF9->lim_carga_h ?? NULL}}</h5>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <span class="text-muted font-13">{{$lastIDF10->tipo ?? NULL}}</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF10->nome_disc ?? NULL}}</h5>
-                                                    </td>
-                                                    <td>
-                                                        <span class="text-muted font-13">Carga H.</span>
-                                                        <h5 class="font-14 mt-1 font-weight-normal">{{$lastIDF10->lim_carga_h ?? NULL}}</h5>
-                                                    </td>
-                                                </tr>
 
+                                        @include('tables.all_activities')
 
-                                            </tbody>
-                                        </table>
                                     </div> <!-- end table-responsive-->
 
                                 </div> <!-- end card body-->
