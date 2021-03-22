@@ -27,7 +27,7 @@
 
 
         @forelse ($dadosForm4 as $dado)
-            @if ($dado->usuario_id == $authorized && $dado->status == "Indeferido")
+            @if ($dado->usuario_id == $authorized && ($dado->status == "Indeferido" || $dado->status == "Em análise"))
                 <tr>
                     <td>{{$dado->carga_horaria}}</td>
                     <td>{{$dado->nome_evento}}</td>

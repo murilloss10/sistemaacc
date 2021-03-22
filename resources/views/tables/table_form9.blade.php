@@ -26,7 +26,7 @@
 
 
         @forelse ($dadosForm9 as $dado)
-            @if ($dado->usuario_id == $authorized && $dado->status == "Indeferido")
+            @if ($dado->usuario_id == $authorized && ($dado->status == "Indeferido" || $dado->status == "Em análise"))
                 <tr>
                     <td>{{$dado->nome_proj}}</td>
                     <td>
