@@ -26,12 +26,13 @@
                     <label for="inlineFormCustomSelect" class="text-label">Tipo</label>
                     <select class="custom-select" id="inlineFormCustomSelect" name="tipo3">
                       <option selected value="">Selecione o tipo</option>
-                      <option value="Participação em Evento Científico">Participação em Evento Científico: Nacional ou Regional</option>
-                      <option value="Organização em Evento Científico">Organização em Evento Científico: Nacional ou Regional</option>
-                      <option value="Apresentação em Evento Científico">Apresentação em Evento Científico: Nacional ou Regional</option>
-                      <option value="Participação de Palestra">Participação em Palestra: Nacional ou Regional</option>
-                      <option value="Organização de Palestra">Organização de Palestra: Nacional ou Regional</option>
-                      <option value="Apresentação de Palestra">Apresentação de Palestra: Nacional ou Regional</option>
+                      <option value="Participação em Evento Científico Nacional ou Regional">Participação em Evento Científico: Nacional ou Regional</option>
+                      <option value="Participação em Evento Científico Local">Participação em Evento Científico: Local</option>
+                      <option value="Participação em Palestra e Conferências">Participação em Palestra e Conferências</option>
+                      <option value="Comissão Central de Organização">Organização em Evento Científico: Comissão Central</option>
+                      <option value="Comissão Secundária de Organização">Organização em Evento Científico: Comissão Secundária</option>
+                      <option value="Apresentação em Evento Científico">Apresentação de Trabalho em Evento Científico</option>
+                      <option value="Palestrante em Evento Científico">Palestrante em Evento Científico</option>
                     </select>
                     @error('tipo3')
                         <div class="alert alert-danger">{{ $message }}</div>

@@ -5,17 +5,32 @@
 
             @csrf
 
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">
-                    <h4>Carga Horária Parcial</h4>
+            <div class="row">
+                <div class="card" id="card-instrutor" style="width: 17rem;">
+                    <div class="card-header">
+                        <h4>C. H. Parcial: Instrutor</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Limite:</strong> {{$chMaxF12}} horas</li>
+                        <li class="list-group-item"><strong>Submetida:</strong> {{$limTF12}} horas</li>
+                        <li class="list-group-item"><strong>Restante:</strong> {{$chMaxF12-$limTF12}} horas</li>
+                    </ul>
+                    <div class="card-footer text-muted">
+                        Após atingido o limite de horas, as próximas atividades serão zeradas.
+                    </div>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>Limite:</strong> {{$chMaxF12}} horas</li>
-                    <li class="list-group-item"><strong>Submetida:</strong> {{$limTF12}} horas</li>
-                    <li class="list-group-item"><strong>Restante:</strong> {{$chMaxF12-$limTF12}} horas</li>
-                </ul>
-                <div class="card-footer text-muted">
-                    Após atingido o limite de horas, as próximas atividades serão zeradas.
+                <div class="card" id="card-aluno" style="width: 17rem;">
+                    <div class="card-header">
+                        <h4>C. H. Parcial: Aluno</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Limite:</strong> {{$chMaxF25}} horas</li>
+                        <li class="list-group-item"><strong>Submetida:</strong> {{$limTF25}} horas</li>
+                        <li class="list-group-item"><strong>Restante:</strong> {{$chMaxF25-$limTF25}} horas</li>
+                    </ul>
+                    <div class="card-footer text-muted">
+                        Após atingido o limite de horas, as próximas atividades serão zeradas.
+                    </div>
                 </div>
             </div>
             <br>
@@ -93,3 +108,7 @@
         </form>
     </div>
 </div>
+
+
+
+

@@ -5,21 +5,50 @@
 
             @csrf
 
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">
-                    <h4>Carga Horária Parcial</h4>
+            <div class="row">
+                <div class="card" style="width: 17rem;">
+                    <div class="card-header">
+                        <h4>C.H. Parcial: Vinculado</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Limite:</strong> {{$chMaxF7}} horas</li>
+                        <li class="list-group-item"><strong>Submetida:</strong> {{$limTF7}} horas</li>
+                        <li class="list-group-item"><strong>Restante:</strong> {{$chMaxF7-$limTF7}} horas</li>
+                    </ul>
+                    <div class="card-footer text-muted">
+                        Após atingido o limite de horas, as próximas atividades serão zeradas.
+                    </div>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>Limite:</strong> {{$chMaxF7}} horas</li>
-                    <li class="list-group-item"><strong>Submetida:</strong> {{$limTF7}} horas</li>
-                    <li class="list-group-item"><strong>Restante:</strong> {{$chMaxF7-$limTF7}} horas</li>
-                </ul>
-                <div class="card-footer text-muted">
-                    Após atingido o limite de horas, as próximas atividades serão zeradas.
+                <div class="card" style="width: 17rem;">
+                    <div class="card-header">
+                        <h4>C.H. Parcial: Voluntário</h4>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Limite:</strong> {{$chMaxF23}} horas</li>
+                        <li class="list-group-item"><strong>Submetida:</strong> {{$limTF23}} horas</li>
+                        <li class="list-group-item"><strong>Restante:</strong> {{$chMaxF23-$limTF23}} horas</li>
+                    </ul>
+                    <div class="card-footer text-muted">
+                        Após atingido o limite de horas, as próximas atividades serão zeradas.
+                    </div>
                 </div>
             </div>
             <br>
 
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="inlineFormCustomSelect" class="text-label">Tipo</label>
+                    <select class="custom-select" id="inlineFormCustomSelect" name="tipo_inst7">
+                        <option selected value="">Selecione o tipo</option>
+                        <option value="Vinculado à Área do Curso">Vinculado à Área do Curso</option>
+                        <option value="Voluntário no IFNMG">Voluntário no IFNMG</option>
+                    </select>
+                    @error('tipo_inst7')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <br>
             <div class="row">
                 <div class="col-md-12">
                     <label for="nameinst" class="text-label">Nome da Instituição</label>

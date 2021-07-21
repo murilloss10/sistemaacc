@@ -24,6 +24,12 @@
                     <a class="nav-link" href="{{url('atividades/aprovadas')}}">Atividades Aprovadas</a>
                 </li>
             @endcan
+
+            @can('administrador')
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('cadastar/usuario')}}">Cadastrar Usuário</a>
+                </li>
+            @endcan
         </ul>
 
         <ul class="navbar-nav navbar-text">

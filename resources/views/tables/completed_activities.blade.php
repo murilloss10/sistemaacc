@@ -227,6 +227,21 @@
                 
             @endif
         @endforeach
+
+        @foreach ($tdForm15 as $atv)
+            @if ($atv->usuario_id == $authorized && $atv->status == "Deferido")
+            <tr>
+                <td hidden>{{$atv->created_at}}</td>
+                <td></td>
+                <td>{{$atv->tipo}}: {{$atv->titulo}}</td>
+                <td><?php echo date('d/m/Y', strtotime($atv->dt_inicio)); ?> a <br><?php echo date('d/m/Y', strtotime($atv->dt_fim)); ?></td>
+                <td>{{$atv->horas_aprovadas}}</td>
+                <td>{{$atv->status}}</td>
+            </tr>
+            @else
+
+            @endif
+        @endforeach
         
         </tbody>
 

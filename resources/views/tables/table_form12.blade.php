@@ -1,4 +1,4 @@
-<br><br><h4 class="submit_title">Curso ou Minicurso</h4>
+<br><br><h4 class="submit_title">Curso ou Minicurso: Instrutor</h4>
 
 <div class="d-flex justify-content-end mb-3">
     <div class="p-2 bd-highlight">C.H. Máxima: {{$chMaxF12}}</div>
@@ -14,7 +14,6 @@
 
         <thead>
             <tr>
-                <th>TIPO</th>
                 <th>NOME</th>
                 <th>DATA INÍCIO</th>
                 <th>DATA FIM</th>
@@ -30,7 +29,6 @@
         @forelse ($dadosForm12 as $dado)
             @if ($dado->usuario_id == $authorized && ($dado->status == "Indeferido" || $dado->status == "Em análise"))
                 <tr>
-                    <td>{{$dado->tipo}}</td>
                     <td>{{$dado->nome_curso}}</td>
                     <td>
                         <?php echo date('d/m/Y', strtotime($dado->dt_inicio)); ?>

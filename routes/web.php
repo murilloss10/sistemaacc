@@ -49,6 +49,17 @@ Route::get('atividades/form11/excluir/{id}', 'Activity\ActivityController@exclui
 Route::get('atividades/form12/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm12')->middleware('auth');
 Route::get('atividades/form13/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm13')->middleware('auth');
 Route::get('atividades/form14/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm14')->middleware('auth');
+Route::get('atividades/form15/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm15')->middleware('auth');
+Route::get('atividades/form16/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm16')->middleware('auth');
+Route::get('atividades/form17/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm17')->middleware('auth');
+Route::get('atividades/form18/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm18')->middleware('auth');
+Route::get('atividades/form19/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm19')->middleware('auth');
+Route::get('atividades/form20/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm20')->middleware('auth');
+Route::get('atividades/form21/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm21')->middleware('auth');
+Route::get('atividades/form22/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm22')->middleware('auth');
+Route::get('atividades/form23/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm23')->middleware('auth');
+Route::get('atividades/form24/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm24')->middleware('auth');
+Route::get('atividades/form25/excluir/{id}', 'Activity\ActivityController@excluirAtividadeForm25')->middleware('auth');
 
 Route::get('atividades/lista/{id}', 'HomeController@listActivities')->name('lista_atividades')->middleware('auth');
 
@@ -84,6 +95,17 @@ Route::get('atividades/form11/editar/{id}/{idUser}', 'Activity\ActivityControlle
 Route::get('atividades/form12/editar/{id}/{idUser}', 'Activity\ActivityController@form12Edicao')->middleware('auth');
 Route::get('atividades/form13/editar/{id}/{idUser}', 'Activity\ActivityController@form13Edicao')->middleware('auth');
 Route::get('atividades/form14/editar/{id}/{idUser}', 'Activity\ActivityController@form14Edicao')->middleware('auth');
+Route::get('atividades/form15/editar/{id}/{idUser}', 'Activity\ActivityController@form15Edicao')->middleware('auth');
+Route::get('atividades/form16/editar/{id}/{idUser}', 'Activity\ActivityController@form16Edicao')->middleware('auth');
+Route::get('atividades/form17/editar/{id}/{idUser}', 'Activity\ActivityController@form17Edicao')->middleware('auth');
+Route::get('atividades/form18/editar/{id}/{idUser}', 'Activity\ActivityController@form18Edicao')->middleware('auth');
+Route::get('atividades/form19/editar/{id}/{idUser}', 'Activity\ActivityController@form19Edicao')->middleware('auth');
+Route::get('atividades/form20/editar/{id}/{idUser}', 'Activity\ActivityController@form20Edicao')->middleware('auth');
+Route::get('atividades/form21/editar/{id}/{idUser}', 'Activity\ActivityController@form21Edicao')->middleware('auth');
+Route::get('atividades/form22/editar/{id}/{idUser}', 'Activity\ActivityController@form22Edicao')->middleware('auth');
+Route::get('atividades/form23/editar/{id}/{idUser}', 'Activity\ActivityController@form23Edicao')->middleware('auth');
+Route::get('atividades/form24/editar/{id}/{idUser}', 'Activity\ActivityController@form24Edicao')->middleware('auth');
+Route::get('atividades/form25/editar/{id}/{idUser}', 'Activity\ActivityController@form25Edicao')->middleware('auth');
 
 Route::get('atividades/arquivos/{nameFile}', 'Activity\ActivityController@exibirPDF')->middleware('auth')->name('exibirPdf');
 
@@ -91,8 +113,9 @@ Route::get('atividades/documento-final/{id}', 'DynamicPDFController@docFinal')->
 Route::get('atividades/documento-comprovacao/{id}', 'DynamicPDFController@docComprovacao')->name('docs.doc_comprovacao');
 
 
-Auth::routes(['register' => true]);
+Auth::routes(['register' => false]);
 
 Route::get('/', 'HomeController@index')->name('home');
 
-//Route::get('/rota-protegida', 'AlgumControlador@metodo')->middleware('auth');
+Route::get('cadastar/usuario/', 'HomeController@form')->middleware('auth');
+Route::post('cadastar/usuario/salvar', 'HomeController@create')->middleware('auth');

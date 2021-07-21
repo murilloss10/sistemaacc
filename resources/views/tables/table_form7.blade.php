@@ -1,4 +1,4 @@
-<br><br><h4 class="submit_title">Estágio Extracurricular</h4>
+<br><br><h4 class="submit_title">Estágio Extracurricular: Vinculado À Área</h4>
 
 <div class="d-flex justify-content-end mb-3">
     <div class="p-2 bd-highlight">C.H. Máxima: {{$chMaxF7}}</div>

@@ -90,7 +90,7 @@
                                             <div class="card shadow-none m-0 border-left height-small-card-dashboard">
                                                 <div class="card-body text-center">
                                                     <i class="fas fa-percent" style="font-size: 34px;"></i>
-                                                    <h3><span>{{$percTotal}}</span></h3>
+                                                    <h3><span>{{round($percTotal, 2)}}</span></h3>
                                                     <p class="text-muted font-15 mb-0">Concluído</p>
                                                 </div>
                                             </div>

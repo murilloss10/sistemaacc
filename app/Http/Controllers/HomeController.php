@@ -20,6 +20,17 @@ use App\Models\Form11;
 use App\Models\Form12;
 use App\Models\Form13;
 use App\Models\Form14;
+use App\Models\Form15;
+use App\Models\Form16;
+use App\Models\Form17;
+use App\Models\Form18;
+use App\Models\Form19;
+use App\Models\Form20;
+use App\Models\Form21;
+use App\Models\Form22;
+use App\Models\Form23;
+use App\Models\Form24;
+use App\Models\Form25;
 use App\Models\Activity;
 
 use Illuminate\Support\Facades\DB;
@@ -29,6 +40,8 @@ use Carbon\Carbon;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Auth\Access\AuthorizationException;
+
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -67,7 +80,18 @@ class HomeController extends Controller
         $limTF12 = Form12::where('usuario_id', $idUser)->sum('lim_carga_h');
         $limTF13 = Form13::where('usuario_id', $idUser)->sum('lim_carga_h');
         $limTF14 = Form14::where('usuario_id', $idUser)->sum('lim_carga_h');
-        $chTotal = $limTF1+$limTF2+$limTF3+$limTF4+$limTF5+$limTF6+$limTF7+$limTF8+$limTF9+$limTF10+$limTF11+$limTF12+$limTF13+$limTF14;
+        $limTF15 = Form15::where('usuario_id', $idUser)->sum('lim_carga_h');
+        $limTF16 = Form16::where('usuario_id', $idUser)->sum('lim_carga_h');
+        $limTF17 = Form17::where('usuario_id', $idUser)->sum('lim_carga_h');
+        $limTF18 = Form18::where('usuario_id', $idUser)->sum('lim_carga_h');
+        $limTF19 = Form19::where('usuario_id', $idUser)->sum('lim_carga_h');
+        $limTF20 = Form20::where('usuario_id', $idUser)->sum('lim_carga_h');
+        $limTF21 = Form21::where('usuario_id', $idUser)->sum('lim_carga_h');
+        $limTF22 = Form22::where('usuario_id', $idUser)->sum('lim_carga_h');
+        $limTF23 = Form23::where('usuario_id', $idUser)->sum('lim_carga_h');
+        $limTF24 = Form24::where('usuario_id', $idUser)->sum('lim_carga_h');
+        $limTF25 = Form25::where('usuario_id', $idUser)->sum('lim_carga_h');
+        $chTotal = $limTF1+$limTF2+$limTF3+$limTF4+$limTF5+$limTF6+$limTF7+$limTF8+$limTF9+$limTF10+$limTF11+$limTF12+$limTF13+$limTF14+$limTF15+$limTF16+$limTF17+$limTF18+$limTF19+$limTF20+$limTF21+$limTF22+$limTF23+$limTF24+$limTF25;
 
         $aproTF1 = Form1::where('usuario_id', $idUser)->sum('horas_aprovadas');
         $aproTF2 = Form2::where('usuario_id', $idUser)->sum('horas_aprovadas');
@@ -83,7 +107,18 @@ class HomeController extends Controller
         $aproTF12 = Form12::where('usuario_id', $idUser)->sum('horas_aprovadas');
         $aproTF13 = Form13::where('usuario_id', $idUser)->sum('horas_aprovadas');
         $aproTF14 = Form14::where('usuario_id', $idUser)->sum('horas_aprovadas');
-        $chAproT = $aproTF1+$aproTF2+$aproTF3+$aproTF4+$aproTF5+$aproTF6+$aproTF7+$aproTF8+$aproTF9+$aproTF10+$aproTF11+$aproTF12+$aproTF13+$aproTF14;
+        $aproTF15 = Form15::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF16 = Form16::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF17 = Form17::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF18 = Form18::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF19 = Form19::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF20 = Form20::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF21 = Form21::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF22 = Form22::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF23 = Form23::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF24 = Form24::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $aproTF25 = Form25::where('usuario_id', $idUser)->sum('horas_aprovadas');
+        $chAproT = $aproTF1+$aproTF2+$aproTF3+$aproTF4+$aproTF5+$aproTF6+$aproTF7+$aproTF8+$aproTF9+$aproTF10+$aproTF11+$aproTF12+$aproTF13+$aproTF14+$aproTF15+$aproTF16+$aproTF17+$aproTF18+$aproTF19+$aproTF20+$aproTF21+$aproTF22+$aproTF23+$aproTF24+$aproTF25;
         
         $tdForm1 = Form1::all();
         $tdForm2 = Form2::all();
@@ -99,6 +134,17 @@ class HomeController extends Controller
         $tdForm12 = Form12::all();
         $tdForm13 = Form13::all();
         $tdForm14 = Form14::all();
+        $tdForm15 = Form15::all();
+        $tdForm16 = Form16::all();
+        $tdForm17 = Form17::all();
+        $tdForm18 = Form18::all();
+        $tdForm19 = Form19::all();
+        $tdForm20 = Form20::all();
+        $tdForm21 = Form21::all();
+        $tdForm22 = Form22::all();
+        $tdForm23 = Form23::all();
+        $tdForm24 = Form24::all();
+        $tdForm25 = Form25::all();
 
         $atividades = Activity::all();
         $authorized = Auth::id();
@@ -117,9 +163,18 @@ class HomeController extends Controller
         $tamForm12 = Form12::count();
         $tamForm13 = Form13::count();
         $tamForm14 = Form14::count();
-        $tamTotalForms = $tamForm1+$tamForm2+$tamForm3+$tamForm4+$tamForm5+$tamForm6+$tamForm7+$tamForm8+$tamForm9+$tamForm10+$tamForm11+$tamForm12+$tamForm13+$tamForm14;
-
-
+        $tamForm15 = Form15::count();
+        $tamForm16 = Form16::count();
+        $tamForm17 = Form17::count();
+        $tamForm18 = Form18::count();
+        $tamForm19 = Form19::count();
+        $tamForm20 = Form20::count();
+        $tamForm21 = Form21::count();
+        $tamForm22 = Form22::count();
+        $tamForm23 = Form23::count();
+        $tamForm24 = Form24::count();
+        $tamForm25 = Form25::count();
+        $tamTotalForms = $tamForm1+$tamForm2+$tamForm3+$tamForm4+$tamForm5+$tamForm6+$tamForm7+$tamForm8+$tamForm9+$tamForm10+$tamForm11+$tamForm12+$tamForm13+$tamForm14+$tamForm15+$tamForm16+$tamForm17+$tamForm18+$tamForm19+$tamForm20+$tamForm21+$tamForm22+$tamForm23+$tamForm24+$tamForm25;
 
 
         if($chNecessaria-$chAproT >= 0){
@@ -155,6 +210,17 @@ class HomeController extends Controller
             ->with('limTF12', $limTF12)
             ->with('limTF13', $limTF13)
             ->with('limTF14', $limTF14)
+            ->with('limTF15', $limTF15)
+            ->with('limTF16', $limTF16)
+            ->with('limTF17', $limTF17)
+            ->with('limTF18', $limTF18)
+            ->with('limTF19', $limTF19)
+            ->with('limTF20', $limTF20)
+            ->with('limTF21', $limTF21)
+            ->with('limTF22', $limTF22)
+            ->with('limTF23', $limTF23)
+            ->with('limTF24', $limTF24)
+            ->with('limTF25', $limTF25)
             ->with('chTotal', $chTotal)
             ->with('aproTF1', $aproTF1)
             ->with('aproTF2', $aproTF2)
@@ -170,6 +236,17 @@ class HomeController extends Controller
             ->with('aproTF12', $aproTF12)
             ->with('aproTF13', $aproTF13)
             ->with('aproTF14', $aproTF14)
+            ->with('aproTF15', $aproTF15)
+            ->with('aproTF16', $aproTF16)
+            ->with('aproTF17', $aproTF17)
+            ->with('aproTF18', $aproTF18)
+            ->with('aproTF19', $aproTF19)
+            ->with('aproTF20', $aproTF20)
+            ->with('aproTF21', $aproTF21)
+            ->with('aproTF22', $aproTF22)
+            ->with('aproTF23', $aproTF23)
+            ->with('aproTF24', $aproTF24)
+            ->with('aproTF25', $aproTF25)
             ->with('chAproT', $chAproT)
             ->with('chRestante', $chRestante)
             ->with('percTotal', $percTotal)
@@ -188,6 +265,17 @@ class HomeController extends Controller
             ->with('tdForm12', $tdForm12)
             ->with('tdForm13', $tdForm13)
             ->with('tdForm14', $tdForm14)
+            ->with('tdForm15', $tdForm15)
+            ->with('tdForm16', $tdForm16)
+            ->with('tdForm17', $tdForm17)
+            ->with('tdForm18', $tdForm18)
+            ->with('tdForm19', $tdForm19)
+            ->with('tdForm20', $tdForm20)
+            ->with('tdForm21', $tdForm21)
+            ->with('tdForm22', $tdForm22)
+            ->with('tdForm23', $tdForm23)
+            ->with('tdForm24', $tdForm24)
+            ->with('tdForm25', $tdForm25)
             ->with('tamTotalForms', $tamTotalForms);
 
     }
@@ -197,19 +285,30 @@ class HomeController extends Controller
             
             $idUser = User::find($id)->id;
             $chMaxF1 = 200;
-            $chMaxF2 = 220;
-            $chMaxF3 = 630;
+            $chMaxF2 = 120;
+            $chMaxF3 = 120;
             $chMaxF4 = 30;
-            $chMaxF5 = 140;
+            $chMaxF5 = 80;
             $chMaxF6 = 80;
             $chMaxF7 = 50;
             $chMaxF8 = 150;
             $chMaxF9 = 60;
-            $chMaxF10 = 160;
+            $chMaxF10 = 80;
             $chMaxF11 = 50;
-            $chMaxF12 = 150;
+            $chMaxF12 = 50;
             $chMaxF13 = 60;
             $chMaxF14 = 200;
+            $chMaxF15 = 100;
+            $chMaxF16 = 100;
+            $chMaxF17 = 100;
+            $chMaxF18 = 100;
+            $chMaxF19 = 50;
+            $chMaxF20 = 100;
+            $chMaxF21 = 60;
+            $chMaxF22 = 60;
+            $chMaxF23 = 100;
+            $chMaxF24 = 80;
+            $chMaxF25 = 100;
             $limTF1 = Form1::where('usuario_id', $id)->sum('horas_aprovadas');
             $limTF2 = Form2::where('usuario_id', $id)->sum('horas_aprovadas');
             $limTF3 = Form3::where('usuario_id', $id)->sum('horas_aprovadas');
@@ -224,6 +323,17 @@ class HomeController extends Controller
             $limTF12 = Form12::where('usuario_id', $id)->sum('horas_aprovadas');
             $limTF13 = Form13::where('usuario_id', $id)->sum('horas_aprovadas');
             $limTF14 = Form14::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF15 = Form15::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF16 = Form16::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF17 = Form17::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF18 = Form18::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF19 = Form19::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF20 = Form20::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF21 = Form21::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF22 = Form22::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF23 = Form23::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF24 = Form24::where('usuario_id', $id)->sum('horas_aprovadas');
+            $limTF25 = Form25::where('usuario_id', $id)->sum('horas_aprovadas');
             $dadosForm1 = Form1::all();
             $dadosForm2 = Form2::all();
             $dadosForm3 = Form3::all();
@@ -238,6 +348,17 @@ class HomeController extends Controller
             $dadosForm12 = Form12::all();
             $dadosForm13 = Form13::all();
             $dadosForm14 = Form14::all();
+            $dadosForm15 = Form15::all();
+            $dadosForm16 = Form16::all();
+            $dadosForm17 = Form17::all();
+            $dadosForm18 = Form18::all();
+            $dadosForm19 = Form19::all();
+            $dadosForm20 = Form20::all();
+            $dadosForm21 = Form21::all();
+            $dadosForm22 = Form22::all();
+            $dadosForm23 = Form23::all();
+            $dadosForm24 = Form24::all();
+            $dadosForm25 = Form25::all();
             $authorized = $id;
 
             return  view('list_activities')
@@ -257,6 +378,17 @@ class HomeController extends Controller
                 ->with('dadosForm12', $dadosForm12)
                 ->with('dadosForm13', $dadosForm13)
                 ->with('dadosForm14', $dadosForm14)
+                ->with('dadosForm15', $dadosForm15)
+                ->with('dadosForm16', $dadosForm16)
+                ->with('dadosForm17', $dadosForm17)
+                ->with('dadosForm18', $dadosForm18)
+                ->with('dadosForm19', $dadosForm19)
+                ->with('dadosForm20', $dadosForm20)
+                ->with('dadosForm21', $dadosForm21)
+                ->with('dadosForm22', $dadosForm22)
+                ->with('dadosForm23', $dadosForm23)
+                ->with('dadosForm24', $dadosForm24)
+                ->with('dadosForm25', $dadosForm25)
                 ->with('limTF1', $limTF1)
                 ->with('limTF2', $limTF2)
                 ->with('limTF3', $limTF3)
@@ -271,6 +403,17 @@ class HomeController extends Controller
                 ->with('limTF12', $limTF12)
                 ->with('limTF13', $limTF13)
                 ->with('limTF14', $limTF14)
+                ->with('limTF15', $limTF15)
+                ->with('limTF16', $limTF16)
+                ->with('limTF17', $limTF17)
+                ->with('limTF18', $limTF18)
+                ->with('limTF19', $limTF19)
+                ->with('limTF20', $limTF20)
+                ->with('limTF21', $limTF21)
+                ->with('limTF22', $limTF22)
+                ->with('limTF23', $limTF23)
+                ->with('limTF24', $limTF24)
+                ->with('limTF25', $limTF25)
                 ->with('chMaxF1', $chMaxF1)
                 ->with('chMaxF2', $chMaxF2)
                 ->with('chMaxF3', $chMaxF3)
@@ -284,8 +427,37 @@ class HomeController extends Controller
                 ->with('chMaxF11', $chMaxF11)
                 ->with('chMaxF12', $chMaxF12)
                 ->with('chMaxF13', $chMaxF13)
-                ->with('chMaxF14', $chMaxF14);
+                ->with('chMaxF14', $chMaxF14)
+                ->with('chMaxF15', $chMaxF15)
+                ->with('chMaxF16', $chMaxF16)
+                ->with('chMaxF17', $chMaxF17)
+                ->with('chMaxF18', $chMaxF18)
+                ->with('chMaxF19', $chMaxF19)
+                ->with('chMaxF20', $chMaxF20)
+                ->with('chMaxF21', $chMaxF21)
+                ->with('chMaxF22', $chMaxF22)
+                ->with('chMaxF23', $chMaxF23)
+                ->with('chMaxF24', $chMaxF24)
+                ->with('chMaxF25', $chMaxF25);
         }
+    }
+
+    public function form(){
+        return view('register_users');
+    }
+
+    public function create(Request $data){
+
+        User::create(array(
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'type' => $data['type'],
+            'course' => $data['course'],
+            'approved_hours' => $data['approved_hours'],
+        ));
+
+        return redirect()->action('HomeController@form');
     }
 
 }

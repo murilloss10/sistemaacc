@@ -1,4 +1,4 @@
-<br><br><h4 class="submit_title">Publicação de Artigo ou Resumo</h4>
+<br><br><h4 class="submit_title">Publicação de Artigo</h4>
 
 <div class="d-flex justify-content-end mb-3">
     <div class="p-2 bd-highlight">C.H. Máxima: {{$chMaxF2}}</div>
@@ -14,7 +14,6 @@
 
         <thead>
             <tr>
-                <th>TIPO</th>
                 <th>TÍTULO</th>
                 <th>ONDE PUBLICADO</th>
                 <th>DATA</th>
@@ -30,7 +29,6 @@
         @forelse ($dadosForm2 as $dado)
             @if ($dado->usuario_id == $authorized && ($dado->status == "Indeferido" || $dado->status == "Em análise"))
                 <tr>
-                    <td>{{$dado->tipo}}</td>
                     <td>{{$dado->titulo}}</td>
                     <td>{{$dado->onde_pub}}</td>
                     <td>

@@ -1,4 +1,4 @@
-<br><br><h4 class="submit_title">Representação Estudantil: Conselhos, Colegiados e DA</h4>
+<br><br><h4 class="submit_title">Representação Estudantil: Diretório Acadêmico</h4>
 
 <div class="d-flex justify-content-end mb-3">
     <div class="p-2 bd-highlight">C.H. Máxima: {{$chMaxF5}}</div>
@@ -14,7 +14,6 @@
 
         <thead>
             <tr>
-                <th>TIPO</th>
                 <th>QUANT. SEMESTRES</th>
                 <th>NOME</th>
                 <th>DATA INÍCIO</th>
@@ -31,7 +30,6 @@
         @forelse ($dadosForm5 as $dado)
             @if ($dado->usuario_id == $authorized && ($dado->status == "Indeferido" || $dado->status == "Em análise"))
                 <tr>
-                    <td>{{$dado->tipo}}</td>
                     <td>{{$dado->quant_semestres}}</td>
                     <td>{{$dado->nome_c}}</td>
                     <td>

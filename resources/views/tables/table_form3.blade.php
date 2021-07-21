@@ -1,4 +1,4 @@
-<br><br><h4 class="submit_title">Eventos Científicos e Palestras: Participação, Organização e Apresentação</h4>
+<br><br><h4 class="submit_title">Eventos Científicos e Palestras: Comissão Central de Organização</h4>
 
 <div class="d-flex justify-content-end mb-3">
     <div class="p-2 bd-highlight">C.H. Máxima: {{$chMaxF3}}</div>
@@ -14,7 +14,6 @@
 
         <thead>
             <tr>
-                <th>TIPO</th>
                 <th>CARGA H.</th>
                 <th>NOME</th>
                 <th>LOCAL</th>
@@ -32,7 +31,6 @@
         @forelse ($dadosForm3 as $dado)
             @if ($dado->usuario_id == $authorized && ($dado->status == "Indeferido" || $dado->status == "Em análise"))
                 <tr>
-                    <td>{{$dado->tipo}}</td>
                     <td>{{$dado->carga_horaria}}</td>
                     <td>{{$dado->nome_evento}}</td>
                     <td>{{$dado->local}}</td>

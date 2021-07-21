@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Activity extends Model
 {
     //
-    protected $fillable = ['id', 'form1_id', 'form2_id', 'form3_id', 'form4_id', 'form5_id', 'form6_id', 'form7_id', 'form8_id', 'form9_id', 'form10_id', 'form11_id', 'form12_id', 'form13_id', 'form14_id'];
+    protected $fillable = ['id', 'form1_id', 'form2_id', 'form3_id', 'form4_id', 'form5_id', 'form6_id', 'form7_id', 'form8_id', 'form9_id', 'form10_id', 'form11_id', 'form12_id', 'form13_id', 'form14_id', 'form15_id', 'form16_id', 'form17_id', 'form18_id', 'form19_id', 'form20_id', 'form21_id', 'form22_id', 'form23_id', 'form24_id', 'form25_id'];
 
     public function getCreatedAtAttribute($value){
         return (Carbon::parse($value)->format('dmYHis'));
@@ -67,6 +67,50 @@ class Activity extends Model
 
     public function form14(){
         return $this->belongsTo('App\Models\Form14');
+    }
+
+    public function form15(){
+        return $this->belongsTo('App\Models\Form15');
+    }
+
+    public function form16(){
+        return $this->belongsTo('App\Models\Form16');
+    }
+
+    public function form17(){
+        return $this->belongsTo('App\Models\Form17');
+    }
+
+    public function form18(){
+        return $this->belongsTo('App\Models\Form18');
+    }
+
+    public function form19(){
+        return $this->belongsTo('App\Models\Form19');
+    }
+
+    public function form20(){
+        return $this->belongsTo('App\Models\Form20');
+    }
+
+    public function form21(){
+        return $this->belongsTo('App\Models\Form21');
+    }
+
+    public function form22(){
+        return $this->belongsTo('App\Models\Form22');
+    }
+
+    public function form23(){
+        return $this->belongsTo('App\Models\Form23');
+    }
+
+    public function form24(){
+        return $this->belongsTo('App\Models\Form24');
+    }
+
+    public function form25(){
+        return $this->belongsTo('App\Models\Form25');
     }
 
 }

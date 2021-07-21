@@ -25,7 +25,7 @@ class Form1Request extends FormRequest
     {
         return [
             'tipo1' => 'required',
-            'carga_horaria1' => 'required',
+            'carga_horaria1' => 'required|min:1',//terminar de alterar, acrescentar a mensagem de mínimo
             'nome_projeto1' => 'required|min:3|max:255',
             'dt_inicio1' => 'required',
             'dt_fim1' => 'required',

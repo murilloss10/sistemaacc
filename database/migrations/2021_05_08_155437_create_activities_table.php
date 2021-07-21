@@ -43,6 +43,28 @@ class CreateActivitiesTable extends Migration
             $table->foreign('form13_id')->references('id')->on('form13s')->onUpdate('cascade')->onDelete('cascade');
             $table->unsignedBigInteger('form14_id');
             $table->foreign('form14_id')->references('id')->on('form14s')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('form15_id');
+            $table->foreign('form15_id')->references('id')->on('form15s')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('form16_id');
+            $table->foreign('form16_id')->references('id')->on('form16s')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('form17_id');
+            $table->foreign('form17_id')->references('id')->on('form17s')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('form18_id');
+            $table->foreign('form18_id')->references('id')->on('form18s')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('form19_id');
+            $table->foreign('form19_id')->references('id')->on('form19s')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('form20_id');
+            $table->foreign('form20_id')->references('id')->on('form20s')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('form21_id');
+            $table->foreign('form21_id')->references('id')->on('form21s')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('form22_id');
+            $table->foreign('form22_id')->references('id')->on('form22s')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('form23_id');
+            $table->foreign('form23_id')->references('id')->on('form23s')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('form24_id');
+            $table->foreign('form24_id')->references('id')->on('form24s')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('form25_id');
+            $table->foreign('form25_id')->references('id')->on('form25s')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
