@@ -357,21 +357,43 @@ class ActivityController extends Controller
             $aproTF12 = Form12::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $aproTF13 = Form13::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $aproTF14 = Form14::where('usuario_id', $idUser)->sum('horas_aprovadas');
-            $chAproT = $aproTF1+$aproTF2+$aproTF3+$aproTF4+$aproTF5+$aproTF6+$aproTF7+$aproTF8+$aproTF9+$aproTF10+$aproTF11+$aproTF12+$aproTF13+$aproTF14;
-            $tdForm1 = Form1::all();
-            $tdForm2 = Form2::all();
-            $tdForm3 = Form3::all();
-            $tdForm4 = Form4::all();
-            $tdForm5 = Form5::all();
-            $tdForm6 = Form6::all();
-            $tdForm7 = Form7::all();
-            $tdForm8 = Form8::all();
-            $tdForm9 = Form9::all();
-            $tdForm10 = Form10::all();
-            $tdForm11 = Form11::all();
-            $tdForm12 = Form12::all();
-            $tdForm13 = Form13::all();
-            $tdForm14 = Form14::all();
+            $aproTF15 = Form15::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF16 = Form16::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF17 = Form17::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF18 = Form18::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF19 = Form19::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF20 = Form20::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF21 = Form21::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF22 = Form22::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF23 = Form23::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF24 = Form24::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF25 = Form25::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $chAproT = $aproTF1+$aproTF2+$aproTF3+$aproTF4+$aproTF5+$aproTF6+$aproTF7+$aproTF8+$aproTF9+$aproTF10+$aproTF11+$aproTF12+$aproTF13+$aproTF14+$aproTF15+$aproTF16+$aproTF17+$aproTF18+$aproTF19+$aproTF20+$aproTF21+$aproTF22+$aproTF23+$aproTF24+$aproTF25;
+            $tdForm1 = Form1::where('usuario_id',$idUser)->get();
+            $tdForm2 = Form2::where('usuario_id',$idUser)->get();
+            $tdForm3 = Form3::where('usuario_id',$idUser)->get();
+            $tdForm4 = Form4::where('usuario_id',$idUser)->get();
+            $tdForm5 = Form5::where('usuario_id',$idUser)->get();
+            $tdForm6 = Form6::where('usuario_id',$idUser)->get();
+            $tdForm7 = Form7::where('usuario_id',$idUser)->get();
+            $tdForm8 = Form8::where('usuario_id',$idUser)->get();
+            $tdForm9 = Form9::where('usuario_id',$idUser)->get();
+            $tdForm10 = Form10::where('usuario_id',$idUser)->get();
+            $tdForm11 = Form11::where('usuario_id',$idUser)->get();
+            $tdForm12 = Form12::where('usuario_id',$idUser)->get();
+            $tdForm13 = Form13::where('usuario_id',$idUser)->get();
+            $tdForm14 = Form14::where('usuario_id',$idUser)->get();
+            $tdForm15 = Form15::where('usuario_id',$idUser)->get();
+            $tdForm16 = Form16::where('usuario_id',$idUser)->get();
+            $tdForm17 = Form17::where('usuario_id',$idUser)->get();
+            $tdForm18 = Form18::where('usuario_id',$idUser)->get();
+            $tdForm19 = Form19::where('usuario_id',$idUser)->get();
+            $tdForm20 = Form20::where('usuario_id',$idUser)->get();
+            $tdForm21 = Form21::where('usuario_id',$idUser)->get();
+            $tdForm22 = Form22::where('usuario_id',$idUser)->get();
+            $tdForm23 = Form23::where('usuario_id',$idUser)->get();
+            $tdForm24 = Form24::where('usuario_id',$idUser)->get();
+            $tdForm25 = Form25::where('usuario_id',$idUser)->get();
             $atividades = Activity::all();
             $tamForm1 = Form1::count();
             $tamForm2 = Form2::count();
@@ -387,8 +409,28 @@ class ActivityController extends Controller
             $tamForm12 = Form12::count();
             $tamForm13 = Form13::count();
             $tamForm14 = Form14::count();
-            $tamTotalForms = $tamForm1+$tamForm2+$tamForm3+$tamForm4+$tamForm5+$tamForm6+$tamForm7+$tamForm8+$tamForm9+$tamForm10+$tamForm11+$tamForm12+$tamForm13+$tamForm14;
+            $tamForm15 = Form15::count();
+            $tamForm16 = Form16::count();
+            $tamForm17 = Form17::count();
+            $tamForm18 = Form18::count();
+            $tamForm19 = Form19::count();
+            $tamForm20 = Form20::count();
+            $tamForm21 = Form21::count();
+            $tamForm22 = Form22::count();
+            $tamForm23 = Form23::count();
+            $tamForm24 = Form24::count();
+            $tamForm25 = Form25::count();
+            $tamTotalForms = $tamForm1+$tamForm2+$tamForm3+$tamForm4+$tamForm5+$tamForm6+$tamForm7+$tamForm8+$tamForm9+$tamForm10+$tamForm11+$tamForm12+$tamForm13+$tamForm14+$tamForm15+$tamForm16+$tamForm17+$tamForm18+$tamForm19+$tamForm20+$tamForm21+$tamForm22+$tamForm23+$tamForm24+$tamForm25;
 
+            foreach ($tdForm1 as $form) {
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_projeto,
+                    'period' => $form->dt_inicio . ' a ' . $form->dt_fim,
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+                
+            }
 
             return view('view_last_activities')
             ->with('atividades', $atividades)
@@ -409,6 +451,17 @@ class ActivityController extends Controller
             ->with('aproTF12', $aproTF12)
             ->with('aproTF13', $aproTF13)
             ->with('aproTF14', $aproTF14)
+            ->with('aproTF15', $aproTF15)
+            ->with('aproTF16', $aproTF16)
+            ->with('aproTF17', $aproTF17)
+            ->with('aproTF18', $aproTF18)
+            ->with('aproTF19', $aproTF19)
+            ->with('aproTF20', $aproTF20)
+            ->with('aproTF21', $aproTF21)
+            ->with('aproTF22', $aproTF22)
+            ->with('aproTF23', $aproTF23)
+            ->with('aproTF24', $aproTF24)
+            ->with('aproTF25', $aproTF25)
             ->with('chAproT', $chAproT)
             ->with('tdForm1', $tdForm1)
             ->with('tdForm2', $tdForm2)
@@ -424,7 +477,19 @@ class ActivityController extends Controller
             ->with('tdForm12', $tdForm12)
             ->with('tdForm13', $tdForm13)
             ->with('tdForm14', $tdForm14)
-            ->with('tamTotalForms', $tamTotalForms);
+            ->with('tdForm15', $tdForm15)
+            ->with('tdForm16', $tdForm16)
+            ->with('tdForm17', $tdForm17)
+            ->with('tdForm18', $tdForm18)
+            ->with('tdForm19', $tdForm19)
+            ->with('tdForm20', $tdForm20)
+            ->with('tdForm21', $tdForm21)
+            ->with('tdForm22', $tdForm22)
+            ->with('tdForm23', $tdForm23)
+            ->with('tdForm24', $tdForm24)
+            ->with('tdForm25', $tdForm25)
+            ->with('tamTotalForms', $tamTotalForms)
+            ->with('allActivityApproved', $allActivityApproved);
 
 
 
@@ -453,21 +518,43 @@ class ActivityController extends Controller
             $aproTF12 = Form12::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $aproTF13 = Form13::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $aproTF14 = Form14::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF15 = Form15::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF16 = Form16::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF17 = Form17::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF18 = Form18::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF19 = Form19::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF20 = Form20::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF21 = Form21::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF22 = Form22::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF23 = Form23::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF24 = Form24::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            $aproTF25 = Form25::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $chAproT = $aproTF1+$aproTF2+$aproTF3+$aproTF4+$aproTF5+$aproTF6+$aproTF7+$aproTF8+$aproTF9+$aproTF10+$aproTF11+$aproTF12+$aproTF13+$aproTF14;
-            $tdForm1 = Form1::all();
-            $tdForm2 = Form2::all();
-            $tdForm3 = Form3::all();
-            $tdForm4 = Form4::all();
-            $tdForm5 = Form5::all();
-            $tdForm6 = Form6::all();
-            $tdForm7 = Form7::all();
-            $tdForm8 = Form8::all();
-            $tdForm9 = Form9::all();
-            $tdForm10 = Form10::all();
-            $tdForm11 = Form11::all();
-            $tdForm12 = Form12::all();
-            $tdForm13 = Form13::all();
-            $tdForm14 = Form14::all();
+            $tdForm1 = Form1::where('usuario_id', $idUser)->get();
+            $tdForm2 = Form2::where('usuario_id', $idUser)->get();
+            $tdForm3 = Form3::where('usuario_id', $idUser)->get();
+            $tdForm4 = Form4::where('usuario_id', $idUser)->get();
+            $tdForm5 = Form5::where('usuario_id', $idUser)->get();
+            $tdForm6 = Form6::where('usuario_id', $idUser)->get();
+            $tdForm7 = Form7::where('usuario_id', $idUser)->get();
+            $tdForm8 = Form8::where('usuario_id', $idUser)->get();
+            $tdForm9 = Form9::where('usuario_id', $idUser)->get();
+            $tdForm10 = Form10::where('usuario_id', $idUser)->get();
+            $tdForm11 = Form11::where('usuario_id', $idUser)->get();
+            $tdForm12 = Form12::where('usuario_id', $idUser)->get();
+            $tdForm13 = Form13::where('usuario_id', $idUser)->get();
+            $tdForm14 = Form14::where('usuario_id', $idUser)->get();
+            $tdForm15 = Form15::where('usuario_id', $idUser)->get();
+            $tdForm16 = Form16::where('usuario_id', $idUser)->get();
+            $tdForm17 = Form17::where('usuario_id', $idUser)->get();
+            $tdForm18 = Form18::where('usuario_id', $idUser)->get();
+            $tdForm19 = Form19::where('usuario_id', $idUser)->get();
+            $tdForm20 = Form20::where('usuario_id', $idUser)->get();
+            $tdForm21 = Form21::where('usuario_id', $idUser)->get();
+            $tdForm22 = Form22::where('usuario_id', $idUser)->get();
+            $tdForm23 = Form23::where('usuario_id', $idUser)->get();
+            $tdForm24 = Form24::where('usuario_id', $idUser)->get();
+            $tdForm25 = Form25::where('usuario_id', $idUser)->get();
             $atividades = Activity::all();
             $tamForm1 = Form1::count();
             $tamForm2 = Form2::count();
@@ -483,8 +570,28 @@ class ActivityController extends Controller
             $tamForm12 = Form12::count();
             $tamForm13 = Form13::count();
             $tamForm14 = Form14::count();
-            $tamTotalForms = $tamForm1+$tamForm2+$tamForm3+$tamForm4+$tamForm5+$tamForm6+$tamForm7+$tamForm8+$tamForm9+$tamForm10+$tamForm11+$tamForm12+$tamForm13+$tamForm14;
+            $tamForm15 = Form15::count();
+            $tamForm16 = Form16::count();
+            $tamForm17 = Form17::count();
+            $tamForm18 = Form18::count();
+            $tamForm19 = Form19::count();
+            $tamForm20 = Form20::count();
+            $tamForm21 = Form21::count();
+            $tamForm22 = Form22::count();
+            $tamForm23 = Form23::count();
+            $tamForm24 = Form24::count();
+            $tamForm25 = Form25::count();
+            $tamTotalForms = $tamForm1+$tamForm2+$tamForm3+$tamForm4+$tamForm5+$tamForm6+$tamForm7+$tamForm8+$tamForm9+$tamForm10+$tamForm11+$tamForm12+$tamForm13+$tamForm14+$tamForm15+$tamForm16+$tamForm17+$tamForm18+$tamForm19+$tamForm20+$tamForm21+$tamForm22+$tamForm23+$tamForm24+$tamForm25;
 
+            foreach ($tdForm1 as $form) {
+                $allActivityApproved = [
+                    'activity_name' => $form->nome_projeto,
+                    'period' => $form->dt_inicio . ' a ' . $form->dt_fim,
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+                
+            }
 
             return view('view_last_activities')
             ->with('atividades', $atividades)
@@ -505,6 +612,17 @@ class ActivityController extends Controller
             ->with('aproTF12', $aproTF12)
             ->with('aproTF13', $aproTF13)
             ->with('aproTF14', $aproTF14)
+            ->with('aproTF15', $aproTF15)
+            ->with('aproTF16', $aproTF16)
+            ->with('aproTF17', $aproTF17)
+            ->with('aproTF18', $aproTF18)
+            ->with('aproTF19', $aproTF19)
+            ->with('aproTF20', $aproTF20)
+            ->with('aproTF21', $aproTF21)
+            ->with('aproTF22', $aproTF22)
+            ->with('aproTF23', $aproTF23)
+            ->with('aproTF24', $aproTF24)
+            ->with('aproTF25', $aproTF25)
             ->with('chAproT', $chAproT)
             ->with('tdForm1', $tdForm1)
             ->with('tdForm2', $tdForm2)
@@ -520,7 +638,19 @@ class ActivityController extends Controller
             ->with('tdForm12', $tdForm12)
             ->with('tdForm13', $tdForm13)
             ->with('tdForm14', $tdForm14)
-            ->with('tamTotalForms', $tamTotalForms);
+            ->with('tdForm15', $tdForm15)
+            ->with('tdForm16', $tdForm16)
+            ->with('tdForm17', $tdForm17)
+            ->with('tdForm18', $tdForm18)
+            ->with('tdForm19', $tdForm19)
+            ->with('tdForm20', $tdForm20)
+            ->with('tdForm21', $tdForm21)
+            ->with('tdForm22', $tdForm22)
+            ->with('tdForm23', $tdForm23)
+            ->with('tdForm24', $tdForm24)
+            ->with('tdForm25', $tdForm25)
+            ->with('tamTotalForms', $tamTotalForms)
+            ->with('allActivityApproved', $allActivityApproved);
 
 
 
@@ -2714,6 +2844,10 @@ class ActivityController extends Controller
                 $limApreEveC = 0;
                 $limPaleEveC = 0;
 
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$limOrganC+$limOrganS+$limPartEveNR+$limPartEveL+$limPartPale+$limApreEveC+$limPaleEveC,
+                ));
+
             }
             else if($request->input('tipo3') == 'Comissão Secundária de Organização'){ //form16
                 if($limTForm16 <= $chMaxComSecundaria){
@@ -2740,6 +2874,10 @@ class ActivityController extends Controller
                 $limPartPale = 0;
                 $limApreEveC = 0;
                 $limPaleEveC = 0;
+
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$limOrganC+$limOrganS+$limPartEveNR+$limPartEveL+$limPartPale+$limApreEveC+$limPaleEveC,
+                ));
             }
             else if($request->input('tipo3') == 'Participação em Evento Científico Nacional ou Regional'){ //form17
                 if($limTForm17 <= $chMaxPartiEventoNacReg){
@@ -2766,6 +2904,10 @@ class ActivityController extends Controller
                 $limPartPale = 0;
                 $limApreEveC = 0;
                 $limPaleEveC = 0;
+
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$limOrganC+$limOrganS+$limPartEveNR+$limPartEveL+$limPartPale+$limApreEveC+$limPaleEveC,
+                ));
             }
             else if($request->input('tipo3') == 'Participação em Evento Científico Local'){ //form18
                 if($limTForm18 <= $chMaxPartiEventoLocal){
@@ -2792,6 +2934,10 @@ class ActivityController extends Controller
                 $limPartPale = 0;
                 $limApreEveC = 0;
                 $limPaleEveC = 0;
+
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$limOrganC+$limOrganS+$limPartEveNR+$limPartEveL+$limPartPale+$limApreEveC+$limPaleEveC,
+                ));
             }
             else if($request->input('tipo3') == 'Participação em Palestra e Conferências'){ //form19
                 if($limTForm19 <= $chMaxPartiPalestra){
@@ -2818,6 +2964,10 @@ class ActivityController extends Controller
                 $limPartEveL = 0;
                 $limApreEveC = 0;
                 $limPaleEveC = 0;
+
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$limOrganC+$limOrganS+$limPartEveNR+$limPartEveL+$limPartPale+$limApreEveC+$limPaleEveC,
+                ));
             }
             else if($request->input('tipo3') == 'Apresentação em Evento Científico'){ //form20
                 if($limTForm20 <= $chMaxApreseTrabalho){
@@ -2844,6 +2994,10 @@ class ActivityController extends Controller
                 $limPartEveL = 0;
                 $limPartPale = 0;
                 $limPaleEveC = 0;
+
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$limOrganC+$limOrganS+$limPartEveNR+$limPartEveL+$limPartPale+$limApreEveC+$limPaleEveC,
+                ));
             }
             else if($request->input('tipo3') == 'Palestrante em Evento Científico'){ //form21
                 if($limTForm21 <= $chMaxPalestrante){
@@ -2870,6 +3024,10 @@ class ActivityController extends Controller
                 $limPartEveL = 0;
                 $limPartPale = 0;
                 $limApreEveC = 0;
+
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$limOrganC+$limOrganS+$limPartEveNR+$limPartEveL+$limPartPale+$limApreEveC+$limPaleEveC,
+                ));
             }
 
         }
@@ -2884,10 +3042,6 @@ class ActivityController extends Controller
         }
         
         $chAproAnterior-=$request->input('horas_aprovadas3');
-        
-        User::find($idUser)->update(array(
-            'approved_hours' => $chAproAnterior+$limOrganC+$limOrganS+$limPartEveNR+$limPartEveL+$limPartPale+$limApreEveC+$limPaleEveC,
-        ));
 
         Form3::find($request->id)->update(array(
             'tipo' => $request->input('tipo3'),
@@ -3069,6 +3223,25 @@ class ActivityController extends Controller
                     $limDA = 0;
                 }
                 $limColegiado = 0;
+
+                Form5::find($request->id)->update(array(
+                    'id' => $request->input('id'),
+                    'tipo' => $request->input('tipo5'),
+                    'quant_semestres' => $request->input('quant_semestres5'),
+                    'nome_c' => $request->input('nome_c5'),
+                    'dt_inicio' => $request->input('dt_inicio5'),
+                    'dt_fim' => $request->input('dt_fim5'),
+                    'status' => $request->input('status5'),
+                    'usuario_id' => $request->input('usuario_id5'),
+                    'customFileLang' => $request->input('customFileLang5'),
+                    'lim_carga_h' => $request->input('lim_carga_h'),
+                    'horas_aprovadas' => $limDA,
+                ));
+
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$limDA+$limColegiado,
+                ));
+
             }
             else if($request->input('tipo5') == 'Conselho ou Colegiado'){
                 if($request->input('quant_semestres5')*$chLimColegiado <= $chMaxColegiado-$limTForm22){
@@ -3078,6 +3251,25 @@ class ActivityController extends Controller
                     $limColegiado = $chMaxColegiado - $limTForm22;
                 }
                 $limDA = 0;
+
+                Form22::find($request->id)->update(array(
+                    'id' => $request->input('id'),
+                    'tipo' => $request->input('tipo5'),
+                    'quant_semestres' => $request->input('quant_semestres5'),
+                    'nome_c' => $request->input('nome_c5'),
+                    'dt_inicio' => $request->input('dt_inicio5'),
+                    'dt_fim' => $request->input('dt_fim5'),
+                    'status' => $request->input('status5'),
+                    'usuario_id' => $request->input('usuario_id5'),
+                    'customFileLang' => $request->input('customFileLang5'),
+                    'lim_carga_h' => $request->input('lim_carga_h'),
+                    'horas_aprovadas' => $limColegiado,
+                ));
+
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$limDA+$limColegiado,
+                ));
+
             }
 
         }
@@ -3087,38 +3279,6 @@ class ActivityController extends Controller
         }
 
         $chAproAnterior-=$request->input('horas_aprovadas5');
-        
-        User::find($idUser)->update(array(
-            'approved_hours' => $chAproAnterior+$limDA+$limColegiado,
-        ));
-
-        Form5::find($request->id)->update(array(
-            'id' => $request->input('id'),
-            'tipo' => $request->input('tipo5'),
-            'quant_semestres' => $request->input('quant_semestres5'),
-            'nome_c' => $request->input('nome_c5'),
-            'dt_inicio' => $request->input('dt_inicio5'),
-            'dt_fim' => $request->input('dt_fim5'),
-            'status' => $request->input('status5'),
-            'usuario_id' => $request->input('usuario_id5'),
-            'customFileLang' => $request->input('customFileLang5'),
-            'lim_carga_h' => $request->input('lim_carga_h'),
-            'horas_aprovadas' => $limDA,
-        ));
-
-        Form22::find($request->id)->update(array(
-            'id' => $request->input('id'),
-            'tipo' => $request->input('tipo5'),
-            'quant_semestres' => $request->input('quant_semestres5'),
-            'nome_c' => $request->input('nome_c5'),
-            'dt_inicio' => $request->input('dt_inicio5'),
-            'dt_fim' => $request->input('dt_fim5'),
-            'status' => $request->input('status5'),
-            'usuario_id' => $request->input('usuario_id5'),
-            'customFileLang' => $request->input('customFileLang5'),
-            'lim_carga_h' => $request->input('lim_carga_h'),
-            'horas_aprovadas' => $limColegiado,
-        ));
 
         return redirect()->route('lista_atividades', $idUser);
     }
@@ -3206,6 +3366,22 @@ class ActivityController extends Controller
                 }
                 $limVoluntarioIFNMG = 0;
 
+                Form7::find($request->id)->update(array(
+                    'id' => $request->input('id'),
+                    'nome_inst' => $request->input('nome_inst7'),
+                    'dt_inicio' => $request->input('dt_inicio7'),
+                    'dt_fim' => $request->input('dt_fim7'),
+                    'status' => $request->input('status7'),
+                    'usuario_id' => $request->input('usuario_id7'),
+                    'customFileLang' => $request->input('customFileLang7'),
+                    'lim_carga_h' => $request->input('lim_carga_h'),
+                    'horas_aprovadas' => $limVinculadoaArea,
+                ));
+
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$limVinculadoaArea+$limVoluntarioIFNMG,
+                ));
+
             }
             else if($request->input('tipo_inst7') == "Voluntário no IFNMG"){
                 if($limTForm23 <= $chMaxVoluntarioIFNMG){
@@ -3220,6 +3396,23 @@ class ActivityController extends Controller
                     $limVoluntarioIFNMG = 0;
                 }
                 $limVinculadoaArea = 0;
+
+                Form23::find($request->id)->update(array(
+                    'id' => $request->input('id'),
+                    'nome_inst' => $request->input('nome_inst7'),
+                    'dt_inicio' => $request->input('dt_inicio7'),
+                    'dt_fim' => $request->input('dt_fim7'),
+                    'status' => $request->input('status7'),
+                    'usuario_id' => $request->input('usuario_id7'),
+                    'customFileLang' => $request->input('customFileLang7'),
+                    'lim_carga_h' => $request->input('lim_carga_h'),
+                    'horas_aprovadas' => $limVoluntarioIFNMG,
+                ));
+
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$limVinculadoaArea+$limVoluntarioIFNMG,
+                ));
+
             }
 
         }
@@ -3230,34 +3423,6 @@ class ActivityController extends Controller
 
         $chAproAnterior-=$request->input('horas_aprovadas7');
         
-        User::find($idUser)->update(array(
-            'approved_hours' => $chAproAnterior+$limVinculadoaArea+$limVoluntarioIFNMG,
-        ));
-
-        Form7::find($request->id)->update(array(
-            'id' => $request->input('id'),
-            'nome_inst' => $request->input('nome_inst7'),
-            'dt_inicio' => $request->input('dt_inicio7'),
-            'dt_fim' => $request->input('dt_fim7'),
-            'status' => $request->input('status7'),
-            'usuario_id' => $request->input('usuario_id7'),
-            'customFileLang' => $request->input('customFileLang7'),
-            'lim_carga_h' => $request->input('lim_carga_h'),
-            'horas_aprovadas' => $limVinculadoaArea,
-        ));
-
-        Form23::find($request->id)->update(array(
-            'id' => $request->input('id'),
-            'nome_inst' => $request->input('nome_inst7'),
-            'dt_inicio' => $request->input('dt_inicio7'),
-            'dt_fim' => $request->input('dt_fim7'),
-            'status' => $request->input('status7'),
-            'usuario_id' => $request->input('usuario_id7'),
-            'customFileLang' => $request->input('customFileLang7'),
-            'lim_carga_h' => $request->input('lim_carga_h'),
-            'horas_aprovadas' => $limVoluntarioIFNMG,
-        ));
-
         return redirect()->route('lista_atividades', $idUser);
     }
 
@@ -3386,6 +3551,25 @@ class ActivityController extends Controller
                     }
                 }
                 $limDC = 0;
+
+                Form10::find($request->id)->update(array(
+                    'id' => $request->input('id'),
+                    'tipo' => $request->input('tipo10'),
+                    'carga_horaria' => $request->input('carga_horaria10'),
+                    'nome_disc' => $request->input('nome_disc10'),
+                    'dt_inicio' => $request->input('dt_inicio10'),
+                    'dt_fim' => $request->input('dt_fim10'),
+                    'status' => $request->input('status10'),
+                    'usuario_id' => $request->input('usuario_id10'),
+                    'customFileLang' => $request->input('customFileLang10'),
+                    'lim_carga_h' => $request->input('lim_carga_h'),
+                    'horas_aprovadas' => $limMonitoria,
+                ));
+
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$limMonitoria+$limDC,
+                ));
+
             }
             else if($request->input('tipo10') == 'Disciplina Complementar'){   
                 if($limTForm24+$chLimC <= $chMaxC){
@@ -3395,6 +3579,25 @@ class ActivityController extends Controller
                     $limDC = $chMaxC - $limTForm24;
                 }
                 $limMonitoria = 0;
+
+                Form24::find($request->id)->update(array(
+                    'id' => $request->input('id'),
+                    'tipo' => $request->input('tipo10'),
+                    'carga_horaria' => $request->input('carga_horaria10'),
+                    'nome_disc' => $request->input('nome_disc10'),
+                    'dt_inicio' => $request->input('dt_inicio10'),
+                    'dt_fim' => $request->input('dt_fim10'),
+                    'status' => $request->input('status10'),
+                    'usuario_id' => $request->input('usuario_id10'),
+                    'customFileLang' => $request->input('customFileLang10'),
+                    'lim_carga_h' => $request->input('lim_carga_h'),
+                    'horas_aprovadas' => $limDC,
+                ));
+
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$limMonitoria+$limDC,
+                ));
+
             }
         }
         else{
@@ -3404,38 +3607,6 @@ class ActivityController extends Controller
 
         $chAproAnterior-=$request->input('horas_aprovadas10');
         
-        User::find($idUser)->update(array(
-            'approved_hours' => $chAproAnterior+$limMonitoria+$limDC,
-        ));
-
-        Form10::find($request->id)->update(array(
-            'id' => $request->input('id'),
-            'tipo' => $request->input('tipo10'),
-            'carga_horaria' => $request->input('carga_horaria10'),
-            'nome_disc' => $request->input('nome_disc10'),
-            'dt_inicio' => $request->input('dt_inicio10'),
-            'dt_fim' => $request->input('dt_fim10'),
-            'status' => $request->input('status10'),
-            'usuario_id' => $request->input('usuario_id10'),
-            'customFileLang' => $request->input('customFileLang10'),
-            'lim_carga_h' => $request->input('lim_carga_h'),
-            'horas_aprovadas' => $limMonitoria,
-        ));
-
-        Form24::find($request->id)->update(array(
-            'id' => $request->input('id'),
-            'tipo' => $request->input('tipo10'),
-            'carga_horaria' => $request->input('carga_horaria10'),
-            'nome_disc' => $request->input('nome_disc10'),
-            'dt_inicio' => $request->input('dt_inicio10'),
-            'dt_fim' => $request->input('dt_fim10'),
-            'status' => $request->input('status10'),
-            'usuario_id' => $request->input('usuario_id10'),
-            'customFileLang' => $request->input('customFileLang10'),
-            'lim_carga_h' => $request->input('lim_carga_h'),
-            'horas_aprovadas' => $limDC,
-        ));
-
         return redirect()->route('lista_atividades', $idUser);
     }
 
@@ -3514,6 +3685,25 @@ class ActivityController extends Controller
                     }
                 }
                 $limAluno = 0;
+
+                Form12::find($request->id)->update(array(
+                    'id' => $request->input('id'),
+                    'tipo' => $request->input('tipo12'),
+                    'carga_horaria' => $request->input('carga_horaria12'),
+                    'nome_curso' => $request->input('nome_curso12'),
+                    'dt_inicio' => $request->input('dt_inicio12'),
+                    'dt_fim' => $request->input('dt_fim12'),
+                    'status' => $request->input('status12'),
+                    'usuario_id' => $request->input('usuario_id12'),
+                    'customFileLang' => $request->input('customFileLang12'),
+                    'lim_carga_h' => $request->input('lim_carga_h'),
+                    'horas_aprovadas' => $limInstrutor,
+                ));
+
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$limInstrutor+$limAluno,
+                ));
+                
             }
             else if($request->input('tipo12') == 'Aluno'){
                 if($request->input('carga_horaria12') <= $chLimAluno){
@@ -3533,6 +3723,25 @@ class ActivityController extends Controller
                     }
                 }
                 $limInstrutor = 0;
+
+                Form25::find($request->id)->update(array(
+                    'id' => $request->input('id'),
+                    'tipo' => $request->input('tipo12'),
+                    'carga_horaria' => $request->input('carga_horaria12'),
+                    'nome_curso' => $request->input('nome_curso12'),
+                    'dt_inicio' => $request->input('dt_inicio12'),
+                    'dt_fim' => $request->input('dt_fim12'),
+                    'status' => $request->input('status12'),
+                    'usuario_id' => $request->input('usuario_id12'),
+                    'customFileLang' => $request->input('customFileLang12'),
+                    'lim_carga_h' => $request->input('lim_carga_h'),
+                    'horas_aprovadas' => $limAluno,
+                ));
+
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$limInstrutor+$limAluno,
+                ));
+
             }
 
         }
@@ -3542,38 +3751,6 @@ class ActivityController extends Controller
         }
 
         $chAproAnterior-=$request->input('horas_aprovadas12');
-        
-        User::find($idUser)->update(array(
-            'approved_hours' => $chAproAnterior+$limInstrutor+$limAluno,
-        ));
-
-        Form12::find($request->id)->update(array(
-            'id' => $request->input('id'),
-            'tipo' => $request->input('tipo12'),
-            'carga_horaria' => $request->input('carga_horaria12'),
-            'nome_curso' => $request->input('nome_curso12'),
-            'dt_inicio' => $request->input('dt_inicio12'),
-            'dt_fim' => $request->input('dt_fim12'),
-            'status' => $request->input('status12'),
-            'usuario_id' => $request->input('usuario_id12'),
-            'customFileLang' => $request->input('customFileLang12'),
-            'lim_carga_h' => $request->input('lim_carga_h'),
-            'horas_aprovadas' => $limInstrutor,
-        ));
-
-        Form25::find($request->id)->update(array(
-            'id' => $request->input('id'),
-            'tipo' => $request->input('tipo12'),
-            'carga_horaria' => $request->input('carga_horaria12'),
-            'nome_curso' => $request->input('nome_curso12'),
-            'dt_inicio' => $request->input('dt_inicio12'),
-            'dt_fim' => $request->input('dt_fim12'),
-            'status' => $request->input('status12'),
-            'usuario_id' => $request->input('usuario_id12'),
-            'customFileLang' => $request->input('customFileLang12'),
-            'lim_carga_h' => $request->input('lim_carga_h'),
-            'horas_aprovadas' => $limAluno,
-        ));
 
         return redirect()->route('lista_atividades', $idUser);
     }
