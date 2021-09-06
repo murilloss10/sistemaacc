@@ -1,24 +1,30 @@
 <div>
     <div class="container"> 
 
+        <div class="card" style="width: 17rem; margin-left: 0;">
+            <div class="card-header">
+                <h4>Carga Horária Parcial</h4>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Limite:</strong> {{$chMaxF13}} horas</li>
+                <li class="list-group-item"><strong>Submetida:</strong> {{$limTF13}} horas</li>
+                <li class="list-group-item"><strong>Restante:</strong>
+                    @if ( $chMaxF13-$limTF13 < 0 )
+                        0 horas
+                    @else
+                        {{$chMaxF13-$limTF13}} horas
+                    @endif
+                </li>
+            </ul>
+            <div class="card-footer text-muted">
+                Após atingido o limite de horas, as próximas atividades serão zeradas.
+            </div>
+        </div>
+        <br>
+
         <form action="{{url('submeter/form13/salvar')}}" method="POST" class="col-md-12" enctype="multipart/form-data">
 
             @csrf
-
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">
-                    <h4>Carga Horária Parcial</h4>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>Limite:</strong> {{$chMaxF13}} horas</li>
-                    <li class="list-group-item"><strong>Submetida:</strong> {{$limTF13}} horas</li>
-                    <li class="list-group-item"><strong>Restante:</strong> {{$chMaxF13-$limTF13}} horas</li>
-                </ul>
-                <div class="card-footer text-muted">
-                    Após atingido o limite de horas, as próximas atividades serão zeradas.
-                </div>
-            </div>
-            <br>
 
             <div class="row">
                 <div class="col-md-12">

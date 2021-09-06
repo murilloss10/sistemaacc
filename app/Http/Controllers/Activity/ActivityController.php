@@ -65,31 +65,33 @@ class ActivityController extends Controller
         if(Gate::authorize('normal')){
             $dados = Activity::all();
             $idUser = Auth::id();
-            $chMaxF1 = 200;
-            $chMaxF2 = 120;
-            $chMaxF3 = 120;
-            $chMaxF4 = 30;
-            $chMaxF5 = 80;
-            $chMaxF6 = 80;
-            $chMaxF7 = 50;
-            $chMaxF8 = 150;
-            $chMaxF9 = 60;
-            $chMaxF10 = 80;
-            $chMaxF11 = 50;
-            $chMaxF12 = 50;
-            $chMaxF13 = 60;
-            $chMaxF14 = 200;
-            $chMaxF15 = 100;
-            $chMaxF16 = 100;
-            $chMaxF17 = 100;
-            $chMaxF18 = 100;
-            $chMaxF19 = 50;
-            $chMaxF20 = 100;
-            $chMaxF21 = 60;
-            $chMaxF22 = 60;
-            $chMaxF23 = 100;
-            $chMaxF24 = 80;
-            $chMaxF25 = 100;
+            // Carga horária de cada atividade
+            $chMaxF1 = 200; // Projeto de Pesquisa
+            $chMaxF2 = 120; // Publicação de Artigo ou Resumo: Artigo
+            $chMaxF3 = 120; // Eventos Científicos: Nacional ou Regional
+            $chMaxF4 = 30; // Premiação
+            $chMaxF5 = 80; // Representação Estudantil: Diretório Acadêmico
+            $chMaxF6 = 80; // Empresa Júnior
+            $chMaxF7 = 50; // Estágio Extracurricular: Vinculado ao curso
+            $chMaxF8 = 150; // Voluntariado ou Ação Social
+            $chMaxF9 = 60; // Projeto de Consultoria
+            $chMaxF10 = 80; // Disciplina Complementar ou Monitoria: Monitoria
+            $chMaxF11 = 50; // Visita Técnica
+            $chMaxF12 = 50; // Curso ou Minicurso: Instrutor
+            $chMaxF13 = 60; // Maratona de Programação
+            $chMaxF14 = 200; // Projeto de
+            $chMaxF15 = 100; // Publicação de Artigo ou Resumo: Artigo
+            $chMaxF16 = 100; // Eventos Científicos: Local
+            $chMaxF17 = 100; // Eventos Científicos: Participação em Palestra e Conferências
+            $chMaxF18 = 100; // Eventos Científicos: Comissão Central
+            $chMaxF19 = 50; // Eventos Científicos: Comissão Secundária
+            $chMaxF20 = 100; // Eventos Científicos: Apresentação de trabalho
+            $chMaxF21 = 60; // Eventos Científicos: Palestrante
+            $chMaxF22 = 60; // Representação Estudantil: Conselho ou Colegiado
+            $chMaxF23 = 100; // Estágio Extracurricular: Vonluntário no IFNMG
+            $chMaxF24 = 80; // Disciplina Complementar ou Monitoria: Disciplina Complementar
+            $chMaxF25 = 100; // Curso ou Minicurso: Aluno
+            // Somatória da coluna horas_aprovadas de cada tabela
             $limTF1 = Form1::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $limTF2 = Form2::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $limTF3 = Form3::where('usuario_id', $idUser)->sum('horas_aprovadas');
@@ -115,6 +117,7 @@ class ActivityController extends Controller
             $limTF23 = Form23::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $limTF24 = Form24::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $limTF25 = Form25::where('usuario_id', $idUser)->sum('horas_aprovadas');
+            // Armazenamento dos dados filtrados de cada tabela
             $dadosForm1 = Form1::where('usuario_id', $idUser)->where('status', 'Indeferido')->orWhere('status', 'Em análise')->get();
             $dadosForm2 = Form2::where('usuario_id', $idUser)->where('status', 'Indeferido')->orWhere('status', 'Em análise')->get();
             $dadosForm3 = Form3::where('usuario_id', $idUser)->where('status', 'Indeferido')->orWhere('status', 'Em análise')->get();
@@ -140,6 +143,7 @@ class ActivityController extends Controller
             $dadosForm23 = Form23::where('usuario_id', $idUser)->where('status', 'Indeferido')->orWhere('status', 'Em análise')->get();
             $dadosForm24 = Form24::where('usuario_id', $idUser)->where('status', 'Indeferido')->orWhere('status', 'Em análise')->get();
             $dadosForm25 = Form25::where('usuario_id', $idUser)->where('status', 'Indeferido')->orWhere('status', 'Em análise')->get();
+            // id do usuário logado
             $authorized = Auth::id();
             return view('activities')->with('dados', $dados)
                 ->with('authorized', $authorized)
@@ -230,31 +234,33 @@ class ActivityController extends Controller
             $user = User::all();
             $idUser = Auth::id();
             $nameUser = Auth::user()->name;
-            $chMaxF1 = 200;
-            $chMaxF2 = 120;
-            $chMaxF3 = 120;
-            $chMaxF4 = 30;
-            $chMaxF5 = 80;
-            $chMaxF6 = 80;
-            $chMaxF7 = 50;
-            $chMaxF8 = 150;
-            $chMaxF9 = 60;
-            $chMaxF10 = 80;
-            $chMaxF11 = 50;
-            $chMaxF12 = 50;
-            $chMaxF13 = 60;
-            $chMaxF14 = 200;
-            $chMaxF15 = 100;
-            $chMaxF16 = 100;
-            $chMaxF17 = 100;
-            $chMaxF18 = 100;
-            $chMaxF19 = 50;
-            $chMaxF20 = 100;
-            $chMaxF21 = 60;
-            $chMaxF22 = 60;
-            $chMaxF23 = 100;
-            $chMaxF24 = 80;
-            $chMaxF25 = 100;
+            // Carga horária de cada atividade
+            $chMaxF1 = 200; // Projeto de Pesquisa
+            $chMaxF2 = 120; // Publicação de Artigo ou Resumo: Artigo
+            $chMaxF3 = 120; // Eventos Científicos: Nacional ou Regional
+            $chMaxF4 = 30; // Premiação
+            $chMaxF5 = 80; // Representação Estudantil: Diretório Acadêmico
+            $chMaxF6 = 80; // Empresa Júnior
+            $chMaxF7 = 50; // Estágio Extracurricular: Vinculado ao curso
+            $chMaxF8 = 150; // Voluntariado ou Ação Social
+            $chMaxF9 = 60; // Projeto de Consultoria
+            $chMaxF10 = 80; // Disciplina Complementar ou Monitoria: Monitoria
+            $chMaxF11 = 50; // Visita Técnica
+            $chMaxF12 = 50; // Curso ou Minicurso: Instrutor
+            $chMaxF13 = 60; // Maratona de Programação
+            $chMaxF14 = 200; // Projeto de
+            $chMaxF15 = 100; // Publicação de Artigo ou Resumo: Artigo
+            $chMaxF16 = 100; // Eventos Científicos: Local
+            $chMaxF17 = 100; // Eventos Científicos: Participação em Palestra e Conferências
+            $chMaxF18 = 100; // Eventos Científicos: Comissão Central
+            $chMaxF19 = 50; // Eventos Científicos: Comissão Secundária
+            $chMaxF20 = 100; // Eventos Científicos: Apresentação de trabalho
+            $chMaxF21 = 60; // Eventos Científicos: Palestrante
+            $chMaxF22 = 60; // Representação Estudantil: Conselho ou Colegiado
+            $chMaxF23 = 100; // Estágio Extracurricular: Vonluntário no IFNMG
+            $chMaxF24 = 80; // Disciplina Complementar ou Monitoria: Disciplina Complementar
+            $chMaxF25 = 100; // Curso ou Minicurso: Aluno
+            // Somatória da coluna horas_aprovadas de cada tabela
             $limTF1 = Form1::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $limTF2 = Form2::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $limTF3 = Form3::where('usuario_id', $idUser)->sum('horas_aprovadas');
@@ -280,6 +286,7 @@ class ActivityController extends Controller
             $limTF23 = Form23::where('usuario_id', $idUser)->sum('lim_carga_h');
             $limTF24 = Form24::where('usuario_id', $idUser)->sum('lim_carga_h');
             $limTF25 = Form25::where('usuario_id', $idUser)->sum('lim_carga_h');
+
             return view('submit')->with('user', $user)->with('idUser', $idUser)->with('nameUser', $nameUser)
                 ->with('limTF1', $limTF1)
                 ->with('limTF2', $limTF2)

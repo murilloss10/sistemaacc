@@ -18,7 +18,13 @@
                         <li class="list-group-item"><strong>Limite:</strong> {{$chMaxF9}} horas</li>
                         <li class="list-group-item"><strong>Submetida:</strong> {{$limTF9}} horas</li>
                         <li class="list-group-item"><strong>Aprovada:</strong> {{$aproTF9}} horas</li>
-                        <li class="list-group-item"><strong>Restante:</strong> {{$chMaxF9-$aproTF9}} horas</li>
+                        <li class="list-group-item"><strong>Restante:</strong>
+                            @if ( $chMaxF9-$limTF9 < 0 )
+                                0 horas
+                            @else
+                                {{$chMaxF9-$aproTF9}} horas
+                            @endif
+                        </li>
                     </ul>
                     <div class="card-footer text-muted">
                         Após atingido o limite de horas, as próximas atividades serão zeradas.

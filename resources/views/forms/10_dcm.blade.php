@@ -1,44 +1,57 @@
 <div>
     <div class="container">
 
+        <div class="row">
+            <div class="card" id="card-ch-disc-c" style="width: 17rem; margin-left: 0; display: none;">
+                <div class="card-header">
+                    <h4>C.H. Parcial: Disciplina C.</h4>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Limite:</strong> {{$chMaxF24}} horas</li>
+                    <li class="list-group-item"><strong>Submetida:</strong> {{$limTF24}} horas</li>
+                    <li class="list-group-item"><strong>Restante:</strong>
+                        @if ( $chMaxF24-$limTF24 < 0 )
+                            0 horas
+                        @else
+                            {{$chMaxF24-$limTF24}} horas
+                        @endif
+                    </li>
+                </ul>
+                <div class="card-footer text-muted">
+                    Após atingido o limite de horas, as próximas atividades serão zeradas.
+                </div>
+            </div>
+            <div class="card" id="card-ch-moni" style="width: 17rem; margin-left: 0; display: none;">
+                <div class="card-header">
+                    <h4>C.H. Parcial: Monitoria</h4>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Limite:</strong> {{$chMaxF10}} horas</li>
+                    <li class="list-group-item"><strong>Submetida:</strong> {{$limTF10}} horas</li>
+                    <li class="list-group-item"><strong>Restante:</strong>
+                        @if ( $chMaxF10-$limTF10 < 0 )
+                            0 horas
+                        @else
+                            {{$chMaxF10-$limTF10}} horas
+                        @endif
+                    </li>
+                </ul>
+                <div class="card-footer text-muted">
+                    Após atingido o limite de horas, as próximas atividades serão zeradas.
+                </div>
+            </div>
+        </div>
+        <br>
+
         <form action="{{url('submeter/form10/salvar')}}" method="POST" class="col-md-12" enctype="multipart/form-data">
 
             @csrf
 
             <div class="row">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-header">
-                        <h4>C.H. Parcial: Monitoria</h4>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><strong>Limite:</strong> {{$chMaxF10}} horas</li>
-                        <li class="list-group-item"><strong>Submetida:</strong> {{$limTF10}} horas</li>
-                        <li class="list-group-item"><strong>Restante:</strong> {{$chMaxF10-$limTF10}} horas</li>
-                    </ul>
-                    <div class="card-footer text-muted">
-                        Após atingido o limite de horas, as próximas atividades serão zeradas.
-                    </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-                    <div class="card-header">
-                        <h4>C.H. Parcial: Disciplina C.</h4>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><strong>Limite:</strong> {{$chMaxF24}} horas</li>
-                        <li class="list-group-item"><strong>Submetida:</strong> {{$limTF24}} horas</li>
-                        <li class="list-group-item"><strong>Restante:</strong> {{$chMaxF24-$limTF24}} horas</li>
-                    </ul>
-                    <div class="card-footer text-muted">
-                        Após atingido o limite de horas, as próximas atividades serão zeradas.
-                    </div>
-                </div>
-            </div>
-            <br>
-
-            <div class="row">
                 <div class="col-md-4">
                     <label for="inlineFormCustomSelect" class="text-label">Tipo</label>
-                    <select class="custom-select" id="inlineFormCustomSelect" name="tipo10">
+                    <select class="custom-select" id="inlineFormCustomSelect" name="tipo10"
+                    onchange="java_script_:showCargaHoraria(this.options[this.selectedIndex].value)">
                       <option selected value="">Selecione o tipo</option>
                       <option value="Disciplina Complementar">Disciplina Complementar</option>
                       <option value="Monitoria">Monitoria</option>
@@ -108,3 +121,21 @@
         </form>
     </div>
 </div>
+
+<script language="javascript">
+
+    function showCargaHoraria(t) {
+        if (t == "Disciplina Complementar") {
+            document.getElementById('card-ch-disc-c').style.display = 'inline-block';
+        }else{
+            document.getElementById('card-ch-disc-c').style.display = 'none';
+        }
+
+        if (t == "Monitoria") {
+            document.getElementById('card-ch-moni').style.display = 'inline-block';
+        }else{
+            document.getElementById('card-ch-moni').style.display = 'none';
+        }
+   }
+
+</script>
