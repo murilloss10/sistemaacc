@@ -35,20 +35,17 @@
 
     </style>
 
-    <img src="{{URL::asset('img/cabecalho.jpg')}}" style="width: 100%;" alt="">
+    <img src="{{ asset('img/cabecalho.jpg') }}" style="width: 100%;">
     <h6 class="title_p">DOCUMENTOS PARA COMPROVAÇÃO DAS ATIVIDADES COMPLEMENTARES</h6><br>
     <p style="text-align: justify;">Eu, {{$dados->name}}, acadêmico(a) regularmente matriculado(a) no Curso de Bacharelado em {{$dados->course}}, CPF
         _________________, matrícula ______________, venho requerer o aproveitamento das atividades abaixo especificadas e
         respectivos certificados e/ou declarações para compor a carga horária das Atividades Complementares.</p>
     <br>
-    <table class="table table-bordered" id="tableAllActivities"> <!-- adicionar a classe: sortable  para criar uma tabela que ordena de acordo com 
-        com a coluna selecionada-->
-    
+
+    <table class="table table-bordered" id="tableAllActivities">
         
         <thead>
             <tr>
-                <th hidden data-sorter="datesSorter" class="th-hidden">Criação</th>
-                <th style="width: 0%;" class="th-hidden">Nº</th>
                 <th style="width: 55%;">Especificação da atividade</th>
                 <th style="width: 15%;">Data/Período</th>
                 <th style="width: 30%;">Carga Horária Contabilizada</th>
@@ -56,258 +53,25 @@
         </thead>
 
         <tbody>
-            @foreach ($tdForm1 as $atv)
-                @if ($atv->usuario_id == $authorized)
-                    @if ($atv->horas_aprovadas > 0)
-                        <tr>
-                            <td hidden class="th-hidden">{{$atv->created_at}}</td>
-                            <td class="th-hidden">{{$atv->id}}</td>
-                            <td>{{$atv->tipo}}: {{$atv->nome_projeto}}</td>
-                            <td><?php echo date('d/m/Y', strtotime($atv->dt_inicio)); ?> a <br><?php echo date('d/m/Y', strtotime($atv->dt_fim)); ?></td>
-                            <td>{{$atv->horas_aprovadas}} hrs</td>
-                        </tr>
-                    @else
-                        
-                    @endif
-                @else
 
-                @endif
-            @endforeach
+            @if ( $allActivityApproved_json != '')
+                @forelse (json_decode($allActivityApproved_json) as $key => $item)
+                    <tr>
+                        <td>{{ $item->activity_name }}</td>
+                        <td>{{ $item->period }}</td>
+                        <td>{{ $item->hours }}</td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="5" style="text-align: center;">Sem atividades aprovadas.</td>
+                    </tr>
+                @endforelse    
+            @else
+                <tr>
+                    <p>Sem atividades aprovadas.</p>
+                </tr>
+            @endif
 
-            @foreach ($tdForm2 as $atv)
-                @if ($atv->usuario_id == $authorized)
-                    @if ($atv->horas_aprovadas > 0)
-                        <tr>
-                            <td hidden class="th-hidden">{{$atv->created_at}}</td>
-                            <td class="th-hidden"></td>
-                            <td>{{$atv->tipo}}: {{$atv->titulo}}</td>
-                            <td><?php echo date('d/m/Y', strtotime($atv->dt_inicio)); ?> a <br><?php echo date('d/m/Y', strtotime($atv->dt_fim)); ?></td>
-                            <td>{{$atv->horas_aprovadas}} hrs</td>
-                        </tr>
-                    @else
-                        
-                    @endif
-                @else
-
-                @endif
-            @endforeach
-
-            @foreach ($tdForm3 as $atv)
-                @if ($atv->usuario_id == $authorized)
-                    @if ($atv->horas_aprovadas > 0)
-                        <tr>
-                            <td hidden class="th-hidden">{{$atv->created_at}}</td>
-                            <td class="th-hidden"></td>
-                            <td>{{$atv->tipo}}: {{$atv->nome_evento}}</td>
-                            <td><?php echo date('d/m/Y', strtotime($atv->dt_inicio)); ?> a <br><?php echo date('d/m/Y', strtotime($atv->dt_fim)); ?></td>
-                            <td>{{$atv->horas_aprovadas}} hrs</td>
-                        </tr>
-                    @else
-                        
-                    @endif
-                @else
-
-                @endif
-            @endforeach
-
-            @foreach ($tdForm4 as $atv)
-                @if ($atv->usuario_id == $authorized)
-                    @if ($atv->horas_aprovadas > 0)
-                        <tr>
-                            <td hidden class="th-hidden">{{$atv->created_at}}</td>
-                            <td class="th-hidden"></td>
-                            <td>Premiação: {{$atv->nome_evento}}</td>
-                            <td><?php echo date('d/m/Y', strtotime($atv->dt_evento)); ?></td>
-                            <td>{{$atv->horas_aprovadas}} hrs</td>
-                        </tr>
-                    @else
-                        
-                    @endif
-                @else
-
-                @endif
-            @endforeach
-
-            @foreach ($tdForm5 as $atv)
-                @if ($atv->usuario_id == $authorized)
-                    @if ($atv->horas_aprovadas > 0)
-                        <tr>
-                            <td hidden class="th-hidden">{{$atv->created_at}}</td>
-                            <td class="th-hidden"></td>
-                            <td>{{$atv->tipo}}</td>
-                            <td><?php echo date('d/m/Y', strtotime($atv->dt_inicio)); ?> a <br><?php echo date('d/m/Y', strtotime($atv->dt_fim)); ?></td>
-                            <td>{{$atv->horas_aprovadas}} hrs</td>
-                        </tr>
-                    @else
-                        
-                    @endif
-                @else
-
-                @endif
-            @endforeach
-
-            @foreach ($tdForm6 as $atv)
-                @if ($atv->usuario_id == $authorized)
-                    @if ($atv->horas_aprovadas > 0)
-                        <tr>
-                            <td hidden class="th-hidden">{{$atv->created_at}}</td>
-                            <td class="th-hidden"></td>
-                            <td>Participação em Empresa Júnior</td>
-                            <td><?php echo date('d/m/Y', strtotime($atv->dt_inicio)); ?> a <br><?php echo date('d/m/Y', strtotime($atv->dt_fim)); ?></td>
-                            <td>{{$atv->horas_aprovadas}} hrs</td>
-                        </tr>
-                    @else
-                        
-                    @endif
-                @else
-
-                @endif
-            @endforeach
-
-            @foreach ($tdForm7 as $atv)
-                @if ($atv->usuario_id == $authorized)
-                    @if ($atv->horas_aprovadas > 0)
-                        <tr>
-                            <td hidden class="th-hidden">{{$atv->created_at}}</td>
-                            <td class="th-hidden"></td>
-                            <td>Estágio Extracurricular: {{$atv->nome_inst}}</td>
-                            <td><?php echo date('d/m/Y', strtotime($atv->dt_inicio)); ?> a <br><?php echo date('d/m/Y', strtotime($atv->dt_fim)); ?></td>
-                            <td>{{$atv->horas_aprovadas}} hrs</td>
-                        </tr>
-                    @else
-                        
-                    @endif
-                @else
-
-                @endif
-            @endforeach
-
-            @foreach ($tdForm8 as $atv)
-                @if ($atv->usuario_id == $authorized)
-                    @if ($atv->horas_aprovadas > 0)
-                        <tr>
-                            <td hidden class="th-hidden">{{$atv->created_at}}</td>
-                            <td class="th-hidden"></td>
-                            <td>{{$atv->nome_atividade}}</td>
-                            <td><?php echo date('d/m/Y', strtotime($atv->dt_atividade)); ?></td>
-                            <td>{{$atv->horas_aprovadas}} hrs</td>
-                        </tr>
-                    @else
-                        
-                    @endif
-                @else
-
-                @endif
-            @endforeach
-
-            @foreach ($tdForm9 as $atv)
-                @if ($atv->usuario_id == $authorized)
-                    @if ($atv->horas_aprovadas > 0)
-                        <tr>
-                            <td hidden class="th-hidden">{{$atv->created_at}}</td>
-                            <td class="th-hidden"></td>
-                            <td>{{$atv->nome_proj}}</td>
-                            <td><?php echo date('d/m/Y', strtotime($atv->dt_proj)); ?></td>
-                            <td>{{$atv->horas_aprovadas}} hrs</td>
-                        </tr>  
-                    @else
-                        
-                    @endif
-                @else
-
-                @endif
-            @endforeach
-
-            @foreach ($tdForm10 as $atv)
-                @if ($atv->usuario_id == $authorized)
-                    @if ($atv->horas_aprovadas > 0)
-                        <tr>
-                            <td hidden class="th-hidden">{{$atv->created_at}}</td>
-                            <td class="th-hidden"></td>
-                            <td>{{$atv->tipo}}: {{$atv->nome_disc}}</td>
-                            <td><?php echo date('d/m/Y', strtotime($atv->dt_inicio)); ?> a <br><?php echo date('d/m/Y', strtotime($atv->dt_fim)); ?></td>
-                            <td>{{$atv->horas_aprovadas}} hrs</td>
-                        </tr>
-                    @else
-                        
-                    @endif
-                @else
-
-                @endif
-            @endforeach
-
-            @foreach ($tdForm11 as $atv)
-                @if ($atv->usuario_id == $authorized)
-                    @if ($atv->horas_aprovadas > 0)
-                        <tr>
-                            <td hidden class="th-hidden">{{$atv->created_at}}</td>
-                            <td class="th-hidden"></td>
-                            <td>Visita Técnica: {{$atv->local}}</td>
-                            <td><?php echo date('d/m/Y', strtotime($atv->dt_local)); ?></td>
-                            <td>{{$atv->horas_aprovadas}} hrs</td>
-                        </tr>
-                    @else
-                        
-                    @endif
-                @else
-
-                @endif
-            @endforeach
-
-            @foreach ($tdForm12 as $atv)
-                @if ($atv->usuario_id == $authorized)
-                    @if ($atv->horas_aprovadas > 0)
-                        <tr>
-                            <td hidden class="th-hidden">{{$atv->created_at}}</td>
-                            <td class="th-hidden"></td>
-                            <td>{{$atv->tipo}}: {{$atv->nome_curso}}</td>
-                            <td><?php echo date('d/m/Y', strtotime($atv->dt_inicio)); ?> a <br><?php echo date('d/m/Y', strtotime($atv->dt_fim)); ?></td>
-                            <td>{{$atv->horas_aprovadas}} hrs</td>
-                        </tr>
-                    @else
-                        
-                    @endif
-                @else
-
-                @endif
-            @endforeach
-
-            @foreach ($tdForm13 as $atv)
-                @if ($atv->usuario_id == $authorized)
-                    @if ($atv->horas_aprovadas > 0)
-                        <tr>
-                            <td hidden class="th-hidden">{{$atv->created_at}}</td>
-                            <td class="th-hidden"></td>
-                            <td>{{$atv->nome_maratona}}</td>
-                            <td><?php echo date('d/m/Y', strtotime($atv->dt_maratona)); ?></td>
-                            <td>{{$atv->horas_aprovadas}} hrs</td>
-                        </tr>
-                    @else
-                        
-                    @endif
-                @else
-
-                @endif
-            @endforeach
-
-            @foreach ($tdForm14 as $atv)
-                @if ($atv->usuario_id == $authorized)
-                    @if ($atv->horas_aprovadas > 0)
-                        <tr>
-                            <td hidden class="th-hidden"    >{{$atv->created_at}}</td>
-                            <td class="th-hidden"></td>
-                            <td>{{$atv->tipo}}: {{$atv->nome_projeto}}</td>
-                            <td><?php echo date('d/m/Y', strtotime($atv->dt_inicio)); ?> a <br><?php echo date('d/m/Y', strtotime($atv->dt_fim)); ?></td>
-                            <td>{{$atv->horas_aprovadas}} hrs</td>
-                        </tr>
-                    @else
-                        
-                    @endif
-                @else
-                    
-                @endif
-            @endforeach
-        
         </tbody>
 
 

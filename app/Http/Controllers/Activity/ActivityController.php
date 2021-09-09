@@ -375,31 +375,31 @@ class ActivityController extends Controller
             $aproTF24 = Form24::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $aproTF25 = Form25::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $chAproT = $aproTF1+$aproTF2+$aproTF3+$aproTF4+$aproTF5+$aproTF6+$aproTF7+$aproTF8+$aproTF9+$aproTF10+$aproTF11+$aproTF12+$aproTF13+$aproTF14+$aproTF15+$aproTF16+$aproTF17+$aproTF18+$aproTF19+$aproTF20+$aproTF21+$aproTF22+$aproTF23+$aproTF24+$aproTF25;
-            $tdForm1 = Form1::where('usuario_id',$idUser)->get();
-            $tdForm2 = Form2::where('usuario_id',$idUser)->get();
-            $tdForm3 = Form3::where('usuario_id',$idUser)->get();
-            $tdForm4 = Form4::where('usuario_id',$idUser)->get();
-            $tdForm5 = Form5::where('usuario_id',$idUser)->get();
-            $tdForm6 = Form6::where('usuario_id',$idUser)->get();
-            $tdForm7 = Form7::where('usuario_id',$idUser)->get();
-            $tdForm8 = Form8::where('usuario_id',$idUser)->get();
-            $tdForm9 = Form9::where('usuario_id',$idUser)->get();
-            $tdForm10 = Form10::where('usuario_id',$idUser)->get();
-            $tdForm11 = Form11::where('usuario_id',$idUser)->get();
-            $tdForm12 = Form12::where('usuario_id',$idUser)->get();
-            $tdForm13 = Form13::where('usuario_id',$idUser)->get();
-            $tdForm14 = Form14::where('usuario_id',$idUser)->get();
-            $tdForm15 = Form15::where('usuario_id',$idUser)->get();
-            $tdForm16 = Form16::where('usuario_id',$idUser)->get();
-            $tdForm17 = Form17::where('usuario_id',$idUser)->get();
-            $tdForm18 = Form18::where('usuario_id',$idUser)->get();
-            $tdForm19 = Form19::where('usuario_id',$idUser)->get();
-            $tdForm20 = Form20::where('usuario_id',$idUser)->get();
-            $tdForm21 = Form21::where('usuario_id',$idUser)->get();
-            $tdForm22 = Form22::where('usuario_id',$idUser)->get();
-            $tdForm23 = Form23::where('usuario_id',$idUser)->get();
-            $tdForm24 = Form24::where('usuario_id',$idUser)->get();
-            $tdForm25 = Form25::where('usuario_id',$idUser)->get();
+            $tdForm1 = Form1::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm2 = Form2::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm3 = Form3::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm4 = Form4::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm5 = Form5::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm6 = Form6::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm7 = Form7::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm8 = Form8::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm9 = Form9::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm10 = Form10::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm11 = Form11::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm12 = Form12::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm13 = Form13::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm14 = Form14::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm15 = Form15::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm16 = Form16::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm17 = Form17::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm18 = Form18::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm19 = Form19::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm20 = Form20::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm21 = Form21::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm22 = Form22::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm23 = Form23::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm24 = Form24::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm25 = Form25::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
             $atividades = Activity::all();
             $tamForm1 = Form1::count();
             $tamForm2 = Form2::count();
@@ -429,14 +429,287 @@ class ActivityController extends Controller
             $tamTotalForms = $tamForm1+$tamForm2+$tamForm3+$tamForm4+$tamForm5+$tamForm6+$tamForm7+$tamForm8+$tamForm9+$tamForm10+$tamForm11+$tamForm12+$tamForm13+$tamForm14+$tamForm15+$tamForm16+$tamForm17+$tamForm18+$tamForm19+$tamForm20+$tamForm21+$tamForm22+$tamForm23+$tamForm24+$tamForm25;
 
             foreach ($tdForm1 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
                     'activity_name' => $form->nome_projeto,
-                    'period' => $form->dt_inicio . ' a ' . $form->dt_fim,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
                     'status' => $form->status
                 ];
-                
             }
+
+            foreach ($tdForm2 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->titulo,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm3 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm4 as $form) {
+                $date = new Carbon($form->dt_evento);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_evento,
+                    'period' => $date->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm5 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_c,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm6 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => 'Empresa Júnior',
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm7 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_inst,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm8 as $form) {
+                $date = new Carbon($form->dt_atividade);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_atividade,
+                    'period' => $date->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm9 as $form) {
+                $date = new Carbon($form->dt_proj);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_proj,
+                    'period' => $date->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm10 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_disc,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm11 as $form) {
+                $date = new Carbon($form->dt_local);
+                $allActivityApproved[] = [
+                    'activity_name' => 'Visita Técnica',
+                    'period' => $date->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm12 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_curso,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm13 as $form) {
+                $date = new Carbon($form->dt_maratona);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_maratona,
+                    'period' => $date->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm14 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_projeto,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm15 as $form) {
+                $date = new Carbon($form->dt_pub);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->titulo,
+                    'period' => $date->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm16 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm17 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm18 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm19 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm20 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm21 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm22 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_c,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+            
+            foreach ($tdForm23 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_inst,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm24 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_disc,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm25 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_curso,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+
+            if ( !isset($allActivityApproved) ) {
+                $allActivityApproved = [];
+            } else {
+
+                foreach ($allActivityApproved as $key => $row){
+                    $date_period[$key] = $row['period'];
+                }
+                array_multisort($date_period, SORT_DESC, $allActivityApproved);
+
+                collect($allActivityApproved)->sortByDesc('period');
+            }
+
 
             return view('view_last_activities')
             ->with('atividades', $atividades)
@@ -495,8 +768,7 @@ class ActivityController extends Controller
             ->with('tdForm24', $tdForm24)
             ->with('tdForm25', $tdForm25)
             ->with('tamTotalForms', $tamTotalForms)
-            ->with('allActivityApproved', $allActivityApproved);
-
+            ->with('allActivityApproved', json_encode($allActivityApproved));
 
 
         }
@@ -536,31 +808,31 @@ class ActivityController extends Controller
             $aproTF24 = Form24::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $aproTF25 = Form25::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $chAproT = $aproTF1+$aproTF2+$aproTF3+$aproTF4+$aproTF5+$aproTF6+$aproTF7+$aproTF8+$aproTF9+$aproTF10+$aproTF11+$aproTF12+$aproTF13+$aproTF14;
-            $tdForm1 = Form1::where('usuario_id', $idUser)->get();
-            $tdForm2 = Form2::where('usuario_id', $idUser)->get();
-            $tdForm3 = Form3::where('usuario_id', $idUser)->get();
-            $tdForm4 = Form4::where('usuario_id', $idUser)->get();
-            $tdForm5 = Form5::where('usuario_id', $idUser)->get();
-            $tdForm6 = Form6::where('usuario_id', $idUser)->get();
-            $tdForm7 = Form7::where('usuario_id', $idUser)->get();
-            $tdForm8 = Form8::where('usuario_id', $idUser)->get();
-            $tdForm9 = Form9::where('usuario_id', $idUser)->get();
-            $tdForm10 = Form10::where('usuario_id', $idUser)->get();
-            $tdForm11 = Form11::where('usuario_id', $idUser)->get();
-            $tdForm12 = Form12::where('usuario_id', $idUser)->get();
-            $tdForm13 = Form13::where('usuario_id', $idUser)->get();
-            $tdForm14 = Form14::where('usuario_id', $idUser)->get();
-            $tdForm15 = Form15::where('usuario_id', $idUser)->get();
-            $tdForm16 = Form16::where('usuario_id', $idUser)->get();
-            $tdForm17 = Form17::where('usuario_id', $idUser)->get();
-            $tdForm18 = Form18::where('usuario_id', $idUser)->get();
-            $tdForm19 = Form19::where('usuario_id', $idUser)->get();
-            $tdForm20 = Form20::where('usuario_id', $idUser)->get();
-            $tdForm21 = Form21::where('usuario_id', $idUser)->get();
-            $tdForm22 = Form22::where('usuario_id', $idUser)->get();
-            $tdForm23 = Form23::where('usuario_id', $idUser)->get();
-            $tdForm24 = Form24::where('usuario_id', $idUser)->get();
-            $tdForm25 = Form25::where('usuario_id', $idUser)->get();
+            $tdForm1 = Form1::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm2 = Form2::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm3 = Form3::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm4 = Form4::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm5 = Form5::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm6 = Form6::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm7 = Form7::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm8 = Form8::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm9 = Form9::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm10 = Form10::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm11 = Form11::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm12 = Form12::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm13 = Form13::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm14 = Form14::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm15 = Form15::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm16 = Form16::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm17 = Form17::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm18 = Form18::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm19 = Form19::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm20 = Form20::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm21 = Form21::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm22 = Form22::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm23 = Form23::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm24 = Form24::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
+            $tdForm25 = Form25::where('usuario_id',$idUser)->where('status', 'Deferido')->where('horas_aprovadas', '>', 0)->get();
             $atividades = Activity::all();
             $tamForm1 = Form1::count();
             $tamForm2 = Form2::count();
@@ -590,13 +862,285 @@ class ActivityController extends Controller
             $tamTotalForms = $tamForm1+$tamForm2+$tamForm3+$tamForm4+$tamForm5+$tamForm6+$tamForm7+$tamForm8+$tamForm9+$tamForm10+$tamForm11+$tamForm12+$tamForm13+$tamForm14+$tamForm15+$tamForm16+$tamForm17+$tamForm18+$tamForm19+$tamForm20+$tamForm21+$tamForm22+$tamForm23+$tamForm24+$tamForm25;
 
             foreach ($tdForm1 as $form) {
-                $allActivityApproved = [
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
                     'activity_name' => $form->nome_projeto,
-                    'period' => $form->dt_inicio . ' a ' . $form->dt_fim,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
                     'status' => $form->status
                 ];
-                
+            }
+
+            foreach ($tdForm2 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->titulo,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm3 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm4 as $form) {
+                $date = new Carbon($form->dt_evento);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_evento,
+                    'period' => $date->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm5 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_c,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm6 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => 'Empresa Júnior',
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm7 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_inst,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm8 as $form) {
+                $date = new Carbon($form->dt_atividade);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_atividade,
+                    'period' => $date->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm9 as $form) {
+                $date = new Carbon($form->dt_proj);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_proj,
+                    'period' => $date->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm10 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_disc,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm11 as $form) {
+                $date = new Carbon($form->dt_local);
+                $allActivityApproved[] = [
+                    'activity_name' => 'Visita Técnica',
+                    'period' => $date->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm12 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_curso,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm13 as $form) {
+                $date = new Carbon($form->dt_maratona);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_maratona,
+                    'period' => $date->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm14 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_projeto,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm15 as $form) {
+                $date = new Carbon($form->dt_pub);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->titulo,
+                    'period' => $date->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm16 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm17 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm18 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm19 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm20 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm21 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm22 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_c,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+            
+            foreach ($tdForm23 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->nome_inst,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm24 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_disc,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+            foreach ($tdForm25 as $form) {
+                $date_start = new Carbon($form->dt_inicio);
+                $date_end = new Carbon($form->dt_fim);
+                $allActivityApproved[] = [
+                    'activity_name' => $form->tipo . ': ' . $form->nome_curso,
+                    'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                    'hours' => $form->horas_aprovadas,
+                    'status' => $form->status
+                ];
+            }
+
+
+            if ( !isset($allActivityApproved) ) {
+                $allActivityApproved = [];
+            } else {
+
+                foreach ($allActivityApproved as $key => $row){
+                    $date_period[$key] = $row['period'];
+                }
+                array_multisort($date_period, SORT_DESC, $allActivityApproved);
+
+                collect($allActivityApproved)->sortByDesc('period');
             }
 
             return view('view_last_activities')
@@ -656,9 +1200,7 @@ class ActivityController extends Controller
             ->with('tdForm24', $tdForm24)
             ->with('tdForm25', $tdForm25)
             ->with('tamTotalForms', $tamTotalForms)
-            ->with('allActivityApproved', $allActivityApproved);
-
-
+            ->with('allActivityApproved', json_encode($allActivityApproved));
 
         }
 
