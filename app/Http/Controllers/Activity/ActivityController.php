@@ -2850,6 +2850,20 @@ class ActivityController extends Controller
                 $limApreEveC = 0;
                 $limPaleEveC = 0;
 
+                Form3::find($request->id)->update(array(
+                    'tipo' => $request->input('tipo3'),
+                    'carga_horaria' => $request->input('carga_horaria3'),
+                    'nome_evento' => $request->input('nome_evento3'),
+                    'local' => $request->input('local3'),
+                    'dt_inicio' => $request->input('dt_inicio3'),
+                    'dt_fim' => $request->input('dt_fim3'),
+                    'status' => $request->input('status3'),
+                    'usuario_id' => $request->input('usuario_id3'),
+                    'customFileLang' => $request->input('customFileLang3'),
+                    'lim_carga_h' => $request->input('lim_carga_h'),
+                    'horas_aprovadas' => $limOrganC,
+                ));
+
                 User::find($idUser)->update(array(
                     'approved_hours' => $chAproAnterior+$limOrganC+$limOrganS+$limPartEveNR+$limPartEveL+$limPartPale+$limApreEveC+$limPaleEveC,
                 ));
@@ -2881,6 +2895,20 @@ class ActivityController extends Controller
                 $limApreEveC = 0;
                 $limPaleEveC = 0;
 
+                Form16::find($request->id)->update(array(
+                    'tipo' => $request->input('tipo3'),
+                    'carga_horaria' => $request->input('carga_horaria3'),
+                    'nome_evento' => $request->input('nome_evento3'),
+                    'local' => $request->input('local3'),
+                    'dt_inicio' => $request->input('dt_inicio3'),
+                    'dt_fim' => $request->input('dt_fim3'),
+                    'status' => $request->input('status3'),
+                    'usuario_id' => $request->input('usuario_id3'),
+                    'customFileLang' => $request->input('customFileLang3'),
+                    'lim_carga_h' => $request->input('lim_carga_h'),
+                    'horas_aprovadas' => $limOrganS,
+                ));
+
                 User::find($idUser)->update(array(
                     'approved_hours' => $chAproAnterior+$limOrganC+$limOrganS+$limPartEveNR+$limPartEveL+$limPartPale+$limApreEveC+$limPaleEveC,
                 ));
@@ -2910,6 +2938,20 @@ class ActivityController extends Controller
                 $limPartPale = 0;
                 $limApreEveC = 0;
                 $limPaleEveC = 0;
+
+                Form17::find($request->id)->update(array(
+                    'tipo' => $request->input('tipo3'),
+                    'carga_horaria' => $request->input('carga_horaria3'),
+                    'nome_evento' => $request->input('nome_evento3'),
+                    'local' => $request->input('local3'),
+                    'dt_inicio' => $request->input('dt_inicio3'),
+                    'dt_fim' => $request->input('dt_fim3'),
+                    'status' => $request->input('status3'),
+                    'usuario_id' => $request->input('usuario_id3'),
+                    'customFileLang' => $request->input('customFileLang3'),
+                    'lim_carga_h' => $request->input('lim_carga_h'),
+                    'horas_aprovadas' => $limPartEveNR,
+                ));
 
                 User::find($idUser)->update(array(
                     'approved_hours' => $chAproAnterior+$limOrganC+$limOrganS+$limPartEveNR+$limPartEveL+$limPartPale+$limApreEveC+$limPaleEveC,
@@ -2941,6 +2983,20 @@ class ActivityController extends Controller
                 $limApreEveC = 0;
                 $limPaleEveC = 0;
 
+                Form18::find($request->id)->update(array(
+                    'tipo' => $request->input('tipo3'),
+                    'carga_horaria' => $request->input('carga_horaria3'),
+                    'nome_evento' => $request->input('nome_evento3'),
+                    'local' => $request->input('local3'),
+                    'dt_inicio' => $request->input('dt_inicio3'),
+                    'dt_fim' => $request->input('dt_fim3'),
+                    'status' => $request->input('status3'),
+                    'usuario_id' => $request->input('usuario_id3'),
+                    'customFileLang' => $request->input('customFileLang3'),
+                    'lim_carga_h' => $request->input('lim_carga_h'),
+                    'horas_aprovadas' => $limPartEveL,
+                ));
+
                 User::find($idUser)->update(array(
                     'approved_hours' => $chAproAnterior+$limOrganC+$limOrganS+$limPartEveNR+$limPartEveL+$limPartPale+$limApreEveC+$limPaleEveC,
                 ));
@@ -2970,6 +3026,20 @@ class ActivityController extends Controller
                 $limPartEveL = 0;
                 $limApreEveC = 0;
                 $limPaleEveC = 0;
+
+                Form19::find($request->id)->update(array(
+                    'tipo' => $request->input('tipo3'),
+                    'carga_horaria' => $request->input('carga_horaria3'),
+                    'nome_evento' => $request->input('nome_evento3'),
+                    'local' => $request->input('local3'),
+                    'dt_inicio' => $request->input('dt_inicio3'),
+                    'dt_fim' => $request->input('dt_fim3'),
+                    'status' => $request->input('status3'),
+                    'usuario_id' => $request->input('usuario_id3'),
+                    'customFileLang' => $request->input('customFileLang3'),
+                    'lim_carga_h' => $request->input('lim_carga_h'),
+                    'horas_aprovadas' => $limPartPale,
+                ));
 
                 User::find($idUser)->update(array(
                     'approved_hours' => $chAproAnterior+$limOrganC+$limOrganS+$limPartEveNR+$limPartEveL+$limPartPale+$limApreEveC+$limPaleEveC,
@@ -3001,6 +3071,20 @@ class ActivityController extends Controller
                 $limPartPale = 0;
                 $limPaleEveC = 0;
 
+                Form20::find($request->id)->update(array(
+                    'tipo' => $request->input('tipo3'),
+                    'carga_horaria' => $request->input('carga_horaria3'),
+                    'nome_evento' => $request->input('nome_evento3'),
+                    'local' => $request->input('local3'),
+                    'dt_inicio' => $request->input('dt_inicio3'),
+                    'dt_fim' => $request->input('dt_fim3'),
+                    'status' => $request->input('status3'),
+                    'usuario_id' => $request->input('usuario_id3'),
+                    'customFileLang' => $request->input('customFileLang3'),
+                    'lim_carga_h' => $request->input('lim_carga_h'),
+                    'horas_aprovadas' => $limApreEveC,
+                ));
+
                 User::find($idUser)->update(array(
                     'approved_hours' => $chAproAnterior+$limOrganC+$limOrganS+$limPartEveNR+$limPartEveL+$limPartPale+$limApreEveC+$limPaleEveC,
                 ));
@@ -3031,6 +3115,20 @@ class ActivityController extends Controller
                 $limPartPale = 0;
                 $limApreEveC = 0;
 
+                Form21::find($request->id)->update(array(
+                    'tipo' => $request->input('tipo3'),
+                    'carga_horaria' => $request->input('carga_horaria3'),
+                    'nome_evento' => $request->input('nome_evento3'),
+                    'local' => $request->input('local3'),
+                    'dt_inicio' => $request->input('dt_inicio3'),
+                    'dt_fim' => $request->input('dt_fim3'),
+                    'status' => $request->input('status3'),
+                    'usuario_id' => $request->input('usuario_id3'),
+                    'customFileLang' => $request->input('customFileLang3'),
+                    'lim_carga_h' => $request->input('lim_carga_h'),
+                    'horas_aprovadas' => $limPaleEveC,
+                ));
+
                 User::find($idUser)->update(array(
                     'approved_hours' => $chAproAnterior+$limOrganC+$limOrganS+$limPartEveNR+$limPartEveL+$limPartPale+$limApreEveC+$limPaleEveC,
                 ));
@@ -3048,104 +3146,6 @@ class ActivityController extends Controller
         }
         
         $chAproAnterior-=$request->input('horas_aprovadas3');
-
-        Form3::find($request->id)->update(array(
-            'tipo' => $request->input('tipo3'),
-            'carga_horaria' => $request->input('carga_horaria3'),
-            'nome_evento' => $request->input('nome_evento3'),
-            'local' => $request->input('local3'),
-            'dt_inicio' => $request->input('dt_inicio3'),
-            'dt_fim' => $request->input('dt_fim3'),
-            'status' => $request->input('status3'),
-            'usuario_id' => $request->input('usuario_id3'),
-            'customFileLang' => $request->input('customFileLang3'),
-            'lim_carga_h' => $request->input('lim_carga_h'),
-            'horas_aprovadas' => $limOrganC,
-        ));
-
-        Form16::find($request->id)->update(array(
-            'tipo' => $request->input('tipo3'),
-            'carga_horaria' => $request->input('carga_horaria3'),
-            'nome_evento' => $request->input('nome_evento3'),
-            'local' => $request->input('local3'),
-            'dt_inicio' => $request->input('dt_inicio3'),
-            'dt_fim' => $request->input('dt_fim3'),
-            'status' => $request->input('status3'),
-            'usuario_id' => $request->input('usuario_id3'),
-            'customFileLang' => $request->input('customFileLang3'),
-            'lim_carga_h' => $request->input('lim_carga_h'),
-            'horas_aprovadas' => $limOrganS,
-        ));
-
-        Form17::find($request->id)->update(array(
-            'tipo' => $request->input('tipo3'),
-            'carga_horaria' => $request->input('carga_horaria3'),
-            'nome_evento' => $request->input('nome_evento3'),
-            'local' => $request->input('local3'),
-            'dt_inicio' => $request->input('dt_inicio3'),
-            'dt_fim' => $request->input('dt_fim3'),
-            'status' => $request->input('status3'),
-            'usuario_id' => $request->input('usuario_id3'),
-            'customFileLang' => $request->input('customFileLang3'),
-            'lim_carga_h' => $request->input('lim_carga_h'),
-            'horas_aprovadas' => $limPartEveNR,
-        ));
-
-        Form18::find($request->id)->update(array(
-            'tipo' => $request->input('tipo3'),
-            'carga_horaria' => $request->input('carga_horaria3'),
-            'nome_evento' => $request->input('nome_evento3'),
-            'local' => $request->input('local3'),
-            'dt_inicio' => $request->input('dt_inicio3'),
-            'dt_fim' => $request->input('dt_fim3'),
-            'status' => $request->input('status3'),
-            'usuario_id' => $request->input('usuario_id3'),
-            'customFileLang' => $request->input('customFileLang3'),
-            'lim_carga_h' => $request->input('lim_carga_h'),
-            'horas_aprovadas' => $limPartEveL,
-        ));
-
-        Form19::find($request->id)->update(array(
-            'tipo' => $request->input('tipo3'),
-            'carga_horaria' => $request->input('carga_horaria3'),
-            'nome_evento' => $request->input('nome_evento3'),
-            'local' => $request->input('local3'),
-            'dt_inicio' => $request->input('dt_inicio3'),
-            'dt_fim' => $request->input('dt_fim3'),
-            'status' => $request->input('status3'),
-            'usuario_id' => $request->input('usuario_id3'),
-            'customFileLang' => $request->input('customFileLang3'),
-            'lim_carga_h' => $request->input('lim_carga_h'),
-            'horas_aprovadas' => $limPartPale,
-        ));
-
-        Form20::find($request->id)->update(array(
-            'tipo' => $request->input('tipo3'),
-            'carga_horaria' => $request->input('carga_horaria3'),
-            'nome_evento' => $request->input('nome_evento3'),
-            'local' => $request->input('local3'),
-            'dt_inicio' => $request->input('dt_inicio3'),
-            'dt_fim' => $request->input('dt_fim3'),
-            'status' => $request->input('status3'),
-            'usuario_id' => $request->input('usuario_id3'),
-            'customFileLang' => $request->input('customFileLang3'),
-            'lim_carga_h' => $request->input('lim_carga_h'),
-            'horas_aprovadas' => $limApreEveC,
-        ));
-
-        Form21::find($request->id)->update(array(
-            'tipo' => $request->input('tipo3'),
-            'carga_horaria' => $request->input('carga_horaria3'),
-            'nome_evento' => $request->input('nome_evento3'),
-            'local' => $request->input('local3'),
-            'dt_inicio' => $request->input('dt_inicio3'),
-            'dt_fim' => $request->input('dt_fim3'),
-            'status' => $request->input('status3'),
-            'usuario_id' => $request->input('usuario_id3'),
-            'customFileLang' => $request->input('customFileLang3'),
-            'lim_carga_h' => $request->input('lim_carga_h'),
-            'horas_aprovadas' => $limPaleEveC,
-        ));
 
         return redirect()->route('lista_atividades', $idUser);
     }
