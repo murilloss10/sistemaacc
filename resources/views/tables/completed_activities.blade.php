@@ -5,27 +5,53 @@
 
     
         <thead>
-            <tr style="width: 100%;">
-                <th hidden data-sorter="datesSorter">Criação</th>
-                <th style="width: 5%;">Nº</th>
-                <th style="width: 55%;">Especificação da atividade</th>
-                <th style="width: 15%;">Data/Período</th>
-                <th style="width: 15%;">Carga Horária Contabilizada</th>
-                <th style="width: 10%;">Situação</th>
-            </tr>
+            @can('normal')
+                <tr style="width: 100%;">
+                    <th style="width: 55%;">Especificação da atividade</th>
+                    <th style="width: 15%;">Data/Período</th>
+                    <th style="width: 15%;">Carga Horária Contabilizada</th>
+                    <th style="width: 10%;">Situação</th>
+                </tr>
+            @endcan
+
+            @can('administrador')
+                <tr style="width: 100%;">
+                    <th style="width: 55%;">Especificação da atividade</th>
+                    <th style="width: 10%;">Data/Período</th>
+                    <th style="width: 10%;">Carga Horária Contabilizada</th>
+                    <th style="width: 10%;">Situação</th>
+                    <th style="width: 10%;">Certificado</th>
+                </tr>
+            @endcan
         </thead>
 
         <tbody>
 
             @if ( $allActivityApproved != '')
                 @forelse (json_decode($allActivityApproved) as $key => $item)
-                    <tr>
-                        <td> </td>
-                        <td>{{ $item->activity_name }}</td>
-                        <td>{{ $item->period }}</td>
-                        <td>{{ $item->hours }}</td>
-                        <td>{{ $item->status }}</td>
-                    </tr>
+                    @can('normal')
+                        <tr>
+                            <td>{{ $item->activity_name }}</td>
+                            <td>{{ $item->period }}</td>
+                            <td>{{ $item->hours }}</td>
+                            <td>{{ $item->status }}</td>
+                        </tr>
+                    @endcan
+
+                    @can('administrador')
+                        <tr>
+                            <td>{{ $item->activity_name }}</td>
+                            <td>{{ $item->period }}</td>
+                            <td>{{ $item->hours }}</td>
+                            <td>{{ $item->status }}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary"><a class="button-delete-custom" target="_blank" href="{{asset('storage/'.$item->customFileLang)}}">
+                                    Abrir</a>
+                                </button>
+                            </td>
+                        </tr>
+                    @endcan
+
                 @empty
                     <tr>
                         <td colspan="5" style="text-align: center;">Sem atividades aprovadas.</td>
@@ -41,18 +67,6 @@
 
 
     </table>
-
-    <script>
-
-        var table = document.getElementsByTagName('tbody')[0],
-        rows = table.getElementsByTagName('tr'),
-        text = 'textContent' in document ? 'textContent' : 'innerText';
-
-        for (var i = 0, len = rows.length; i < len; i++) {
-        rows[i].children[0][text] = i + rows[i].children[0][text];
-        }
-
-    </script>
 
 
 </div>

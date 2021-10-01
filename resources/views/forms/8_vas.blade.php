@@ -25,11 +25,13 @@
         <form action="{{url('submeter/form8/salvar')}}" method="POST" class="col-md-12" enctype="multipart/form-data">
 
             @csrf
+            
+            <input type="text" value="form8" name="formS" hidden>
 
             <div class="row">
                 <div class="col-md-8">
                     <label for="hours" class="text-label">Carga-Horária (conforme certificado)</label>
-                    <input type="number" class="form-control" placeholder="" id="hours" name="carga_horaria8">
+                    <input type="number" class="form-control" placeholder="" id="hours" name="carga_horaria8" value="{{ old('carga_horaria8') }}">
                     @error('carga_horaria8')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -39,7 +41,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <label for="nameact" class="text-label">Nome da Atividade</label>
-                    <input type="text" class="form-control" placeholder="" id="nameact" name="nome_atividade8">
+                    <input type="text" class="form-control" placeholder="" id="nameact" name="nome_atividade8" value="{{ old('nome_atividade8') }}">
                     @error('nome_atividade8')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -49,7 +51,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <label for="datte" class="text-label">Data</label>
-                    <input type="date" class="form-control" placeholder="" id="datte" name="dt_atividade8">
+                    <input type="date" class="form-control" placeholder="" id="datte" name="dt_atividade8" value="{{ old('dt_atividade8') }}">
                     @error('dt_atividade8')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

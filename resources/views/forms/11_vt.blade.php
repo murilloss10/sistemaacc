@@ -26,10 +26,12 @@
 
             @csrf
 
+            <input type="text" value="form11" name="formS" hidden>
+
             <div class="row">
                 <div class="col-md-12">
                     <label for="localevisit" class="text-label">Local da Visita</label>
-                    <input type="text" class="form-control" placeholder="" id="localevisit" name="local11">
+                    <input type="text" class="form-control" placeholder="" id="localevisit" name="local11" value="{{ old('local11') }}">
                     @error('local11')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -39,7 +41,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <label for="datte" class="text-label">Data</label>
-                    <input type="date" class="form-control" placeholder="" id="datte" name="dt_local11">
+                    <input type="date" class="form-control" placeholder="" id="datte" name="dt_local11" value="{{ old('dt_local11') }}">
                     @error('dt_local11')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

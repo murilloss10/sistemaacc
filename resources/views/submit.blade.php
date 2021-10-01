@@ -17,7 +17,6 @@
                 </button>
             </div>
         @endif
-        
 
         <h4 class="submit_title title-far-top">Submissão de Documento AACC</h4><br><br>
         <div class="row">
@@ -27,20 +26,20 @@
                     name="formSelect" onchange="java_script_:show(this.options[this.selectedIndex].value)">
 
                     <option selected value="0">Selecione o tipo de atividade...</option>
-                    <option value="form1">Projeto de Pesquisa</option>
-                    <option value="form14">Projeto de Extensão</option>
-                    <option value="form2">Publicação de Artigo ou Resumo</option>
-                    <option value="form3">Eventos Científicos e Palestras: Participação, Organização e Apresentação</option>
-                    <option value="form4">Premiação</option>
-                    <option value="form5">Representação Estudantil: Conselhos, Colegiados e DA</option>
-                    <option value="form6">Empresa Júnior</option>
-                    <option value="form7">Estágio Extracurricular</option>
-                    <option value="form8">Vonluntariado ou Ação Social</option>
-                    <option value="form9">Projeto de Consultoria</option>
-                    <option value="form10">Disciplina Complementar ou Monitoria</option>
-                    <option value="form11">Visita Técnica</option>
-                    <option value="form12">Curso ou Minicurso</option>
-                    <option value="form13">Maratona de Programação</option>
+                    <option value="form1" {{ old('formS') == 'form1' ? 'selected' : '' }}>Projeto de Pesquisa</option>
+                    <option value="form14" {{ old('formS') == 'form14' ? 'selected' : '' }}>Projeto de Extensão</option>
+                    <option value="form2" {{ old('formS') == 'form2' ? 'selected' : '' }}>Publicação de Artigo ou Resumo</option>
+                    <option value="form3" {{ old('formS') == 'form3' ? 'selected' : '' }}>Eventos Científicos e Palestras: Participação, Organização e Apresentação</option>
+                    <option value="form4" {{ old('formS') == 'form4' ? 'selected' : '' }}>Premiação</option>
+                    <option value="form5" {{ old('formS') == 'form5' ? 'selected' : '' }}>Representação Estudantil: Conselhos, Colegiados e DA</option>
+                    <option value="form6" {{ old('formS') == 'form6' ? 'selected' : '' }}>Empresa Júnior</option>
+                    <option value="form7" {{ old('formS') == 'form7' ? 'selected' : '' }}>Estágio Extracurricular</option>
+                    <option value="form8" {{ old('formS') == 'form8' ? 'selected' : '' }}>Vonluntariado ou Ação Social</option>
+                    <option value="form9" {{ old('formS') == 'form9' ? 'selected' : '' }}>Projeto de Consultoria</option>
+                    <option value="form10" {{ old('formS') == 'form10' ? 'selected' : '' }}>Disciplina Complementar ou Monitoria</option>
+                    <option value="form11" {{ old('formS') == 'form11' ? 'selected' : '' }}>Visita Técnica</option>
+                    <option value="form12" {{ old('formS') == 'form12' ? 'selected' : '' }}>Curso ou Minicurso</option>
+                    <option value="form13" {{ old('formS') == 'form13' ? 'selected' : '' }}>Maratona de Programação</option>
                 </select>
                 <div class="form-submit-top col-md-12">
 
@@ -96,8 +95,57 @@
 
     </div>
 
-
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script language="javascript">
+
+        var selected_option = $('#inlineFormCustomSelectPref option:selected').val();
+
+        switch (selected_option) {
+            case "form1":
+                form1.style.display = 'inline-block';
+                break;
+            case "form2":
+                form2.style.display = 'inline-block';
+                break;
+            case "form3":
+                form3.style.display = 'inline-block';
+                break;
+            case "form4":
+                form4.style.display = 'inline-block';
+                break;
+            case "form5":
+                form5.style.display = 'inline-block';
+                break;
+            case "form6":
+                form6.style.display = 'inline-block';
+                break;
+            case "form7":
+                form7.style.display = 'inline-block';
+                break;
+            case "form8":
+                form8.style.display = 'inline-block';
+                break;
+            case "form9":
+                form9.style.display = 'inline-block';
+                break;
+            case "form10":
+                form10.style.display = 'inline-block';
+                break;
+            case "form11":
+                form11.style.display = 'inline-block';
+                break;
+            case "form12":
+                form12.style.display = 'inline-block';
+                break;
+            case "form13":
+                form13.style.display = 'inline-block';
+                break;
+            case "form14":
+                form14.style.display = 'inline-block';
+                break;
+            default:
+                break;
+        }
 
         function show(aval) {
 

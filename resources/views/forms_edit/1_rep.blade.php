@@ -1,5 +1,7 @@
 @extends('index')
 
+<title>Avaliar Atividade | SAACC</title>
+
 @section('main-content')
 
 <div>

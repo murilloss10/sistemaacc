@@ -66,20 +66,20 @@ class ActivityController extends Controller
             $dados = Activity::all();
             $idUser = Auth::id();
             // Carga horária de cada atividade
-            $chMaxF1 = 200; // Projeto de Pesquisa
+            $chMaxF1 = 100; // Projeto de Pesquisa
             $chMaxF2 = 120; // Publicação de Artigo ou Resumo: Artigo
             $chMaxF3 = 120; // Eventos Científicos: Nacional ou Regional
             $chMaxF4 = 30; // Premiação
             $chMaxF5 = 80; // Representação Estudantil: Diretório Acadêmico
             $chMaxF6 = 80; // Empresa Júnior
             $chMaxF7 = 50; // Estágio Extracurricular: Vinculado ao curso
-            $chMaxF8 = 150; // Voluntariado ou Ação Social
+            $chMaxF8 = 50; // Voluntariado ou Ação Social
             $chMaxF9 = 60; // Projeto de Consultoria
             $chMaxF10 = 80; // Disciplina Complementar ou Monitoria: Monitoria
             $chMaxF11 = 50; // Visita Técnica
             $chMaxF12 = 50; // Curso ou Minicurso: Instrutor
             $chMaxF13 = 60; // Maratona de Programação
-            $chMaxF14 = 200; // Projeto de
+            $chMaxF14 = 100; // Projeto de Extensão
             $chMaxF15 = 100; // Publicação de Artigo ou Resumo: Artigo
             $chMaxF16 = 100; // Eventos Científicos: Local
             $chMaxF17 = 100; // Eventos Científicos: Participação em Palestra e Conferências
@@ -235,20 +235,20 @@ class ActivityController extends Controller
             $idUser = Auth::id();
             $nameUser = Auth::user()->name;
             // Carga horária de cada atividade
-            $chMaxF1 = 200; // Projeto de Pesquisa
+            $chMaxF1 = 100; // Projeto de Pesquisa
             $chMaxF2 = 120; // Publicação de Artigo ou Resumo: Artigo
             $chMaxF3 = 120; // Eventos Científicos: Nacional ou Regional
             $chMaxF4 = 30; // Premiação
             $chMaxF5 = 80; // Representação Estudantil: Diretório Acadêmico
             $chMaxF6 = 80; // Empresa Júnior
             $chMaxF7 = 50; // Estágio Extracurricular: Vinculado ao curso
-            $chMaxF8 = 150; // Voluntariado ou Ação Social
+            $chMaxF8 = 50; // Voluntariado ou Ação Social
             $chMaxF9 = 60; // Projeto de Consultoria
             $chMaxF10 = 80; // Disciplina Complementar ou Monitoria: Monitoria
             $chMaxF11 = 50; // Visita Técnica
             $chMaxF12 = 50; // Curso ou Minicurso: Instrutor
             $chMaxF13 = 60; // Maratona de Programação
-            $chMaxF14 = 200; // Projeto de
+            $chMaxF14 = 100; // Projeto de
             $chMaxF15 = 100; // Publicação de Artigo ou Resumo: Artigo
             $chMaxF16 = 100; // Eventos Científicos: Local
             $chMaxF17 = 100; // Eventos Científicos: Participação em Palestra e Conferências
@@ -432,7 +432,7 @@ class ActivityController extends Controller
                 $date_start = new Carbon($form->dt_inicio);
                 $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_projeto,
+                    'activity_name' => 'Projeto de Pesquisa: ' . $form->nome_projeto,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
                     'status' => $form->status
@@ -443,7 +443,7 @@ class ActivityController extends Controller
                 $date_start = new Carbon($form->dt_inicio);
                 $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->titulo,
+                    'activity_name' => 'Publicação de Artigo: ' . $form->titulo,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
                     'status' => $form->status
@@ -464,7 +464,7 @@ class ActivityController extends Controller
             foreach ($tdForm4 as $form) {
                 $date = new Carbon($form->dt_evento);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_evento,
+                    'activity_name' => 'Premiação: ' . $form->nome_evento,
                     'period' => $date->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
                     'status' => $form->status
@@ -475,7 +475,7 @@ class ActivityController extends Controller
                 $date_start = new Carbon($form->dt_inicio);
                 $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_c,
+                    'activity_name' => $form->tipo . ': ' . $form->nome_c,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
                     'status' => $form->status
@@ -497,7 +497,7 @@ class ActivityController extends Controller
                 $date_start = new Carbon($form->dt_inicio);
                 $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_inst,
+                    'activity_name' => 'Estágio Extracurricular: ' . $form->nome_inst,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
                     'status' => $form->status
@@ -507,7 +507,7 @@ class ActivityController extends Controller
             foreach ($tdForm8 as $form) {
                 $date = new Carbon($form->dt_atividade);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_atividade,
+                    'activity_name' => 'Voluntariado ou Ação Social: ' . $form->nome_atividade,
                     'period' => $date->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
                     'status' => $form->status
@@ -517,7 +517,7 @@ class ActivityController extends Controller
             foreach ($tdForm9 as $form) {
                 $date = new Carbon($form->dt_proj);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_proj,
+                    'activity_name' => 'Projeto de Consultoria: ' . $form->nome_proj,
                     'period' => $date->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
                     'status' => $form->status
@@ -528,7 +528,7 @@ class ActivityController extends Controller
                 $date_start = new Carbon($form->dt_inicio);
                 $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_disc,
+                    'activity_name' => $form->tipo . ': ' . $form->nome_disc,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
                     'status' => $form->status
@@ -538,7 +538,7 @@ class ActivityController extends Controller
             foreach ($tdForm11 as $form) {
                 $date = new Carbon($form->dt_local);
                 $allActivityApproved[] = [
-                    'activity_name' => 'Visita Técnica',
+                    'activity_name' => 'Visita Técnica: ' . $form->local,
                     'period' => $date->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
                     'status' => $form->status
@@ -549,7 +549,7 @@ class ActivityController extends Controller
                 $date_start = new Carbon($form->dt_inicio);
                 $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_curso,
+                    'activity_name' => $form->tipo . ' de Minicurso: ' . $form->nome_curso,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
                     'status' => $form->status
@@ -559,7 +559,7 @@ class ActivityController extends Controller
             foreach ($tdForm13 as $form) {
                 $date = new Carbon($form->dt_maratona);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_maratona,
+                    'activity_name' => 'Maratona de Programação: ' . $form->nome_maratona,
                     'period' => $date->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
                     'status' => $form->status
@@ -570,7 +570,7 @@ class ActivityController extends Controller
                 $date_start = new Carbon($form->dt_inicio);
                 $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_projeto,
+                    'activity_name' => 'Projeto de Extensão: ' . $form->nome_projeto,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
                     'status' => $form->status
@@ -580,7 +580,7 @@ class ActivityController extends Controller
             foreach ($tdForm15 as $form) {
                 $date = new Carbon($form->dt_pub);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->titulo,
+                    'activity_name' => 'Publicação de Resumo: ' . $form->titulo,
                     'period' => $date->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
                     'status' => $form->status
@@ -668,7 +668,7 @@ class ActivityController extends Controller
                 $date_start = new Carbon($form->dt_inicio);
                 $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_inst,
+                    'activity_name' => 'Estágio Extracurricular: ' . $form->nome_inst,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
                     'status' => $form->status
@@ -690,12 +690,13 @@ class ActivityController extends Controller
                 $date_start = new Carbon($form->dt_inicio);
                 $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->tipo . ': ' . $form->nome_curso,
+                    'activity_name' => $form->tipo . ' de Minicurso: ' . $form->nome_curso,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
                     'status' => $form->status
                 ];
             }
+
 
 
             if ( !isset($allActivityApproved) ) {
@@ -705,7 +706,7 @@ class ActivityController extends Controller
                 foreach ($allActivityApproved as $key => $row){
                     $date_period[$key] = $row['period'];
                 }
-                array_multisort($date_period, SORT_DESC, $allActivityApproved);
+                array_multisort($date_period, SORT_ASC, $allActivityApproved);
 
                 collect($allActivityApproved)->sortByDesc('period');
             }
@@ -865,10 +866,11 @@ class ActivityController extends Controller
                 $date_start = new Carbon($form->dt_inicio);
                 $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_projeto,
+                    'activity_name' => 'Projeto de Pesquisa: ' . $form->nome_projeto,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
@@ -876,10 +878,11 @@ class ActivityController extends Controller
                 $date_start = new Carbon($form->dt_inicio);
                 $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->titulo,
+                    'activity_name' => 'Publicação de Artigo: ' . $form->titulo,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
@@ -890,17 +893,19 @@ class ActivityController extends Controller
                     'activity_name' => $form->tipo . ': ' . $form->nome_evento,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
             foreach ($tdForm4 as $form) {
                 $date = new Carbon($form->dt_evento);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_evento,
+                    'activity_name' => 'Premiação: ' . $form->nome_evento,
                     'period' => $date->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
@@ -908,10 +913,11 @@ class ActivityController extends Controller
                 $date_start = new Carbon($form->dt_inicio);
                 $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_c,
+                    'activity_name' => $form->tipo . ': ' . $form->nome_c,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
@@ -922,7 +928,8 @@ class ActivityController extends Controller
                     'activity_name' => 'Empresa Júnior',
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
@@ -930,30 +937,33 @@ class ActivityController extends Controller
                 $date_start = new Carbon($form->dt_inicio);
                 $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_inst,
+                    'activity_name' => 'Estágio Extracurricular: ' . $form->nome_inst,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
             foreach ($tdForm8 as $form) {
                 $date = new Carbon($form->dt_atividade);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_atividade,
+                    'activity_name' => 'Voluntariado ou Ação Social: ' . $form->nome_atividade,
                     'period' => $date->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
             foreach ($tdForm9 as $form) {
                 $date = new Carbon($form->dt_proj);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_proj,
+                    'activity_name' => 'Projeto de Consultoria: ' . $form->nome_proj,
                     'period' => $date->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
@@ -961,20 +971,22 @@ class ActivityController extends Controller
                 $date_start = new Carbon($form->dt_inicio);
                 $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_disc,
+                    'activity_name' => $form->tipo . ': ' . $form->nome_disc,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
             foreach ($tdForm11 as $form) {
                 $date = new Carbon($form->dt_local);
                 $allActivityApproved[] = [
-                    'activity_name' => 'Visita Técnica',
+                    'activity_name' => 'Visita Técnica: ' . $form->local,
                     'period' => $date->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
@@ -982,20 +994,22 @@ class ActivityController extends Controller
                 $date_start = new Carbon($form->dt_inicio);
                 $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_curso,
+                    'activity_name' => $form->tipo . ' de Minicurso: ' . $form->nome_curso,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
             foreach ($tdForm13 as $form) {
                 $date = new Carbon($form->dt_maratona);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_maratona,
+                    'activity_name' => 'Maratona de Programação: ' . $form->nome_maratona,
                     'period' => $date->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
@@ -1003,20 +1017,22 @@ class ActivityController extends Controller
                 $date_start = new Carbon($form->dt_inicio);
                 $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_projeto,
+                    'activity_name' => 'Projeto de Extensão: ' . $form->nome_projeto,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
             foreach ($tdForm15 as $form) {
                 $date = new Carbon($form->dt_pub);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->titulo,
+                    'activity_name' => 'Publicação de Resumo: ' . $form->titulo,
                     'period' => $date->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
@@ -1027,7 +1043,8 @@ class ActivityController extends Controller
                     'activity_name' => $form->tipo . ': ' . $form->nome_evento,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
@@ -1038,7 +1055,8 @@ class ActivityController extends Controller
                     'activity_name' => $form->tipo . ': ' . $form->nome_evento,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
@@ -1049,7 +1067,8 @@ class ActivityController extends Controller
                     'activity_name' => $form->tipo . ': ' . $form->nome_evento,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
@@ -1060,7 +1079,8 @@ class ActivityController extends Controller
                     'activity_name' => $form->tipo . ': ' . $form->nome_evento,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
@@ -1071,7 +1091,8 @@ class ActivityController extends Controller
                     'activity_name' => $form->tipo . ': ' . $form->nome_evento,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
@@ -1082,7 +1103,8 @@ class ActivityController extends Controller
                     'activity_name' => $form->tipo . ': ' . $form->nome_evento,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
@@ -1093,7 +1115,8 @@ class ActivityController extends Controller
                     'activity_name' => $form->tipo . ': ' . $form->nome_c,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
             
@@ -1101,10 +1124,11 @@ class ActivityController extends Controller
                 $date_start = new Carbon($form->dt_inicio);
                 $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->nome_inst,
+                    'activity_name' => 'Estágio Extracurricular: ' . $form->nome_inst,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
@@ -1115,7 +1139,8 @@ class ActivityController extends Controller
                     'activity_name' => $form->tipo . ': ' . $form->nome_disc,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
@@ -1123,10 +1148,11 @@ class ActivityController extends Controller
                 $date_start = new Carbon($form->dt_inicio);
                 $date_end = new Carbon($form->dt_fim);
                 $allActivityApproved[] = [
-                    'activity_name' => $form->tipo . ': ' . $form->nome_curso,
+                    'activity_name' => $form->tipo . ' de Minicurso: ' . $form->nome_curso,
                     'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                     'hours' => $form->horas_aprovadas,
-                    'status' => $form->status
+                    'status' => $form->status,
+                    'customFileLang' => $form->customFileLang
                 ];
             }
 
@@ -1138,7 +1164,7 @@ class ActivityController extends Controller
                 foreach ($allActivityApproved as $key => $row){
                     $date_period[$key] = $row['period'];
                 }
-                array_multisort($date_period, SORT_DESC, $allActivityApproved);
+                array_multisort($date_period, SORT_ASC, $allActivityApproved);
 
                 collect($allActivityApproved)->sortByDesc('period');
             }
@@ -1211,7 +1237,7 @@ class ActivityController extends Controller
         $idUser = Auth::id();
         $limT = Form1::where('usuario_id', $idUser)->sum('lim_carga_h');
         $chLim = 50;
-        $chMax = 200;
+        $chMax = 100;
 
 
         if($request->file('customFileLang1')->isValid()){
@@ -1538,27 +1564,35 @@ class ActivityController extends Controller
             }
             else if($request->input('tipo3') == 'Apresentação em Evento Científico'){ //form20
                 if($limTForm20 <= $chApreseTrabalho){
-                    if($request->input('carga_horaria3') <= $limApreseTrabalho){
-                        if($limTForm20+$request->input('carga_horaria3') <= $chApreseTrabalho){
-                            $lim = $request->input('carga_horaria3');
-                        }
-                        else if($limTForm20+$request->input('carga_horaria3') > $chApreseTrabalho){
-                            $lim = $chApreseTrabalho - $limTForm20;
-                        }
+                    // if($request->input('carga_horaria3') <= $limApreseTrabalho){
+                    //     if($limTForm20+$request->input('carga_horaria3') <= $chApreseTrabalho){
+                    //         $lim = $request->input('carga_horaria3');
+                    //     }
+                    //     else if($limTForm20+$request->input('carga_horaria3') > $chApreseTrabalho){
+                    //         $lim = $chApreseTrabalho - $limTForm20;
+                    //     }
+                    // }
+                    // else {
+                    //     if($limTForm20+$limApreseTrabalho <= $chApreseTrabalho){
+                    //         $lim = $limApreseTrabalho;
+                    //     }
+                    //     else if($limTForm20+$limApreseTrabalho > $chApreseTrabalho){
+                    //         $lim = $chApreseTrabalho - $limTForm20;
+                    //     }
+                    // }
+                    
+                    if($limTForm20+$limApreseTrabalho <= $chApreseTrabalho){
+                        $lim = $limApreseTrabalho;
                     }
-                    else {
-                        if($limTForm20+$limApreseTrabalho <= $chApreseTrabalho){
-                            $lim = $limApreseTrabalho;
-                        }
-                        else if($limTForm20+$limApreseTrabalho > $chApreseTrabalho){
-                            $lim = $chApreseTrabalho - $limTForm20;
-                        }
+                    else if($limTForm20+$limApreseTrabalho > $chApreseTrabalho){
+                        $lim = $chApreseTrabalho - $limTForm20;
                     }
-                }
+
+               }
 
                 $data = Form20::create(array(
                     'tipo' => $request->input('tipo3'),
-                    'carga_horaria' => $request->input('carga_horaria3'),
+                    'carga_horaria' => $limApreseTrabalho,
                     'nome_evento' => $request->input('nome_evento3'),
                     'local' => $request->input('local3'),
                     'dt_inicio' => $request->input('dt_inicio3'),
@@ -1635,7 +1669,7 @@ class ActivityController extends Controller
             }
 
             $data = Form4::create(array(
-                'carga_horaria' => $request->input('carga_horaria4'),
+                'carga_horaria' => $limPremiacao,
                 'nome_evento' => $request->input('nome_evento4'),
                 'dt_evento' => $request->input('dt_evento4'),
                 'status' => $request->input('status4'),
@@ -1968,11 +2002,28 @@ class ActivityController extends Controller
             }
             else if($request->input('tipo10') == 'Disciplina Complementar'){
                 
-                if($limTForm24+$chLimC <= $chMaxC){
-                    $lim = $chLimC;
+                // if($limTForm24+$chLimC <= $chMaxC){
+                //     $lim = $chLimC;
+                // }
+                // else if($limTForm24+$chLimC > $chMaxC){
+                //     $lim = $chMaxC - $limTForm24;
+                // }
+
+                if($chLimC >= $request->input('carga_horaria10')){
+                    if($limTForm24+$request->input('carga_horaria10') <= $chMaxC){
+                        $lim = $request->input('carga_horaria10');
+                    }
+                    else if($limTForm24+$request->input('carga_horaria10') > $chMaxC){
+                        $lim = $chMaxC - $limTForm24;
+                    }
                 }
-                else if($limTForm24+$chLimC > $chMaxC){
-                    $lim = $chMaxC - $limTForm24;
+                else{
+                    if($limTForm24+$chLimC <= $chMaxC){
+                        $lim = $chLimC;
+                    }
+                    else if($limTForm24+$chLimC > $chMaxC){
+                        $lim = $chMaxC - $limTForm24;
+                    }
                 }
 
                 $data = Form24::create(array(
@@ -2156,7 +2207,7 @@ class ActivityController extends Controller
         $idUser = Auth::id();
         $limT = Form14::where('usuario_id', $idUser)->sum('lim_carga_h');
         $chLim = 50;
-        $chMax = 200;
+        $chMax = 100;
 
 
         if($request->file('customFileLang14')->isValid()){
@@ -2205,7 +2256,7 @@ class ActivityController extends Controller
             $idUser = Auth::id();
             $antHorasApro = User::where('id', $idUser)->first();
             $chAproAnterior = $antHorasApro->approved_hours;
-             
+            
             $dados = Form1::find($id);
             Form1::destroy($id);
             Storage::delete('public/'.$dados->customFileLang); //excluindo o arquivo copiado
@@ -2213,6 +2264,40 @@ class ActivityController extends Controller
             User::find($idUser)->update(array(
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
+            
+            $chLim = 50;
+            $chMax = 100;
+            $limT = Form1::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form1::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                $carga_horaria = $lastRegister->carga_horaria;
+                $horas_aprovadas = $lastRegister->horas_aprovadas;
+                if ($carga_horaria > $horas_aprovadas) {
+                    if($limT <= $chMax){
+                        if($limT+$carga_horaria <= $chMax){
+                            if($carga_horaria <= $chLim){
+                                $lim = $carga_horaria;
+                            }
+                            else if($carga_horaria > $chLim){
+                                $lim = $chLim;
+                            }
+                        }
+                        else if($limT+$carga_horaria > $chMax){
+                            $lim = $chMax - $limT;
+                        }
+                    }
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form1::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
+            
 
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -2233,6 +2318,30 @@ class ActivityController extends Controller
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
 
+            $chLim = 40;
+            $chMax = 120;
+            $limT = Form2::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form2::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                if($limT <= $chMax){
+                    if($limT+$chLim <= $chMax){
+                        $lim = $chLim;
+                    }
+                    else if($limT+$chLim > $chMax){
+                        $lim = $chMax - $limT;
+                    }
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form2::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
@@ -2251,6 +2360,44 @@ class ActivityController extends Controller
             User::find($idUser)->update(array(
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
+
+            $chLim = 40;
+            $chMax = 120;
+            $limT = Form3::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form3::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                $carga_horaria = $lastRegister->carga_horaria;
+                $horas_aprovadas = $lastRegister->horas_aprovadas;
+                if ($carga_horaria > $horas_aprovadas) {
+                    if($limT <= $chMax){
+                        if($carga_horaria <= $chLim){
+                            if($limT+$carga_horaria <= $chMax){
+                                $lim = $carga_horaria;
+                            }
+                            else if($limT+$carga_horaria > $chMax){
+                                $lim = $chMax - $limT;
+                            }
+                        }
+                        else {
+                            if($limT+$chLim <= $chMax){
+                                $lim = $chLim;
+                            }
+                            else if($limT+$chLim > $chMax){
+                                $lim = $chMax - $limT;
+                            }
+                        }
+                    }
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form3::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
 
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -2271,6 +2418,34 @@ class ActivityController extends Controller
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
 
+            $chLim = 10;
+            $chMax = 30;
+            $limT = Form4::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form4::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                $carga_horaria = $lastRegister->carga_horaria;
+                $horas_aprovadas = $lastRegister->horas_aprovadas;
+                if ($carga_horaria > $horas_aprovadas) {
+                    if($limT <= $chMax){
+                        if($limT+$chLim <= $chMax){
+                            $lim = $chLim;
+                        }
+                        else if($limT+$chLim > $chMax){
+                            $lim = $chMax - $limT;
+                        }
+                    }
+                }
+
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form4::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
@@ -2289,6 +2464,39 @@ class ActivityController extends Controller
             User::find($idUser)->update(array(
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
+
+            $chLim = 40;
+            $chMax = 80;
+            $limT = Form5::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form5::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                $quant_semestres = $lastRegister->quant_semestres;
+                if($limT <= $chMax){
+                    if($quant_semestres >= 2){
+                        if($limT+$chLim <= $chMax){
+                            $lim = $chLim;
+                        }
+                        else if($limT+$chLim > $chMax){
+                            $lim = $chMax - $limT;
+                        }
+                    }
+                    else {
+                        $lim = 0;
+                    }
+                }
+                else{
+                    $lim = 0;
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form5::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
 
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -2309,6 +2517,34 @@ class ActivityController extends Controller
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
 
+            $chLim = 40;
+            $chMax = 80;
+            $limT = Form6::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form6::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                $quant_semestres = $lastRegister->quant_semestres;
+                if($quant_semestres >= 1){
+                    if($limT+$chLim <= $chMax){
+                        $lim = $chLim;
+                    }
+                    else if($limT+$chLim > $chMax){
+                        $lim = $chMax - $limT;
+                    }
+                }
+                else {
+                    $lim = 0;
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form6::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
@@ -2327,6 +2563,33 @@ class ActivityController extends Controller
             User::find($idUser)->update(array(
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
+
+            $chLim = 50;
+            $chMax = 50;
+            $limT = Form7::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form7::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                if($limT <= $chMax){
+                    if($limT+$chLim <= $chMax){
+                        $lim = $chLim;
+                    }
+                    else if($limT+$chLim > $chMax){
+                        $lim = $chMax - $limT;
+                    }
+                }
+                else {
+                    $lim = 0;
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form7::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
 
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -2347,6 +2610,39 @@ class ActivityController extends Controller
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
 
+            $chLim = 10;
+            $chMax = 50;
+            $limT = Form8::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form8::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                $carga_horaria = $lastRegister->carga_horaria;
+                $horas_aprovadas = $lastRegister->horas_aprovadas;
+                if ($carga_horaria > $horas_aprovadas) {
+                    if($limT <= $chMax){
+                        if($limT+$carga_horaria <= $chMax){
+                            if($carga_horaria <= $chLim){
+                                $lim = $carga_horaria;
+                            }
+                            else if($carga_horaria > $chLim){
+                                $lim = $chLim;
+                            }
+                        }
+                        else if($limT+$carga_horaria > $chMax){
+                            $lim = $chMax - $limT;
+                        }
+                    }
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form8::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
@@ -2365,6 +2661,33 @@ class ActivityController extends Controller
             User::find($idUser)->update(array(
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
+
+            $chLim = 15;
+            $chMax = 60;
+            $limT = Form9::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form9::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                if($limT <= $chMax){
+                    if($limT+$chLim <= $chMax){
+                        $lim = $chLim;
+                    }
+                    else if($limT+$chLim > $chMax){
+                        $lim = $chMax - $limT;
+                    }
+                }
+                else {
+                    $lim = 0;
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form9::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
 
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -2385,6 +2708,39 @@ class ActivityController extends Controller
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
 
+            $chLim = 40;
+            $chMax = 80;
+            $limT = Form10::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form10::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                $carga_horaria = $lastRegister->carga_horaria;
+                $horas_aprovadas = $lastRegister->horas_aprovadas;
+                if ($carga_horaria > $horas_aprovadas) {
+                    if($limT <= $chMax){
+                        if($limT+$carga_horaria <= $chMax){
+                            if($carga_horaria <= $chLim){
+                                $lim = $carga_horaria;
+                            }
+                            else if($carga_horaria > $chLim){
+                                $lim = $chLim;
+                            }
+                        }
+                        else if($limT+$carga_horaria > $chMax){
+                            $lim = $chMax - $limT;
+                        }
+                    }
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form10::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
@@ -2403,6 +2759,28 @@ class ActivityController extends Controller
             User::find($idUser)->update(array(
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
+
+            $chLim = 10;
+            $chMax = 50;
+            $limT = Form11::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form11::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                if($limT+$chLim <= $chMax){
+                    $lim = $chLim;
+                }
+                else if($limT+$chLim > $chMax){
+                    $lim = $chMax - $limT;
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form11::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
 
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -2423,6 +2801,39 @@ class ActivityController extends Controller
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
 
+            $chLim = 10;
+            $chMax = 50;
+            $limT = Form12::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form12::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                $carga_horaria = $lastRegister->carga_horaria;
+                $horas_aprovadas = $lastRegister->horas_aprovadas;
+                if ($carga_horaria > $horas_aprovadas) {
+                    if($limT <= $chMax){
+                        if($limT+$carga_horaria <= $chMax){
+                            if($carga_horaria <= $chLim){
+                                $lim = $carga_horaria;
+                            }
+                            else if($carga_horaria > $chLim){
+                                $lim = $chLim;
+                            }
+                        }
+                        else if($limT+$carga_horaria > $chMax){
+                            $lim = $chMax - $limT;
+                        }
+                    }
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form12::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
@@ -2442,6 +2853,28 @@ class ActivityController extends Controller
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
 
+            $chLim = 15;
+            $chMax = 60;
+            $limT = Form13::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form13::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                if($limT+$chLim <= $chMax){
+                    $lim = $chLim;
+                }
+                else if($limT+$chLim > $chMax){
+                    $lim = $chMax - $limT;
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form13::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
@@ -2460,6 +2893,39 @@ class ActivityController extends Controller
             User::find($idUser)->update(array(
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
+
+            $chLim = 50;
+            $chMax = 100;
+            $limT = Form14::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form14::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                $carga_horaria = $lastRegister->carga_horaria;
+                $horas_aprovadas = $lastRegister->horas_aprovadas;
+                if ($carga_horaria > $horas_aprovadas) {
+                    if($limT <= $chMax){
+                        if($limT+$carga_horaria <= $chMax){
+                            if($carga_horaria <= $chLim){
+                                $lim = $carga_horaria;
+                            }
+                            else if($carga_horaria > $chLim){
+                                $lim = $chLim;
+                            }
+                        }
+                        else if($limT+$carga_horaria > $chMax){
+                            $lim = $chMax - $limT;
+                        }
+                    }
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form14::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
             
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -2480,6 +2946,30 @@ class ActivityController extends Controller
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
 
+            $chLim = 20;
+            $chMax = 100;
+            $limT = Form15::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form15::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'asc')->first();
+
+            if ( isset($lastRegister) ) {
+                if($limT <= $chMax){
+                    if($limT+$chLim <= $chMax){
+                        $lim = $chLim;
+                    }
+                    else if($limT+$chLim > $chMax){
+                        $lim = $chMax - $limT;
+                    }
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form15::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
@@ -2498,6 +2988,44 @@ class ActivityController extends Controller
             User::find($idUser)->update(array(
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
+
+            $chLim = 20;
+            $chMax = 100;
+            $limT = Form16::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form16::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                $carga_horaria = $lastRegister->carga_horaria;
+                $horas_aprovadas = $lastRegister->horas_aprovadas;
+                if ($carga_horaria > $horas_aprovadas) {
+                    if($limT <= $chMax){
+                        if($carga_horaria <= $chLim){
+                            if($limT+$carga_horaria <= $chMax){
+                                $lim = $carga_horaria;
+                            }
+                            else if($limT+$carga_horaria > $chMax){
+                                $lim = $chMax - $limT;
+                            }
+                        }
+                        else {
+                            if($limT+$chLim <= $chMax){
+                                $lim = $chLim;
+                            }
+                            else if($limT+$chLim > $chMax){
+                                $lim = $chMax - $limT;
+                            }
+                        }
+                    }
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form16::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
 
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -2518,6 +3046,44 @@ class ActivityController extends Controller
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
 
+            $chLim = 20;
+            $chMax = 100;
+            $limT = Form17::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form17::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                $carga_horaria = $lastRegister->carga_horaria;
+                $horas_aprovadas = $lastRegister->horas_aprovadas;
+                if ($carga_horaria > $horas_aprovadas) {
+                    if($limT <= $chMax){
+                        if($carga_horaria <= $chLim){
+                            if($limT+$carga_horaria <= $chMax){
+                                $lim = $carga_horaria;
+                            }
+                            else if($limT+$carga_horaria > $chMax){
+                                $lim = $chMax - $limT;
+                            }
+                        }
+                        else {
+                            if($limT+$chLim <= $chMax){
+                                $lim = $chLim;
+                            }
+                            else if($limT+$chLim > $chMax){
+                                $lim = $chMax - $limT;
+                            }
+                        }
+                    }
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form17::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
@@ -2536,6 +3102,44 @@ class ActivityController extends Controller
             User::find($idUser)->update(array(
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
+
+            $chLim = 10;
+            $chMax = 100;
+            $limT = Form18::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form18::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                $carga_horaria = $lastRegister->carga_horaria;
+                $horas_aprovadas = $lastRegister->horas_aprovadas;
+                if ($carga_horaria > $horas_aprovadas) {
+                    if($limT <= $chMax){
+                        if($carga_horaria <= $chLim){
+                            if($limT+$carga_horaria <= $chMax){
+                                $lim = $carga_horaria;
+                            }
+                            else if($limT+$carga_horaria > $chMax){
+                                $lim = $chMax - $limT;
+                            }
+                        }
+                        else {
+                            if($limT+$chLim <= $chMax){
+                                $lim = $chLim;
+                            }
+                            else if($limT+$chLim > $chMax){
+                                $lim = $chMax - $limT;
+                            }
+                        }
+                    }
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form18::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
 
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -2556,6 +3160,44 @@ class ActivityController extends Controller
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
 
+            $chLim = 5;
+            $chMax = 50;
+            $limT = Form19::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form19::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                $carga_horaria = $lastRegister->carga_horaria;
+                $horas_aprovadas = $lastRegister->horas_aprovadas;
+                if ($carga_horaria > $horas_aprovadas) {
+                    if($limT <= $chMax){
+                        if($carga_horaria <= $chLim){
+                            if($limT+$carga_horaria <= $chMax){
+                                $lim = $carga_horaria;
+                            }
+                            else if($limT+$carga_horaria > $chMax){
+                                $lim = $chMax - $limT;
+                            }
+                        }
+                        else {
+                            if($limT+$chLim <= $chMax){
+                                $lim = $chLim;
+                            }
+                            else if($limT+$chLim > $chMax){
+                                $lim = $chMax - $limT;
+                            }
+                        }
+                    }
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form19::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
@@ -2574,6 +3216,29 @@ class ActivityController extends Controller
             User::find($idUser)->update(array(
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
+
+            $chLim = 10;
+            $chMax = 100;
+            $limT = Form20::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form20::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+
+                if($limT+$chLim <= $chMax){
+                    $lim = $chLim;
+                }
+                else if($limT+$chLim > $chMax){
+                    $lim = $chMax - $limT;
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form20::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
 
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -2594,6 +3259,44 @@ class ActivityController extends Controller
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
 
+            $chLim = 15;
+            $chMax = 60;
+            $limT = Form21::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form21::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                $carga_horaria = $lastRegister->carga_horaria;
+                $horas_aprovadas = $lastRegister->horas_aprovadas;
+                if ($carga_horaria > $horas_aprovadas) {
+                    if($limT <= $chMax){
+                        if($carga_horaria <= $chLim){
+                            if($limT+$carga_horaria <= $chMax){
+                                $lim = $carga_horaria;
+                            }
+                            else if($limT+$carga_horaria > $chMax){
+                                $lim = $chMax - $limT;
+                            }
+                        }
+                        else {
+                            if($limT+$chLim <= $chMax){
+                                $lim = $chLim;
+                            }
+                            else if($limT+$chLim > $chMax){
+                                $lim = $chMax - $limT;
+                            }
+                        }
+                    }
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form21::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
@@ -2612,6 +3315,29 @@ class ActivityController extends Controller
             User::find($idUser)->update(array(
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
+
+            $chLim = 15;
+            $chMax = 60;
+            $limT = Form22::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form22::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                $quant_semestres = $lastRegister->quant_semestres;
+                if($quant_semestres*$chLim <= $chMax-$limT){
+                    $lim = $quant_semestres*$chLim;
+                }
+                else if($quant_semestres*$chLim > $chMax-$limT){
+                    $lim = $chMax - $limT;
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form22::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
 
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -2632,6 +3358,33 @@ class ActivityController extends Controller
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
 
+            $chLim = 50;
+            $chMax = 100;
+            $limT = Form23::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form23::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                if($limT <= $chMax){
+                    if($limT+$chLim <= $chMax){
+                        $lim = $chLim;
+                    }
+                    else if($limT+$chLim > $chMax){
+                        $lim = $chMax - $limT;
+                    }
+                }
+                else {
+                    $lim = 0;
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form23::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
+
             return redirect()->action('Activity\ActivityController@atividades');
         }
     }
@@ -2650,6 +3403,39 @@ class ActivityController extends Controller
             User::find($idUser)->update(array(
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
+
+            $chLim = 40;
+            $chMax = 80;
+            $limT = Form24::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form24::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                $carga_horaria = $lastRegister->carga_horaria;
+                $horas_aprovadas = $lastRegister->horas_aprovadas;
+                if ($carga_horaria > $horas_aprovadas) {
+                    if($limT <= $chMax){
+                        if($limT+$carga_horaria <= $chMax){
+                            if($carga_horaria <= $chLim){
+                                $lim = $carga_horaria;
+                            }
+                            else if($carga_horaria > $chLim){
+                                $lim = $chLim;
+                            }
+                        }
+                        else if($limT+$carga_horaria > $chMax){
+                            $lim = $chMax - $limT;
+                        }
+                    }
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form24::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
             
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -2669,6 +3455,39 @@ class ActivityController extends Controller
             User::find($idUser)->update(array(
                 'approved_hours' => $chAproAnterior-$dados->horas_aprovadas, //subtraindo as horas aprovadas
             ));
+
+            $chLim = 20;
+            $chMax = 100;
+            $limT = Form25::where('usuario_id', $idUser)->sum('lim_carga_h');
+            $lastRegister = Form25::where('usuario_id', $idUser)->where('lim_carga_h', '<', $chLim)->orderBy('created_at', 'desc')->first();
+
+            if ( isset($lastRegister) ) {
+                $carga_horaria = $lastRegister->carga_horaria;
+                $horas_aprovadas = $lastRegister->horas_aprovadas;
+                if ($carga_horaria > $horas_aprovadas) {
+                    if($limT <= $chMax){
+                        if($limT+$carga_horaria <= $chMax){
+                            if($carga_horaria <= $chLim){
+                                $lim = $carga_horaria;
+                            }
+                            else if($carga_horaria > $chLim){
+                                $lim = $chLim;
+                            }
+                        }
+                        else if($limT+$carga_horaria > $chMax){
+                            $lim = $chMax - $limT;
+                        }
+                    }
+                }
+        
+                User::find($idUser)->update(array(
+                    'approved_hours' => $chAproAnterior+$lim,
+                ));
+
+                $data = Form25::find($lastRegister->id)->update(array(
+                    'lim_carga_h' => $lim,
+                ));
+            }
             
             return redirect()->action('Activity\ActivityController@atividades');
         }
@@ -2679,7 +3498,7 @@ class ActivityController extends Controller
             $user = User::all();
             $idUser = $idUser;
             $nameUser = Auth::user()->name;
-            $chMaxF1 = 200;
+            $chMaxF1 = 100;
             $limTF1 = Form1::where('usuario_id', $idUser)->sum('lim_carga_h');
             $aproTF1 = Form1::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $dados = Form1::find($id);
@@ -2812,7 +3631,7 @@ class ActivityController extends Controller
             $user = User::all();
             $idUser = $idUser;
             $nameUser = Auth::user()->name;
-            $chMaxF8 = 150;
+            $chMaxF8 = 50;
             $limTF8 = Form8::where('usuario_id', $idUser)->sum('lim_carga_h');
             $aproTF8 = Form8::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $dados = Form8::find($id);
@@ -2926,7 +3745,7 @@ class ActivityController extends Controller
             $user = User::all();
             $idUser = $idUser;
             $nameUser = Auth::user()->name;
-            $chMaxF14 = 200;
+            $chMaxF14 = 100;
             $limTF14 = Form14::where('usuario_id', $idUser)->sum('lim_carga_h');
             $aproTF14 = Form14::where('usuario_id', $idUser)->sum('horas_aprovadas');
             $dados = Form14::find($id);
@@ -3154,7 +3973,7 @@ class ActivityController extends Controller
         $idUser =  $request->input('usuario_id1');
         $limT = (Form1::where('usuario_id', $idUser)->sum('lim_carga_h'))-$request->input('lim_carga_h');
         $chLim = 50;
-        $chMax = 200;
+        $chMax = 100;
 
         $antHorasApro = User::where('id', $idUser)->first();
         $chAproAnterior = $antHorasApro->approved_hours;
@@ -4350,7 +5169,7 @@ class ActivityController extends Controller
         $idUser =  $request->input('usuario_id14');
         $limT = (Form14::where('usuario_id', $idUser)->sum('lim_carga_h'))-$request->input('lim_carga_h');
         $chLim = 50;
-        $chMax = 200;
+        $chMax = 100;
 
         $antHorasApro = User::where('id', $idUser)->first();
         $chAproAnterior = $antHorasApro->approved_hours;

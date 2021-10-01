@@ -24,6 +24,7 @@ class Form7Request extends FormRequest
     public function rules()
     {
         return [
+            'tipo_inst7' => 'required',
             'nome_inst7' => 'required|min:3|max:255',
             'dt_inicio7' => 'required',
             'dt_fim7' => 'required',

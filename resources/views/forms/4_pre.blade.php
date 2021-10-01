@@ -27,20 +27,12 @@
 
             @csrf
 
-            <div class="row">
-                <div class="col-md-6">
-                    <label for="hours" class="text-label">Carga-Horária (conforme certificado)</label>
-                    <input type="number" class="form-control" placeholder="" id="hours" name="carga_horaria4">
-                    @error('carga_horaria4')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-            </div>
-            <br>
+            <input type="text" value="form4" name="formS" hidden>
+
             <div class="row">
                 <div class="col-md-12">
                     <label for="nameelocale" class="text-label">Nome do Evento onde foi premiado</label>
-                    <input type="text" class="form-control" placeholder="" id="nameelocale" name="nome_evento4">
+                    <input type="text" class="form-control" placeholder="" id="nameelocale" name="nome_evento4" value="{{ old('nome_evento4') }}">
                     @error('nome_evento4')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -50,7 +42,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <label for="datte" class="text-label">Data</label>
-                    <input type="date" class="form-control" placeholder="" id="datte" name="dt_evento4">
+                    <input type="date" class="form-control" placeholder="" id="datte" name="dt_evento4" value="{{ old('dt_evento4') }}">
                     @error('dt_evento4')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

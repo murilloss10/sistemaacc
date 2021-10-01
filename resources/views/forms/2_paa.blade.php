@@ -49,15 +49,16 @@
 
             @csrf
 
+            <input type="text" value="form2" name="formS" hidden>
 
             <div class="row">
                 <div class="col-lg-12">
                     <label for="inlineFormCustomSelect" class="text-label">Tipo</label>
                     <select class="custom-select" id="inlineFormCustomSelect" name="tipo2"
                     onchange="java_script_:showCargaHoraria(this.options[this.selectedIndex].value)">
-                      <option selected value="">Selecione o tipo</option>
-                      <option value="Artigo">Artigo</option>
-                      <option value="Resumo">Resumo</option>
+                        <option selected value="">Selecione o tipo</option>
+                        <option value="Artigo" {{ old('tipo2') == 'Artigo' ? 'selected' : '' }}>Artigo</option>
+                        <option value="Resumo" {{ old('tipo2') == 'Resumo' ? 'selected' : '' }}>Resumo</option>
                     </select>
                     @error('tipo2')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -68,7 +69,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <label for="titleAR" class="text-label">Título</label>
-                    <input type="text" class="form-control" placeholder="" id="titleAR" name="titulo2">
+                    <input type="text" class="form-control" placeholder="" id="titleAR" name="titulo2" value="{{ old('titulo2') }}">
                     @error('titulo2')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -78,7 +79,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <label for="whenPub" class="text-label">Onde foi publicado</label>
-                    <input type="text" class="form-control" placeholder="Nome da Revista ou Evento" id="whenPub" name="onde_pub2">
+                    <input type="text" class="form-control" placeholder="Nome da Revista ou Evento" id="whenPub" name="onde_pub2" value="{{ old('onde_pub2') }}">
                     @error('onde_pub2')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -88,7 +89,7 @@
             <div class="row">
                 <div class="col-lg-7">
                     <label for="dateEvent" class="text-label">Data</label>
-                    <input type="date" class="form-control" placeholder="" id="dateEvent" name="dt_pub2">
+                    <input type="date" class="form-control" placeholder="" id="dateEvent" name="dt_pub2" value="{{ old('dt_pub2') }}">
                     @error('dt_pub2')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

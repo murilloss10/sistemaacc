@@ -27,6 +27,8 @@
 
             @csrf
 
+            <input type="text" value="form1" name="formS" hidden>
+
             <div class="row">
                 <div class="col-lg-4 div-hidden">
                     <input type="text" value="Pesquisa" class="form-control" placeholder="" id="inlineFormCustomSelect" name="tipo1">
@@ -36,7 +38,7 @@
                 </div>
                 <div class="col-lg-6">
                     <label for="hours" class="text-label">Carga-Horária (conforme certificado)</label>
-                    <input type="number" class="form-control" placeholder="" id="hours" name="carga_horaria1">
+                    <input type="number" class="form-control" placeholder="" id="hours" name="carga_horaria1" value="{{ old('carga_horaria1') }}">
                     @error('carga_horaria1')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -46,7 +48,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <label for="nameproject" class="text-label">Nome do Projeto</label>
-                    <input type="text" class="form-control" placeholder="" id="nameproject" name="nome_projeto1">
+                    <input type="text" class="form-control" placeholder="" id="nameproject" name="nome_projeto1" value="{{ old('nome_projeto1') }}">
                     @error('nome_projeto1')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -56,14 +58,14 @@
             <div class="row">
                 <div class="col-lg-4">
                     <label for="start" class="text-label">Início</label>
-                    <input type="date" class="form-control" placeholder="" id="start" name="dt_inicio1">
+                    <input type="date" class="form-control" placeholder="" id="start" name="dt_inicio1" value="{{ old('dt_inicio1') }}">
                     @error('dt_inicio1')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-lg-4">
                     <label for="finish" class="text-label">Fim</label>
-                    <input type="date" class="form-control" placeholder="" id="finish" name="dt_fim1">
+                    <input type="date" class="form-control" placeholder="" id="finish" name="dt_fim1" value="{{ old('dt_fim1') }}">
                     @error('dt_fim1')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

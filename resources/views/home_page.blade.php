@@ -4,24 +4,24 @@
 
 @section('main-content')
 
-
-
     <br><br><h2 class="submit_title title-far-top">Seja Bem Vindo, {{$nameUser}}!</h2><br><br>
-
 
     @can('normal')
 
         @if ($chAproT >= $chNecessaria)
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                Você completou a carga horária mínima, gere o documento com a relação de atividades e entregue ao professor responsável pelas AACC. <a class="" href="{{url('atividades/aprovadas')}}">Clique aqui.</a>
+                Você completou a carga horária mínima, gere o documento com a relação de atividades e entre em contato com o coordenador responsável pelas AACC. <br><a class="" href="{{url('atividades/aprovadas')}}">Clique aqui.</a>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+        @else
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Assim que você completar a carga horária mínima, gere o documento com a relação de atividades e entre em contato com o coordenador responsável pelas AACC.
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
         @endif
 
-
         <?php $sucess = "atividade" ?>
         
-
         <!-- Start Content-->
         <div class="container-fluid">
 
@@ -105,17 +105,6 @@
 
 
                     <div class="row">
-                        <div hidden class="col-lg-4">
-                            <div class="card">
-                                <div class="card-body">
-
-                                    <h4 class="header-title mb-12">Project Status</h4>
-
-                                    <div id="piechart_3d" ></div>
-
-                                </div> <!-- end card body-->
-                            </div> <!-- end card -->
-                        </div><!-- end col-->
 
                         <div class="col-lg-12">
                             <div class="card">
@@ -199,42 +188,6 @@
     @endcan
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load("current", {packages:["corechart"]});
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-
-            var data = google.visualization.DataTable();
-            data.addColumn('string','Formulários');
-            data.addColumn('number','C.H. Aprovada');
-            data.addRows([
-                ['Form1', 20],
-                ['Form2', $aproTF2],
-                ['Form3', $aproTF3],
-                ['Form4', $aproTF4],
-                ['Form5', $aproTF5],
-                ['Form6', $aproTF6],
-                ['Form7', $aproTF7],
-                ['Form8', $aproTF8],
-                ['Form9', $aproTF9],
-                ['Form10', $aproTF10],
-                ['Form11', $aproTF11],
-                ['Form12', $aproTF12],
-                ['Form13', $aproTF13],
-                ['Form14', $aproTF14]
-            ]);
-
-            
-            var options = {
-                is3D: true,
-                'legend':'bottom',
-                chartArea:{left:0, top:0, right:0, height:'100%', weight:'100%'}
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-            chart.draw(data, options);
-        }
-    </script>
 
 
 @endsection

@@ -144,19 +144,21 @@
 
             @csrf
 
+            <input type="text" value="form3" name="formS" hidden>
+
             <div class="row">
                 <div class="col-lg-7">
                     <label for="inlineFormCustomSelect" class="text-label">Tipo</label>
                     <select class="custom-select" id="inlineFormCustomSelect" name="tipo3"
                     onchange="java_script_:showCargaHoraria(this.options[this.selectedIndex].value)">
                       <option selected value="">Selecione o tipo</option>
-                      <option value="Participação em Evento Científico Nacional ou Regional">Participação em Evento Científico: Nacional ou Regional</option>
-                      <option value="Participação em Evento Científico Local">Participação em Evento Científico: Local</option>
-                      <option value="Participação em Palestra e Conferências">Participação em Palestra e Conferências</option>
-                      <option value="Comissão Central de Organização">Organização em Evento Científico: Comissão Central</option>
-                      <option value="Comissão Secundária de Organização">Organização em Evento Científico: Comissão Secundária</option>
-                      <option value="Apresentação em Evento Científico">Apresentação de Trabalho em Evento Científico</option>
-                      <option value="Palestrante em Evento Científico">Palestrante em Evento Científico</option>
+                      <option value="Participação em Evento Científico Nacional ou Regional" {{ old('tipo3') == 'Participação em Evento Científico Nacional ou Regional' ? 'selected' : '' }}>Participação em Evento Científico: Nacional ou Regional</option>
+                      <option value="Participação em Evento Científico Local" {{ old('tipo3') == 'Participação em Evento Científico Local' ? 'selected' : '' }}>Participação em Evento Científico: Local</option>
+                      <option value="Participação em Palestra e Conferências" {{ old('tipo3') == 'Participação em Palestra e Conferências' ? 'selected' : '' }}>Participação em Palestra e Conferências</option>
+                      <option value="Comissão Central de Organização" {{ old('tipo3') == 'Comissão Central de Organização' ? 'selected' : '' }}>Organização em Evento Científico: Comissão Central</option>
+                      <option value="Comissão Secundária de Organização" {{ old('tipo3') == 'Comissão Secundária de Organização' ? 'selected' : '' }}>Organização em Evento Científico: Comissão Secundária</option>
+                      <option value="Apresentação em Evento Científico" {{ old('tipo3') == 'Apresentação em Evento Científico' ? 'selected' : '' }}>Apresentação de Trabalho em Evento Científico</option>
+                      <option value="Palestrante em Evento Científico" {{ old('tipo3') == 'Palestrante em Evento Científico' ? 'selected' : '' }}>Palestrante em Evento Científico</option>
                     </select>
                     @error('tipo3')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -164,7 +166,7 @@
                 </div>
                 <div class="col-lg-5">
                     <label for="hours" class="text-label">Carga-Horária (conforme certificado)</label>
-                    <input type="number" class="form-control" placeholder="" id="hours" name="carga_horaria3">
+                    <input type="number" class="form-control" placeholder="" id="hours" name="carga_horaria3" value="{{ old('carga_horaria3') }}">
                     @error('carga_horaria3')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -174,7 +176,7 @@
             <div class="row">
                 <div class="col-lg-7">
                     <label for="nameevent" class="text-label">Nome do Evento ou Palestra ou Trabalho Apresentado</label>
-                    <input type="text" class="form-control" placeholder="" id="nameevent" name="nome_evento3">
+                    <input type="text" class="form-control" placeholder="" id="nameevent" name="nome_evento3" value="{{ old('nome_evento3') }}">
                     @error('nome_evento3')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -184,7 +186,7 @@
             <div class="row">
                 <div class="col-lg-7">
                     <label for="localeevent" class="text-label">Local</label>
-                    <input type="text" class="form-control" placeholder="Nome da Revista ou Evento" id="localeevent" name="local3">
+                    <input type="text" class="form-control" placeholder="Nome da Revista ou Evento" id="localeevent" name="local3" value="{{ old('local3') }}">
                     @error('local3')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -194,14 +196,14 @@
             <div class="row">
                 <div class="col-lg-3">
                     <label for="start" class="text-label">Início</label>
-                    <input type="date" class="form-control" placeholder="" id="start" name="dt_inicio3">
+                    <input type="date" class="form-control" placeholder="" id="start" name="dt_inicio3" value="{{ old('dt_inicio3') }}">
                     @error('dt_inicio3')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-lg-3">
                     <label for="finish" class="text-label">Fim</label>
-                    <input type="date" class="form-control" placeholder="" id="finish" name="dt_fim3">
+                    <input type="date" class="form-control" placeholder="" id="finish" name="dt_fim3" value="{{ old('dt_fim3') }}">
                     @error('dt_fim3')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

@@ -48,14 +48,16 @@
 
             @csrf
 
+            <input type="text" value="form5" name="formS" hidden>
+
             <div class="row">
                 <div class="col-md-7">
                     <label for="inlineFormCustomSelect" class="text-label">Tipo</label>
                     <select class="custom-select" id="inlineFormCustomSelect" name="tipo5"
                     onchange="java_script_:showCargaHoraria(this.options[this.selectedIndex].value)">
                       <option selected value="">Selecione o tipo</option>
-                      <option value="Conselho ou Colegiado">Conselho ou Colegiado</option>
-                      <option value="Diretório Acadêmico">Diretório Acadêmico</option>
+                      <option value="Conselho ou Colegiado" {{ old('tipo5') == 'Conselho ou Colegiado' ? 'selected' : '' }}>Conselho ou Colegiado</option>
+                      <option value="Diretório Acadêmico" {{ old('tipo5') == 'Diretório Acadêmico' ? 'selected' : '' }}>Diretório Acadêmico</option>
                     </select>
                     @error('tipo5')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -63,7 +65,7 @@
                 </div>
                 <div class="col-md-5">
                     <label for="semestre" class="text-label">Quantidade de Semestres</label>
-                    <input type="number" class="form-control" placeholder="" id="semestre" name="quant_semestres5">
+                    <input type="number" class="form-control" placeholder="" id="semestre" name="quant_semestres5" value="{{ old('quant_semestres5') }}">
                     @error('quant_semestres5')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -73,7 +75,7 @@
             <div class="row">
                 <div class="col-md-7">
                     <label for="namere" class="text-label">Nome do Conselhor, Colegiado ou Diretório</label>
-                    <input type="text" class="form-control" placeholder="" id="namere" name="nome_c5">
+                    <input type="text" class="form-control" placeholder="" id="namere" name="nome_c5" value="{{ old('nome_c5') }}">
                     @error('nome_c5')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -83,14 +85,14 @@
             <div class="row">
                 <div class="col-md-5">
                     <label for="start" class="text-label">Início</label>
-                    <input type="date" class="form-control" placeholder="" id="start" name="dt_inicio5">
+                    <input type="date" class="form-control" placeholder="" id="start" name="dt_inicio5" value="{{ old('dt_inicio5') }}">
                     @error('dt_inicio5')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-md-5">
                     <label for="finish" class="text-label">Fim</label>
-                    <input type="date" class="form-control" placeholder="" id="finish" name="dt_fim5">
+                    <input type="date" class="form-control" placeholder="" id="finish" name="dt_fim5" value="{{ old('dt_fim5') }}">
                     @error('dt_fim5')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

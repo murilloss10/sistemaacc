@@ -24,7 +24,6 @@ class Form4Request extends FormRequest
     public function rules()
     {
         return [
-            'carga_horaria4' => 'required',
             'nome_evento4' => 'required|min:3|max:255',
             'dt_evento4' => 'required',
             'customFileLang4' => 'required',

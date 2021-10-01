@@ -191,6 +191,315 @@ class HomeController extends Controller
             $percTotal = 100;
         }
 
+
+        foreach ($tdForm1 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => 'Projeto de Pesquisa: ' . $form->nome_projeto,
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm2 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => 'Publicação de Artigo: ' . $form->titulo,
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm3 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm4 as $form) {
+            $date = new Carbon($form->dt_evento);
+            $allActivityApproved[] = [
+                'activity_name' => 'Premiação: ' . $form->nome_evento,
+                'period' => $date->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm5 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => $form->tipo . ': ' . $form->nome_c,
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm6 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => 'Empresa Júnior',
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm7 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => 'Estágio Extracurricular: ' . $form->nome_inst,
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm8 as $form) {
+            $date = new Carbon($form->dt_atividade);
+            $allActivityApproved[] = [
+                'activity_name' => 'Voluntariado ou Ação Social: ' . $form->nome_atividade,
+                'period' => $date->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm9 as $form) {
+            $date = new Carbon($form->dt_proj);
+            $allActivityApproved[] = [
+                'activity_name' => 'Projeto de Consultoria: ' . $form->nome_proj,
+                'period' => $date->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm10 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => $form->tipo . ': ' . $form->nome_disc,
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm11 as $form) {
+            $date = new Carbon($form->dt_local);
+            $allActivityApproved[] = [
+                'activity_name' => 'Visita Técnica: ' . $form->local,
+                'period' => $date->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm12 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => $form->tipo . ' de Minicurso: ' . $form->nome_curso,
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm13 as $form) {
+            $date = new Carbon($form->dt_maratona);
+            $allActivityApproved[] = [
+                'activity_name' => 'Maratona de Programação: ' . $form->nome_maratona,
+                'period' => $date->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm14 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => 'Projeto de Extensão: ' . $form->nome_projeto,
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm15 as $form) {
+            $date = new Carbon($form->dt_pub);
+            $allActivityApproved[] = [
+                'activity_name' => 'Publicação de Resumo: ' . $form->titulo,
+                'period' => $date->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm16 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm17 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm18 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm19 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm20 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm21 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => $form->tipo . ': ' . $form->nome_evento,
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm22 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => $form->tipo . ': ' . $form->nome_c,
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+        
+        foreach ($tdForm23 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => 'Estágio Extracurricular: ' . $form->nome_inst,
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm24 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => $form->tipo . ': ' . $form->nome_disc,
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+        foreach ($tdForm25 as $form) {
+            $date_start = new Carbon($form->dt_inicio);
+            $date_end = new Carbon($form->dt_fim);
+            $allActivityApproved[] = [
+                'activity_name' => $form->tipo . ' de Minicurso: ' . $form->nome_curso,
+                'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
+                'hours' => $form->horas_aprovadas,
+                'status' => $form->status,
+                'created_at' => $form->created_at
+            ];
+        }
+
+
+        if ( !isset($allActivityApproved) ) {
+            $allActivityApproved = [];
+        } else {
+
+            foreach ($allActivityApproved as $key => $row){
+                $date_created_at[$key] = $row['created_at'];
+            }
+            array_multisort($date_created_at, SORT_DESC, $allActivityApproved);
+
+            collect($allActivityApproved)->sortByDesc('created_at');
+        }
+
+
         return view('home_page')
             ->with('authorized', $authorized)
             ->with('idUser', $idUser)
@@ -276,7 +585,8 @@ class HomeController extends Controller
             ->with('tdForm23', $tdForm23)
             ->with('tdForm24', $tdForm24)
             ->with('tdForm25', $tdForm25)
-            ->with('tamTotalForms', $tamTotalForms);
+            ->with('tamTotalForms', $tamTotalForms)
+            ->with('allActivityApproved', json_encode($allActivityApproved));
 
     }
 
@@ -284,20 +594,20 @@ class HomeController extends Controller
         if(Gate::authorize('administrador')){
             
             $idUser = User::find($id)->id;
-            $chMaxF1 = 200;
+            $chMaxF1 = 100;
             $chMaxF2 = 120;
             $chMaxF3 = 120;
             $chMaxF4 = 30;
             $chMaxF5 = 80;
             $chMaxF6 = 80;
             $chMaxF7 = 50;
-            $chMaxF8 = 150;
+            $chMaxF8 = 50;
             $chMaxF9 = 60;
             $chMaxF10 = 80;
             $chMaxF11 = 50;
             $chMaxF12 = 50;
             $chMaxF13 = 60;
-            $chMaxF14 = 200;
+            $chMaxF14 = 100;
             $chMaxF15 = 100;
             $chMaxF16 = 100;
             $chMaxF17 = 100;

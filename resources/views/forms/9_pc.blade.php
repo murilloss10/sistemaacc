@@ -26,10 +26,12 @@
 
             @csrf
 
+            <input type="text" value="form9" name="formS" hidden>
+
             <div class="row">
                 <div class="col-md-12">
                     <label for="nameproject" class="text-label">Nome do Projeto</label>
-                    <input type="text" class="form-control" placeholder="" id="nameproject" name="nome_proj9">
+                    <input type="text" class="form-control" placeholder="" id="nameproject" name="nome_proj9" value="{{ old('nome_proj9') }}">
                     @error('nome_proj9')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -39,7 +41,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <label for="datte" class="text-label">Data</label>
-                    <input type="date" class="form-control" placeholder="" id="datte" name="dt_proj9">
+                    <input type="date" class="form-control" placeholder="" id="datte" name="dt_proj9" value="{{ old('dt_proj9') }}">
                     @error('dt_proj9')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror

@@ -26,10 +26,12 @@
 
             @csrf
 
+            <input type="text" value="form13" name="formS" hidden>
+
             <div class="row">
                 <div class="col-md-12">
                     <label for="namemar" class="text-label">Nome da Maratona</label>
-                    <input type="text" class="form-control" placeholder="" id="namemar" name="nome_maratona13">
+                    <input type="text" class="form-control" placeholder="" id="namemar" name="nome_maratona13" value="{{ old('nome_maratona13') }}">
                     @error('nome_maratona13')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -39,7 +41,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <label for="datte" class="text-label">Data</label>
-                    <input type="date" class="form-control" placeholder="" id="datte" name="dt_maratona13">
+                    <input type="date" class="form-control" placeholder="" id="datte" name="dt_maratona13" value="{{ old('dt_maratona13') }}">
                     @error('dt_maratona13')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
