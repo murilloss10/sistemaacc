@@ -163,7 +163,7 @@
                                 <button class="btn btn-primary"  style="font-size: 14px;" type="button"><a class="button-delete-custom" title="Aprovadas" href="{{url('atividades/aprovadas/lista/'.$dado->id)}}"><i class="fas fa-mouse" style="font-size: 14px;"></i> ATIVIDADES APROVADAS</a></button>
                             </td>
                             <td>
-                                @if ($dado->approved_hours > 140)
+                                @if ($dado->approved_hours >= 140)
                                     <form action="{{url('atividades/documento-final/'.$dado->id)}}" method="GET">
                                         <input hidden type="number" value="{{$dado->id}}" class="form-control" placeholder="" id="docfinal" name="docfinal">
                                         <button class="btn btn-primary"  style="font-size: 14px;" type="submit"><i class="fas fa-file-pdf" style="font-size: 14px;"></i> DOC. FINAL</button>

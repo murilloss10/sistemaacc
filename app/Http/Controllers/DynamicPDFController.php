@@ -91,7 +91,7 @@ class DynamicPDFController extends Controller
             $date_start = new Carbon($form->dt_inicio);
             $date_end = new Carbon($form->dt_fim);
             $allActivityApproved[] = [
-                'activity_name' => $form->nome_projeto,
+                'activity_name' => 'Projeto de Pesquisa: ' . $form->nome_projeto,
                 'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                 'hours' => $form->horas_aprovadas,
                 'status' => $form->status
@@ -102,7 +102,7 @@ class DynamicPDFController extends Controller
             $date_start = new Carbon($form->dt_inicio);
             $date_end = new Carbon($form->dt_fim);
             $allActivityApproved[] = [
-                'activity_name' => $form->titulo,
+                'activity_name' => 'Publicação de Artigo: ' . $form->titulo,
                 'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                 'hours' => $form->horas_aprovadas,
                 'status' => $form->status
@@ -123,7 +123,7 @@ class DynamicPDFController extends Controller
         foreach ($tdForm4 as $form) {
             $date = new Carbon($form->dt_evento);
             $allActivityApproved[] = [
-                'activity_name' => $form->nome_evento,
+                'activity_name' => 'Premiação: ' . $form->nome_evento,
                 'period' => $date->format('d/m/Y'),
                 'hours' => $form->horas_aprovadas,
                 'status' => $form->status
@@ -134,7 +134,7 @@ class DynamicPDFController extends Controller
             $date_start = new Carbon($form->dt_inicio);
             $date_end = new Carbon($form->dt_fim);
             $allActivityApproved[] = [
-                'activity_name' => $form->nome_c,
+                'activity_name' => $form->tipo . ': ' . $form->nome_c,
                 'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                 'hours' => $form->horas_aprovadas,
                 'status' => $form->status
@@ -156,7 +156,7 @@ class DynamicPDFController extends Controller
             $date_start = new Carbon($form->dt_inicio);
             $date_end = new Carbon($form->dt_fim);
             $allActivityApproved[] = [
-                'activity_name' => $form->nome_inst,
+                'activity_name' => 'Estágio Extracurricular: ' . $form->nome_inst,
                 'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                 'hours' => $form->horas_aprovadas,
                 'status' => $form->status
@@ -166,7 +166,7 @@ class DynamicPDFController extends Controller
         foreach ($tdForm8 as $form) {
             $date = new Carbon($form->dt_atividade);
             $allActivityApproved[] = [
-                'activity_name' => $form->nome_atividade,
+                'activity_name' => 'Voluntariado ou Ação Social: ' . $form->nome_atividade,
                 'period' => $date->format('d/m/Y'),
                 'hours' => $form->horas_aprovadas,
                 'status' => $form->status
@@ -176,7 +176,7 @@ class DynamicPDFController extends Controller
         foreach ($tdForm9 as $form) {
             $date = new Carbon($form->dt_proj);
             $allActivityApproved[] = [
-                'activity_name' => $form->nome_proj,
+                'activity_name' => 'Projeto de Consultoria: ' . $form->nome_proj,
                 'period' => $date->format('d/m/Y'),
                 'hours' => $form->horas_aprovadas,
                 'status' => $form->status
@@ -187,7 +187,7 @@ class DynamicPDFController extends Controller
             $date_start = new Carbon($form->dt_inicio);
             $date_end = new Carbon($form->dt_fim);
             $allActivityApproved[] = [
-                'activity_name' => $form->nome_disc,
+                'activity_name' => $form->tipo . ': ' . $form->nome_disc,
                 'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                 'hours' => $form->horas_aprovadas,
                 'status' => $form->status
@@ -197,7 +197,7 @@ class DynamicPDFController extends Controller
         foreach ($tdForm11 as $form) {
             $date = new Carbon($form->dt_local);
             $allActivityApproved[] = [
-                'activity_name' => 'Visita Técnica',
+                'activity_name' => 'Visita Técnica: ' . $form->local,
                 'period' => $date->format('d/m/Y'),
                 'hours' => $form->horas_aprovadas,
                 'status' => $form->status
@@ -208,7 +208,7 @@ class DynamicPDFController extends Controller
             $date_start = new Carbon($form->dt_inicio);
             $date_end = new Carbon($form->dt_fim);
             $allActivityApproved[] = [
-                'activity_name' => $form->nome_curso,
+                'activity_name' => $form->tipo . ' de Minicurso: ' . $form->nome_curso,
                 'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                 'hours' => $form->horas_aprovadas,
                 'status' => $form->status
@@ -218,7 +218,7 @@ class DynamicPDFController extends Controller
         foreach ($tdForm13 as $form) {
             $date = new Carbon($form->dt_maratona);
             $allActivityApproved[] = [
-                'activity_name' => $form->nome_maratona,
+                'activity_name' => 'Maratona de Programação: ' . $form->nome_maratona,
                 'period' => $date->format('d/m/Y'),
                 'hours' => $form->horas_aprovadas,
                 'status' => $form->status
@@ -229,7 +229,7 @@ class DynamicPDFController extends Controller
             $date_start = new Carbon($form->dt_inicio);
             $date_end = new Carbon($form->dt_fim);
             $allActivityApproved[] = [
-                'activity_name' => $form->nome_projeto,
+                'activity_name' => 'Projeto de Extensão: ' . $form->nome_projeto,
                 'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                 'hours' => $form->horas_aprovadas,
                 'status' => $form->status
@@ -239,7 +239,7 @@ class DynamicPDFController extends Controller
         foreach ($tdForm15 as $form) {
             $date = new Carbon($form->dt_pub);
             $allActivityApproved[] = [
-                'activity_name' => $form->titulo,
+                'activity_name' => 'Publicação de Resumo: ' . $form->titulo,
                 'period' => $date->format('d/m/Y'),
                 'hours' => $form->horas_aprovadas,
                 'status' => $form->status
@@ -327,7 +327,7 @@ class DynamicPDFController extends Controller
             $date_start = new Carbon($form->dt_inicio);
             $date_end = new Carbon($form->dt_fim);
             $allActivityApproved[] = [
-                'activity_name' => $form->nome_inst,
+                'activity_name' => 'Estágio Extracurricular: ' . $form->nome_inst,
                 'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                 'hours' => $form->horas_aprovadas,
                 'status' => $form->status
@@ -349,7 +349,7 @@ class DynamicPDFController extends Controller
             $date_start = new Carbon($form->dt_inicio);
             $date_end = new Carbon($form->dt_fim);
             $allActivityApproved[] = [
-                'activity_name' => $form->tipo . ': ' . $form->nome_curso,
+                'activity_name' => $form->tipo . ' de Minicurso: ' . $form->nome_curso,
                 'period' => $date_start->format('d/m/Y') . ' a ' . $date_end->format('d/m/Y'),
                 'hours' => $form->horas_aprovadas,
                 'status' => $form->status
